@@ -1,6 +1,6 @@
-
 .help {
-  padding: 50px;
+  padding: 30px;
+  height: auto;
   &-top {
     margin: 0 auto;
     display: flex;
@@ -38,6 +38,49 @@
         justify-self: center;
         text-align: center;
         font-size: 0.875em;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .help-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 6510px) {
+  .help-container {
+    display: none;
+  }
+
+  .help-mob {
+    margin-top: -50px;
+    padding: 0px 20px 0px 20px;
+    .owl-carousel {
+      text-align: center;
+
+      .item {
+        margin: 0 auto;
+        width: 90%;
+        padding: 30px 0 30px 0;
+        border: 1px solid lightgrey;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        h2 {
+          color: $blue;
+        }
+        img {
+          width: 50%;
+        }
+        p {
+          justify-self: center;
+          text-align: center;
+          font-size: 0.8em;
+          padding: 10px;
+        }
       }
     }
   }

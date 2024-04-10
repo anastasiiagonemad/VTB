@@ -40,6 +40,8 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
-    "core-js": "^3.36.1"
+    "core-js": "^3.36.1",
+    "jquery": "^3.7.1",
+    "owl.carousel": "^2.3.4"
   }
 }
