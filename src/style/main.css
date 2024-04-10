@@ -44,7 +44,8 @@ main {
   width: 80px;
   height: 80px;
   border-radius: 15px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .sidebar__start .sidebar__add-task {
   margin-top: 20px;
@@ -86,6 +87,33 @@ main {
   border-radius: 50px;
 }
 
+@media screen and (max-width: 800px) {
+  .sidebar {
+    display: none;
+  }
+  .sidebar-mob {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px 30px 10px;
+  }
+  .sidebar-mob .add-task {
+    justify-self: flex-end;
+    margin-left: 40%;
+  }
+  .sidebar-mob .add-task img {
+    width: 50px;
+    border: 3px solid #0a2973;
+    border-radius: 50px;
+  }
+  .sidebar-mob .avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
 .help {
   padding: 50px;
 }
@@ -107,7 +135,8 @@ main {
 .help-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
 .help-container .item {
   display: flex;
@@ -127,4 +156,4 @@ main {
   justify-self: center;
   text-align: center;
   font-size: 0.875em;
-}
+}/*# sourceMappingURL=main.css.map */
