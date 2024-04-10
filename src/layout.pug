@@ -1,0 +1,47 @@
+block variables
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    title #{title}
+    block scripts
+      script(src="/index.js" type="module")
+
+  body
+    header.sidebar
+      .sidebar__start
+        .logo
+          a(href="index.html")
+            img(src=require('./assets/icons/logo.png') alt="logo-icon")
+
+        .avatar
+          img(src=require('./assets/other/avatar.jpg') alt="avatar")
+
+        .sidebar__add-task
+          a(href="new.html")
+            img(src=require('./assets/icons/add-goal.png') alt="add-icon")
+
+      .sidebar__handlers
+        .sidebar__handlers-general
+          a(href="index.html")
+            img(src=require('./assets/icons/dashboard.png') alt="dash-icon")
+
+        .sidebar__handlers-tasks
+          a(href="tasks.html")
+            img(src=require('./assets/icons/layer.png') alt="layer-icon")
+
+        .sidebar__handlers-settings
+          a(href="settings.html")
+            img(src=require('./assets/icons/settings.png') alt="settings-icon")
+
+      .sidebar__assistance
+        .sidebar__assistance-help
+          a(href="help.html")
+            img(src=require('./assets/icons/help.png') alt="help-icon")
+        .sidebar__assistance-exit
+          a(href="exit.html")
+            img(src=require('./assets/icons/logout.png') alt="logout-icon")
+
+    main
+        block main

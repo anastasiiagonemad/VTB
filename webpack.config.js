@@ -50,7 +50,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'template.pug'),
+      template: path.join(__dirname, 'src', 'index.pug'),
       filename: 'index.html',
     }),
     new HtmlWebpackPlugin({
@@ -61,6 +61,19 @@ module.exports = {
       template: path.join(__dirname, 'src', 'help.pug'),
       filename: 'help.html',
     }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src', 'new.pug'),
+      filename: 'new.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src', 'tasks.pug'),
+      filename: 'tasks.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src', 'exit.pug'),
+      filename: 'exit.html',
+    }),
+
     new FileManagerPlugin({
       events: {
         onStart: {
