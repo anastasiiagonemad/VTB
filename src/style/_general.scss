@@ -1,16 +1,21 @@
 html {
   font-size: 18px;
-  color: #000;
+  color: $font-color;
   max-width: 1920px;
   min-width: 320px;
 }
-body {
+
+.body {
   background-color: $background-screen;
-  padding: 100px 100px 100px 200px;
+  padding: $size20px * 1.5 $size20px ;
   font-family: 'Intro', sans-serif;
+  position: relative;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: $size20px * 1.5;
 }
-main {
-  max-width: 1780px;
+
+.main {
   background-color: $background-page;
-  border-radius: 15px;
+  border-radius: $border-radius;
 }
