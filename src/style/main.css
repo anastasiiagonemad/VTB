@@ -47,11 +47,12 @@ html {
   width: 80px;
   height: 80px;
   border-radius: 15px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .sidebar__start .sidebar__add-task {
-  width: 82px;
-  height: 82px;
+  width: 40px;
+  height: 40px;
   border-radius: 50px;
   cursor: pointer;
   transition: all ease 0.5s;
@@ -69,16 +70,22 @@ html {
   align-items: center;
   gap: 20px;
 }
+.sidebar__handlers img {
+  width: 40px;
+}
 .sidebar__assistance {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
+.sidebar__assistance img {
+  width: 40px;
+}
 
 .box {
-  width: 84px;
-  height: 84px;
+  width: 60px;
+  height: 60px;
   border-radius: 50px;
   display: flex;
   align-items: center;
@@ -91,8 +98,7 @@ html {
 }
 
 .help {
-  padding: 30px;
-  height: auto;
+  padding: 50px 20px 20px 20px;
 }
 .help-top {
   margin: 0 auto;
@@ -100,8 +106,8 @@ html {
   justify-content: center;
   align-items: center;
   border: 1px solid #0a2973;
-  padding: 10px 15px;
-  border-radius: 150px;
+  padding: 0px 10px 0px 10px;
+  border-radius: 50px;
   width: 10px;
   transform: rotate(180deg);
   margin-bottom: 50px;
@@ -110,9 +116,11 @@ html {
   width: 20px;
 }
 .help-container {
+  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
 .help-container .item {
   display: flex;
@@ -134,16 +142,35 @@ html {
   font-size: 0.875em;
 }
 
-@media screen and (max-width: 1000px) {
+.help-mob {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
   .help-container {
     grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+  }
+  .help-container .item h2 {
+    font-size: 0.875em;
+    color: #0a2973;
+  }
+  .help-container .item img {
+    width: 80%;
+  }
+  .help-container .item p {
+    font-size: 0.7em;
+  }
+  .help-mob {
+    display: none;
   }
 }
-@media screen and (max-width: 6510px) {
+@media screen and (max-width: 576px) {
   .help-container {
     display: none;
   }
   .help-mob {
+    display: block;
     margin-top: -50px;
     padding: 0px 20px 0px 20px;
   }
@@ -173,4 +200,4 @@ html {
     font-size: 0.8em;
     padding: 10px;
   }
-}
+}/*# sourceMappingURL=main.css.map */

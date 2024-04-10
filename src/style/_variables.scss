@@ -1,4 +1,7 @@
+//fonts
 $font-size: 1rem;
+
+//colors
 $font-color: #000000;
 $blue: #0a2973;
 $light-blue: #009fdf;
@@ -8,4 +11,13 @@ $background-page: #ffffff;
 $size20px: 20px;
 $border-radius: 15px;
 
+//animation
 $transition: all ease 0.5s;
+
+//breakpoints
+$small-phone: 320px;
+$phone: 576px;
+$small-tab: 768px;
+$tab: 992px;
+$desktop: 1200px;
+$large-desktop: 1400px;
