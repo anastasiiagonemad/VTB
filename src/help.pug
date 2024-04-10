@@ -23,21 +23,30 @@ block main
         h2 Шаг 4
         img(src=require('./assets/other/pic4.png') alt="pic")
         p Выполните цель
-  .help-mob 
-    .owl-carousel.owl-theme 
-      .item
+  .help-mob
+    .help-mob-top
+      img(src=require('./assets/icons/clear.png') alt="clear-icon") 
+    .slider
+      div(class='slide active')
         h2 Шаг 1
         img(src=require('./assets/other/pic5.png') alt="pic")
         p Войдите на платформу Play and Save
-      .item
+      .slide
         h2 Шаг 2
         img(src=require('./assets/other/pic2.png') alt="pic")
         p Создайте цель
-      .item
+      .slide
         h2 Шаг 3
         img(src=require('./assets/other/pic3.png') alt="pic")
         p Настройте списание средств
-      .item
+      .slide
         h2 Шаг 4
         img(src=require('./assets/other/pic4.png') alt="pic")
-        p Выполните цель
+        p Выполните цель 
+        
+      .dots
+        span.dot 
+        span.dot 
+        span.dot 
+        span.dot  
+  
