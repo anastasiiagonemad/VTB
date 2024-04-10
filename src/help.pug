@@ -1,50 +1,25 @@
-doctype html
-html(lang="ru")
-  head
-    meta(charset="utf-8")
-    title= "VTB планер задач"
-  body
-    header.sidebar
-      .sidebar__start
-        .logo
-          a(href="settings.html")  
-            img(src=require('./assets/icons/logo.png') alt="logo-icon")
-        .avatar
-          img(src=require('./assets/other/avatar.jpg') alt="avatar")
-        .sidebar__add-task
-          img(src=require('./assets/icons/add.png') alt="add-icon")
-      .sidebar__handlers
-        .sidebar__handlers-general
-          img(src=require('./assets/icons/dashboard.png') alt="dash-icon")
-        .sidebar__handlers-tasks
-          img(src=require('./assets/icons/layer.png') alt="layer-icon")
-        .sidebar__handlers-settings
-          img(src=require('./assets/icons/settings.png') alt="settings-icon")
+extends ./layout.pug
+block variables
+  - var title = "VTB планер задач"
 
-      .sidebar__assistance
-        .sidebar__assistance-help
-          img(src=require('./assets/icons/help.png') alt="help-icon")
-        .sidebar__assistance-exit
-          img(src=require('./assets/icons/logout.png') alt="logout-icon")
-
-    main
-      .help
-        .help-top 
-          img(src=require('./assets/icons/add.png') alt="add-icon")
-        .help-container 
-          .item 
-            h2 Шаг 1
-            img(src=require('./assets/other/pic5.png') alt="pic")
-            p Войдите на платформу Play and Save
-          .item
-            h2 Шаг 2
-            img(src=require('./assets/other/pic2.png') alt="pic") 
-            p Создайте цель
-          .item 
-            h2 Шаг 3
-            img(src=require('./assets/other/pic3.png') alt="pic")
-            p Настройте списание средств
-          .item
-            h2 Шаг 4 
-            img(src=require('./assets/other/pic4.png') alt="pic")
-            p Выполните цель
+block main
+  .help
+    .help-top
+      img(src=require('./assets/icons/clear.png') alt="clear-icon")
+    .help-container
+      .item
+        h2 Шаг 1
+        img(src=require('./assets/other/pic5.png') alt="pic")
+        p Войдите на платформу Play and Save
+      .item
+        h2 Шаг 2
+        img(src=require('./assets/other/pic2.png') alt="pic")
+        p Создайте цель
+      .item
+        h2 Шаг 3
+        img(src=require('./assets/other/pic3.png') alt="pic")
+        p Настройте списание средств
+      .item
+        h2 Шаг 4
+        img(src=require('./assets/other/pic4.png') alt="pic")
+        p Выполните цель
