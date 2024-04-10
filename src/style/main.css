@@ -115,7 +115,8 @@ main {
   }
 }
 .help {
-  padding: 50px;
+  padding: 30px;
+  height: auto;
 }
 .help-top {
   margin: 0 auto;
@@ -156,4 +157,45 @@ main {
   justify-self: center;
   text-align: center;
   font-size: 0.875em;
+}
+
+@media screen and (max-width: 1000px) {
+  .help-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 6510px) {
+  .help-container {
+    display: none;
+  }
+  .help-mob {
+    margin-top: -50px;
+    padding: 0px 20px 0px 20px;
+  }
+  .help-mob .owl-carousel {
+    text-align: center;
+  }
+  .help-mob .owl-carousel .item {
+    margin: 0 auto;
+    width: 90%;
+    padding: 30px 0 30px 0;
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .help-mob .owl-carousel .item h2 {
+    color: #0a2973;
+  }
+  .help-mob .owl-carousel .item img {
+    width: 50%;
+  }
+  .help-mob .owl-carousel .item p {
+    justify-self: center;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 10px;
+  }
 }/*# sourceMappingURL=main.css.map */
