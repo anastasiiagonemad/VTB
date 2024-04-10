@@ -14,8 +14,7 @@ html(lang="ru")
       script(src="/bower_components/owl.carousel/dist/owl.carousel.min.js")
       script(src="/index.js" type="module")
 
-
-  body
+  body.body
     header.sidebar
       .sidebar__start
         .logo
@@ -30,35 +29,35 @@ html(lang="ru")
             img(src=require('./assets/icons/add-goal.png') alt="add-icon")
 
       .sidebar__handlers
-        .sidebar__handlers-general
+        .sidebar__handlers-general.box
           a(href="index.html")
-            img(src=require('./assets/icons/dashboard.png') alt="dash-icon")
+            img(src=require('./assets/icons/dashboard.png') alt="dash-icon").img
 
-        .sidebar__handlers-tasks
+        .sidebar__handlers-tasks.box
           a(href="tasks.html")
-            img(src=require('./assets/icons/layer.png') alt="layer-icon")
+            img(src=require('./assets/icons/layer.png') alt="layer-icon").img
 
-        .sidebar__handlers-settings
+        .sidebar__handlers-settings.box
           a(href="settings.html")
-            img(src=require('./assets/icons/settings.png') alt="settings-icon")
+            img(src=require('./assets/icons/settings.png') alt="settings-icon").img
 
       .sidebar__assistance
-        .sidebar__assistance-help
+        .sidebar__assistance-help.box
           a(href="help.html")
-            img(src=require('./assets/icons/help.png') alt="help-icon")
-        .sidebar__assistance-exit
+            img(src=require('./assets/icons/help.png') alt="help-icon").img
+        .sidebar__assistance-exit.box
           a(href="exit.html")
-            img(src=require('./assets/icons/logout.png') alt="logout-icon")
-      
-    .sidebar-mob 
-        .logo
-            a(href="#")
-                img(src=require('./assets/icons/logo.png') alt="logo-icon")
-        .add-task
-            a(href="#") 
-                img(src=require('./assets/icons/add-goal.png') alt="add-icon")
-        .avatar
-            a(href="#") 
-                img(src=require('./assets/other/avatar.jpg') alt="avatar")
-    main
+            img(src=require('./assets/icons/logout.png') alt="logout-icon").img
+
+    //- .sidebar-mob
+    //-     .logo
+    //-         a(href="#")
+    //-             img(src=require('./assets/icons/logo.png') alt="logo-icon")
+    //-     .add-task
+    //-         a(href="#")
+    //-             img(src=require('./assets/icons/add-goal.png') alt="add-icon")
+    //-     .avatar
+    //-         a(href="#")
+    //-             img(src=require('./assets/other/avatar.jpg') alt="avatar")
+    main.main
         block main

@@ -1,4 +1,5 @@
 import './style/main.css';
+import './style/normalize.css';
 import './fonts/fonts.scss';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
