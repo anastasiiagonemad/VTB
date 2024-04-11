@@ -168,6 +168,8 @@ html {
     display: none;
   }
   .help-mob {
+    background-color: #ffffff;
+    border-radius: 15px;
     padding: 50px 20px 20px 20px;
     display: flex;
     flex-direction: column;

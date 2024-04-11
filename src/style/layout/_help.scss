@@ -73,6 +73,8 @@
     display: none;
   }
   .help-mob {
+    background-color: $background-page;
+    border-radius: 15px;
     @keyframes fadeIn {
       0% {
         opacity: 0;
