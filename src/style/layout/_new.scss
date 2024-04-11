@@ -1,0 +1,163 @@
+.new-task {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 20px;
+  .first-screen {
+    padding: 20px 50px 20px 50px;
+    background-color: $background-page;
+    border-radius: 15px;
+    .new-task-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 80px;
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 10%;
+        img {
+          width: 20px;
+          height: 15px;
+          cursor: pointer;
+        }
+        p {
+          text-transform: uppercase;
+        }
+      }
+      .nav-buttons {
+        display: flex;
+        gap: 10px;
+        button {
+          padding: 5px 10px;
+          border-radius: 5px;
+          background-color: $background-page;
+          border: 2px solid $light-blue;
+          color: $light-blue;
+          cursor: pointer;
+        }
+      }
+    }
+    .new-task-inputs {
+      display: flex;
+      justify-content: space-between;
+      .nav-buttons-mob {
+        display: none;
+      }
+    }
+    .add-img {
+      padding: 50px;
+      img {
+        border: 2px solid $background-screen;
+        padding: 50px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+    .form {
+      .input-item {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+        label {
+          color: $light-blue;
+          padding-bottom: 5px;
+        }
+        input {
+          border: none;
+          background-color: $input-background;
+          padding: 20px 15px;
+          border-radius: 5px;
+          &::placeholder {
+            color: $font-color;
+          }
+        }
+        select {
+          border: none;
+          background-color: $input-background;
+          padding: 20px 15px;
+          border-radius: 5px;
+        }
+      }
+      .input-item-end {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+        label {
+          color: $light-blue;
+          padding-bottom: 5px;
+        }
+        input {
+          border: none;
+          background-color: $input-background;
+          padding: 20px 15px;
+          border-radius: 5px;
+          &::placeholder {
+            color: $font-color;
+          }
+        }
+      }
+      .form-button {
+        button {
+          width: 100%;
+          border-radius: 5px;
+          padding: 20px;
+          border: none;
+          background-color: $blue;
+          color: $background-page;
+        }
+      }
+    }
+  }
+  .second-screen {
+    display: flex;
+    align-items: center;
+    background-color: $background-page;
+    border-radius: 15px;
+    padding: 20px;
+    height: 600px;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: $small-tab) {
+  .new-task {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+
+    .first-screen {
+      .new-task-top {
+        .nav-buttons {
+          display: none;
+        }
+      }
+      .new-task-inputs {
+        display: flex;
+        flex-direction: column-reverse;
+
+        .nav-buttons-mob {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          padding: 20px 0 10px 0;
+
+          button {
+            padding: 20px;
+            border-radius: 5px;
+            background-color: $background-page;
+            border: 2px solid $light-blue;
+            color: $light-blue;
+            cursor: pointer;
+          }
+        }
+      }
+      .add-img {
+        margin: 0 auto;
+        padding: 0 0 50px 0;
+      }
+    }
+  }
+}

@@ -16,7 +16,6 @@ html {
 }
 
 .main {
-  background-color: #ffffff;
   border-radius: 15px;
 }
 
@@ -99,6 +98,8 @@ html {
 
 .help {
   padding: 50px 20px 20px 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
 }
 .help-top {
   margin: 0 auto;
@@ -248,5 +249,164 @@ html {
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
+  }
+}
+.new-task {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.new-task .first-screen {
+  padding: 20px 50px 20px 50px;
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+.new-task .first-screen .new-task-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 80px;
+}
+.new-task .first-screen .new-task-top .nav {
+  display: flex;
+  align-items: center;
+  gap: 10%;
+}
+.new-task .first-screen .new-task-top .nav img {
+  width: 20px;
+  height: 15px;
+  cursor: pointer;
+}
+.new-task .first-screen .new-task-top .nav p {
+  text-transform: uppercase;
+}
+.new-task .first-screen .new-task-top .nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+.new-task .first-screen .new-task-top .nav-buttons button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 2px solid #009fdf;
+  color: #009fdf;
+  cursor: pointer;
+}
+.new-task .first-screen .new-task-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+.new-task .first-screen .new-task-inputs .nav-buttons-mob {
+  display: none;
+}
+.new-task .first-screen .add-img {
+  padding: 50px;
+}
+.new-task .first-screen .add-img img {
+  border: 2px solid #ededed;
+  padding: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.new-task .first-screen .form .input-item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+.new-task .first-screen .form .input-item label {
+  color: #009fdf;
+  padding-bottom: 5px;
+}
+.new-task .first-screen .form .input-item input {
+  border: none;
+  background-color: #ededed;
+  padding: 20px 15px;
+  border-radius: 5px;
+}
+.new-task .first-screen .form .input-item input::-moz-placeholder {
+  color: #000000;
+}
+.new-task .first-screen .form .input-item input::placeholder {
+  color: #000000;
+}
+.new-task .first-screen .form .input-item select {
+  border: none;
+  background-color: #ededed;
+  padding: 20px 15px;
+  border-radius: 5px;
+}
+.new-task .first-screen .form .input-item-end {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+.new-task .first-screen .form .input-item-end label {
+  color: #009fdf;
+  padding-bottom: 5px;
+}
+.new-task .first-screen .form .input-item-end input {
+  border: none;
+  background-color: #ededed;
+  padding: 20px 15px;
+  border-radius: 5px;
+}
+.new-task .first-screen .form .input-item-end input::-moz-placeholder {
+  color: #000000;
+}
+.new-task .first-screen .form .input-item-end input::placeholder {
+  color: #000000;
+}
+.new-task .first-screen .form .form-button button {
+  width: 100%;
+  border-radius: 5px;
+  padding: 20px;
+  border: none;
+  background-color: #0a2973;
+  color: #ffffff;
+}
+.new-task .second-screen {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  height: 600px;
+}
+.new-task .second-screen img {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .new-task {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+  .new-task .first-screen .new-task-top .nav-buttons {
+    display: none;
+  }
+  .new-task .first-screen .new-task-inputs {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .new-task .first-screen .new-task-inputs .nav-buttons-mob {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 0 10px 0;
+  }
+  .new-task .first-screen .new-task-inputs .nav-buttons-mob button {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: 2px solid #009fdf;
+    color: #009fdf;
+    cursor: pointer;
+  }
+  .new-task .first-screen .add-img {
+    margin: 0 auto;
+    padding: 0 0 50px 0;
   }
 }/*# sourceMappingURL=main.css.map */

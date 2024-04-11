@@ -3,4 +3,51 @@ block variables
   - var title = "VTB Новая задача"
 
 block main
-  p new task
+  .new-task 
+    .first-screen
+      .new-task-top 
+        .nav 
+          img(src=require('./assets/icons/arrow-left.png') alt="arrow-left")
+          p Назад
+        .nav-buttons
+          button Сохранить
+          button Отмена
+      .new-task-inputs
+        .nav-buttons-mob
+          button Сохранить
+          button Отмена    
+        form.form 
+          .input-item
+            label(for="task") Название цели
+            input(type="text" id='task' placeholder='Введите название цели')
+          .input-item
+            label(for="sum") Сумма которую хотите накопить
+            input(type="number" id='sum' placeholder='Введите сумму')
+          .input-item
+            label(for="priory") Приоритет цели
+            select#priory(name="priory")  
+              option(value="urgently") Срочно
+              option(value="medium") Средняя срочность
+              option(value="low") Низкая срочность
+          .input-item
+            label(for="priorytime") Приоритет цели по времени
+            select#priorytime(name="priory")  
+              option(value="urgently") Срочно
+              option(value="medium") Средняя срочность
+              option(value="low") Низкая срочность
+          .input-item
+            label(for="сalendar-start") Дата начала накопления
+            input(type="date" id='calendar-start' placeholder='Выберите дату')
+          .input-item
+            label(for="сalendar-end") Дата окончания накопления
+            input(type="date" id='calendar-end' placeholder='Выберите дату')
+          .input-item-end
+            label(for="sum-now") Сумма которую хотите внести сейчас
+            input(type="number" id='sum-now' placeholder='Введите сумму')
+          .form-button  
+            button(type='submit') Пополнить
+        .add-img 
+          img(src=require('./assets/icons/new-task.png') alt="add-icon")
+        
+    .second-screen 
+      img(src=require('./assets/other/pic.png') alt="")
