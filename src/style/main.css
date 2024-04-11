@@ -347,6 +347,57 @@ html {
   margin-bottom: 10%;
   font-size: 0.7em;
 }
+.new-task .first-screen .form .custom-select {
+  position: relative;
+  color: #009fdf;
+  padding-bottom: 2%;
+  font-size: 0.7em;
+}
+.new-task .first-screen .form .custom-select p {
+  margin-bottom: 2%;
+}
+.new-task .first-screen .form .custom-select-trigger {
+  padding-top: 5%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #000000;
+  border: none;
+  background-color: #ededed;
+  padding: 5% 10%;
+  border-radius: 5px;
+  margin-bottom: 10%;
+}
+.new-task .first-screen .form .custom-select-trigger img {
+  width: 15px;
+}
+.new-task .first-screen .form .custom-select-trigger .custom-options {
+  display: none;
+  position: absolute;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  top: 30px;
+  right: 0;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 2px solid #009fdf;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.new-task .first-screen .form .custom-select-trigger .custom-options a {
+  margin: 0;
+  padding: 6px 12px;
+  cursor: pointer;
+  display: block;
+  color: #000000;
+}
+.new-task .first-screen .form .custom-select-trigger .custom-options a:hover {
+  background-color: #009fdf;
+  color: white;
+}
 .new-task .first-screen .form .input-item-end {
   display: grid;
   grid-template-columns: 1fr;

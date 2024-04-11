@@ -23,18 +23,23 @@ block main
           .input-item
             label(for="sum") Сумма которую хотите накопить
             input(type="number" id='sum' placeholder='Введите сумму')
-          .input-item
-            label(for="priory") Приоритет цели
-            select#priory(name="priory")  
-              option(value="urgently") Срочно
-              option(value="medium") Средняя срочность
-              option(value="low") Низкая срочность
-          .input-item
-            label(for="priorytime") Приоритет цели по времени
-            select#priorytime(name="priory")  
-              option(value="urgently") Срочно
-              option(value="medium") Средняя срочность
-              option(value="low") Низкая срочность
+          .custom-select#select1
+            p Приоритет цели
+            .custom-select-trigger#trigger1 
+              p Выберите приоритет
+              img(src=require('./assets/icons/arrow-down.png') alt="")
+              .custom-options#options1
+                a(href="#") Высокий
+                a(href="#") Средний
+                a(href="#") Низкий  
+          .custom-select#select2
+            p Приоритет цели по времени
+            .custom-select-trigger#trigger2
+              p Приоритет по времени
+              img(src=require('./assets/icons/arrow-down.png') alt="")
+              .custom-options#options2
+                a(href="#") Краткосрочная
+                a(href="#") Долгосрочная  
           .input-item
             label(for="сalendar-start") Дата начала накопления
             input(type="date" id='calendar-start' placeholder='Выберите дату')
