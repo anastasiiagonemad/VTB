@@ -13,7 +13,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: $size20px * 1.5;
+    // gap: $size20px * 1.5;
+    gap: 1.5vw;
 
     .logo img {
       width: $size20px * 4;
@@ -30,8 +31,10 @@
     }
 
     .sidebar__add-task {
-      width: $size20px * 2;
-      height: $size20px * 2;
+      // width: $size20px * 2;
+      // height: $size20px * 2;
+      height: 4.5vw;
+      width: 4.5vw;
       border-radius: 50px;
       cursor: pointer;
       transition: $transition;
@@ -51,7 +54,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: $size20px;
+    gap: 0.5vw;
     img {
       width: $size20px * 2;
     }
@@ -61,7 +64,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: $size20px;
+    gap: 0.5vw;
     img {
       width: $size20px * 2;
     }
@@ -69,14 +72,21 @@
 }
 
 .box {
-  width: $size20px * 3;
-  height: $size20px * 3;
+  // width: $size20px * 3;
+  // height: $size20px * 3;
+  height: 5vw;
+  width: 5vw;
   border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: $transition;
+
+  & a img {
+    height: 3vw;
+    width: 3vw;
+  }
 
   &:hover {
     background-color: $light-blue;
@@ -86,7 +96,7 @@
 
 @media screen and (orientation: portrait) {
   .sidebar {
-    height: unset;
+    height: auto;
     overflow-y: auto;
   }
 
