@@ -23,23 +23,23 @@ block main
           .input-item
             label(for="sum") Сумма которую хотите накопить
             input(type="number" id='sum' placeholder='Введите сумму')
-          .custom-select#select1
+          .custom-select
             p Приоритет цели
-            .custom-select-trigger#trigger1 
+            .select-dropdown#dropdown1 
               p Выберите приоритет
-              img(src=require('./assets/icons/arrow-down.png') alt="")
-              .custom-options#options1
-                a(href="#") Высокий
-                a(href="#") Средний
-                a(href="#") Низкий  
-          .custom-select#select2
+              img(src=require('./assets/icons/arrow-down.png') alt="arrow-icon")
+              .select-dropdown-content#content1
+                p(value='hight') Высокий
+                p(value='medium') Средний
+                p(value='low') Низкий  
+          .custom-select
             p Приоритет цели по времени
-            .custom-select-trigger#trigger2
+            .select-dropdown#dropdown2
               p Приоритет по времени
-              img(src=require('./assets/icons/arrow-down.png') alt="")
-              .custom-options#options2
-                a(href="#") Краткосрочная
-                a(href="#") Долгосрочная  
+              img(src=require('./assets/icons/arrow-down.png') alt="arrow-icon")
+              .select-dropdown-content#content2
+                p(value='short') Краткосрочная
+                p(value='long') Долгосрочная  
           .input-item
             label(for="сalendar-start") Дата начала накопления
             input(type="date" id='calendar-start' placeholder='Выберите дату')
