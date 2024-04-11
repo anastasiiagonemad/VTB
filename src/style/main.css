@@ -13,6 +13,8 @@ html {
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 30px;
+  width: 100vw;
+  height: 100vh;
 }
 
 .main {
@@ -260,7 +262,7 @@ html {
        column-gap: 20px;
 }
 .new-task .first-screen {
-  padding: 20px 50px 20px 50px;
+  padding: 5% 50px 5% 50px;
   background-color: #ffffff;
   border-radius: 15px;
 }
@@ -268,7 +270,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 80px;
+  padding-bottom: 7%;
 }
 .new-task .first-screen .new-task-top .nav {
   display: flex;
@@ -296,57 +298,64 @@ html {
   cursor: pointer;
 }
 .new-task .first-screen .new-task-inputs {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .new-task .first-screen .new-task-inputs .nav-buttons-mob {
   display: none;
 }
 .new-task .first-screen .add-img {
-  padding: 50px;
+  margin: 0 auto;
+  padding: 20%;
 }
 .new-task .first-screen .add-img img {
   border: 2px solid #ededed;
-  padding: 50px;
+  padding: 10%;
   border-radius: 5px;
   cursor: pointer;
 }
 .new-task .first-screen .form .input-item {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 .new-task .first-screen .form .input-item label {
   color: #009fdf;
-  padding-bottom: 5px;
+  padding-bottom: 2%;
+  font-size: 0.7em;
 }
 .new-task .first-screen .form .input-item input {
+  width: 100%;
   border: none;
   background-color: #ededed;
-  padding: 20px 15px;
+  padding: 5% 10%;
   border-radius: 5px;
+  margin-bottom: 10%;
 }
 .new-task .first-screen .form .input-item input::-moz-placeholder {
   color: #000000;
+  font-size: 0.7em;
 }
 .new-task .first-screen .form .input-item input::placeholder {
   color: #000000;
+  font-size: 0.7em;
 }
 .new-task .first-screen .form .input-item select {
   border: none;
   background-color: #ededed;
-  padding: 20px 15px;
+  padding: 5% 10%;
   border-radius: 5px;
+  margin-bottom: 10%;
+  font-size: 0.7em;
 }
 .new-task .first-screen .form .input-item-end {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-top: 10%;
 }
 .new-task .first-screen .form .input-item-end label {
   color: #009fdf;
   padding-bottom: 5px;
+  font-size: 0.7em;
 }
 .new-task .first-screen .form .input-item-end input {
   border: none;
@@ -356,9 +365,11 @@ html {
 }
 .new-task .first-screen .form .input-item-end input::-moz-placeholder {
   color: #000000;
+  font-size: 0.7em;
 }
 .new-task .first-screen .form .input-item-end input::placeholder {
   color: #000000;
+  font-size: 0.7em;
 }
 .new-task .first-screen .form .form-button button {
   width: 100%;
@@ -367,6 +378,7 @@ html {
   border: none;
   background-color: #0a2973;
   color: #ffffff;
+  margin-top: 5%;
 }
 .new-task .second-screen {
   display: flex;

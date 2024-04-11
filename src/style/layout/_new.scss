@@ -3,14 +3,14 @@
   grid-template-columns: 2fr 1fr;
   column-gap: 20px;
   .first-screen {
-    padding: 20px 50px 20px 50px;
+    padding: 5% 50px 5% 50px;
     background-color: $background-page;
     border-radius: 15px;
     .new-task-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-bottom: 80px;
+      padding-bottom: 7%;
       .nav {
         display: flex;
         align-items: center;
@@ -38,54 +38,61 @@
       }
     }
     .new-task-inputs {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
       .nav-buttons-mob {
         display: none;
       }
     }
     .add-img {
-      padding: 50px;
+      margin: 0 auto;
+      padding: 20%;
       img {
         border: 2px solid $background-screen;
-        padding: 50px;
+        padding: 10%;
         border-radius: 5px;
         cursor: pointer;
       }
     }
     .form {
       .input-item {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
         label {
           color: $light-blue;
-          padding-bottom: 5px;
+          padding-bottom: 2%;
+          font-size: 0.7em;
         }
         input {
+          width: 100%;
           border: none;
           background-color: $input-background;
-          padding: 20px 15px;
+          padding: 5% 10%;
           border-radius: 5px;
+          margin-bottom: 10%;
           &::placeholder {
             color: $font-color;
+            font-size: 0.7em;
           }
         }
         select {
           border: none;
           background-color: $input-background;
-          padding: 20px 15px;
+          padding: 5% 10%;
           border-radius: 5px;
+          margin-bottom: 10%;
+          font-size: 0.7em;
         }
       }
       .input-item-end {
-        margin-top: 50px;
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-top: 10%;
         label {
           color: $light-blue;
           padding-bottom: 5px;
+          font-size: 0.7em;
         }
         input {
           border: none;
@@ -94,6 +101,7 @@
           border-radius: 5px;
           &::placeholder {
             color: $font-color;
+            font-size: 0.7em;
           }
         }
       }
@@ -105,6 +113,7 @@
           border: none;
           background-color: $blue;
           color: $background-page;
+          margin-top: 5%;
         }
       }
     }
