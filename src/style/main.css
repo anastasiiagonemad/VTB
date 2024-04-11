@@ -56,7 +56,8 @@ html {
   width: 80px;
   height: 80px;
   border-radius: 15px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .sidebar__start .sidebar__add-task {
   height: 4vw;
@@ -139,7 +140,8 @@ html {
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
 .help-container .item {
   display: flex;
@@ -274,7 +276,8 @@ html {
 .new-task {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  column-gap: 20px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }
 .new-task .first-screen {
   padding: 5% 50px 5% 50px;
@@ -345,6 +348,10 @@ html {
   border-radius: 5px;
   margin-bottom: 10%;
 }
+.new-task .first-screen .form .input-item input::-moz-placeholder {
+  color: #000000;
+  font-size: 0.7em;
+}
 .new-task .first-screen .form .input-item input::placeholder {
   color: #000000;
   font-size: 0.7em;
@@ -364,67 +371,66 @@ html {
 .new-task .first-screen .form .custom-select p {
   margin-bottom: 2%;
 }
-.new-task .first-screen .form .custom-select-trigger {
-  padding-top: 5%;
+.new-task .first-screen .form .custom-select .select-dropdown {
+  position: relative;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  color: #000000;
-  border: none;
   background-color: #ededed;
+  color: #000000;
   padding: 5% 10%;
   border-radius: 5px;
   margin-bottom: 10%;
 }
-.new-task .first-screen .form .custom-select-trigger img {
-  width: 15px;
+.new-task .first-screen .form .custom-select .select-dropdown p {
+  font-size: 0.7em;
 }
-.new-task .first-screen .form .custom-select-trigger .custom-options {
+.new-task .first-screen .form .custom-select .select-dropdown img {
+  width: 10px;
+}
+.new-task .first-screen .form .custom-select .select-dropdown-content {
   display: none;
   position: absolute;
-  left: 0;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  top: 30px;
-  right: 0;
-  border-radius: 5px;
   background-color: #ffffff;
+  width: 150px;
   border: 2px solid #009fdf;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
-.new-task .first-screen .form .custom-select-trigger .custom-options a {
+.new-task .first-screen .form .custom-select .select-dropdown-content p {
   margin: 0;
-  padding: 6px 12px;
-  cursor: pointer;
-  display: block;
   color: #000000;
+  padding: 10px;
+  display: block;
+  font-size: 0.875em;
 }
-.new-task .first-screen .form .custom-select-trigger .custom-options a:hover {
+.new-task .first-screen .form .custom-select .select-dropdown-content p:hover {
   background-color: #009fdf;
-  color: white;
+  color: #ffffff;
 }
-.new-task .first-screen .form .input-item-end {
+.new-task .first-screen .input-item-end {
   display: grid;
   grid-template-columns: 1fr;
   padding-top: 10%;
 }
-.new-task .first-screen .form .input-item-end label {
+.new-task .first-screen .input-item-end label {
   color: #009fdf;
   padding-bottom: 5px;
 }
-.new-task .first-screen .form .input-item-end input {
+.new-task .first-screen .input-item-end input {
   border: none;
   background-color: #ededed;
   padding: 20px 15px;
   border-radius: 5px;
 }
-.new-task .first-screen .form .input-item-end input::placeholder {
+.new-task .first-screen .input-item-end input::-moz-placeholder {
   color: #000000;
 }
-.new-task .first-screen .form .form-button button {
+.new-task .first-screen .input-item-end input::placeholder {
+  color: #000000;
+}
+.new-task .first-screen .form-button button {
   width: 100%;
   border-radius: 5px;
   padding: 20px;
@@ -433,7 +439,8 @@ html {
   color: #ffffff;
   margin-top: 5%;
 }
-.new-task .second-screen {
+
+.second-screen {
   display: flex;
   align-items: center;
   background-color: #ffffff;
@@ -441,7 +448,7 @@ html {
   padding: 20px;
   height: 94vh;
 }
-.new-task .second-screen img {
+.second-screen img {
   width: 100%;
 }
 
@@ -476,4 +483,4 @@ html {
     margin: 0 auto;
     padding: 0 0 50px 0;
   }
-}
+}/*# sourceMappingURL=main.css.map */
