@@ -13,14 +13,30 @@ html {
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 30px;
-  width: 100vw;
-  height: 100vh;
 }
 
 .main {
   border-radius: 15px;
 }
 
+@media screen and (min-width: 993px) and (orientation: landscape) {
+  .body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .main {
+    height: 94vh;
+    overflow: hidden;
+  }
+}
+@media screen and (orientation: portrait) {
+  .body,
+  .main {
+    height: unset;
+    overflow-y: auto;
+  }
+}
 .sidebar {
   background-color: #ffffff;
   width: 120px;
@@ -48,8 +64,7 @@ html {
   width: 80px;
   height: 80px;
   border-radius: 15px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .sidebar__start .sidebar__add-task {
   width: 40px;
@@ -98,6 +113,12 @@ html {
   background-color: #009fdf;
 }
 
+@media screen and (orientation: portrait) {
+  .sidebar {
+    height: unset;
+    overflow-y: auto;
+  }
+}
 .help {
   padding: 50px 20px 20px 20px;
   background-color: #ffffff;
@@ -122,8 +143,7 @@ html {
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  column-gap: 10px;
 }
 .help-container .item {
   display: flex;
@@ -258,8 +278,7 @@ html {
 .new-task {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
 }
 .new-task .first-screen {
   padding: 5% 50px 5% 50px;
@@ -330,10 +349,6 @@ html {
   padding: 5% 10%;
   border-radius: 5px;
   margin-bottom: 10%;
-}
-.new-task .first-screen .form .input-item input::-moz-placeholder {
-  color: #000000;
-  font-size: 0.7em;
 }
 .new-task .first-screen .form .input-item input::placeholder {
   color: #000000;
@@ -414,10 +429,6 @@ html {
   padding: 20px 15px;
   border-radius: 5px;
 }
-.new-task .first-screen .form .input-item-end input::-moz-placeholder {
-  color: #000000;
-  font-size: 0.7em;
-}
 .new-task .first-screen .form .input-item-end input::placeholder {
   color: #000000;
   font-size: 0.7em;
@@ -474,4 +485,4 @@ html {
     margin: 0 auto;
     padding: 0 0 50px 0;
   }
-}/*# sourceMappingURL=main.css.map */
+}

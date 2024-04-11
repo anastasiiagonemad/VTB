@@ -1,3 +1,5 @@
+
+
 html {
   font-size: 18px;
   color: $font-color;
@@ -13,10 +15,29 @@ html {
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: $size20px * 1.5;
-  width: 100vw;
-  height: 100vh;
 }
 
 .main {
   border-radius: $border-radius;
+}
+
+@media screen and (min-width: 993px) and (orientation: landscape) {
+  .body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .main {
+    height: 94vh;
+    overflow: hidden;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .body,
+  .main {
+    height: unset;
+    overflow-y: auto;
+  }
+
 }
