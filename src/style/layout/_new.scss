@@ -1,11 +1,11 @@
 .new-task {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  column-gap: 20px;
+  column-gap: $size20px;
   .first-screen {
     padding: 5% 50px 5% 50px;
     background-color: $background-page;
-    border-radius: 15px;
+    border-radius: $border-radius;
     .new-task-top {
       display: flex;
       align-items: center;
@@ -62,7 +62,7 @@
         label {
           color: $light-blue;
           padding-bottom: 2%;
-          font-size: 0.7em;
+          // font-size: 0.7em;
         }
         input {
           width: 100%;
@@ -82,14 +82,14 @@
           padding: 5% 10%;
           border-radius: 5px;
           margin-bottom: 10%;
-          font-size: 0.7em;
+          // font-size: 0.7em;
         }
       }
       .custom-select {
         position: relative;
         color: $light-blue;
         padding-bottom: 2%;
-        font-size: 0.7em;
+        // font-size: 0.7em;
         p {
           margin-bottom: 2%;
         }
@@ -145,7 +145,7 @@
         label {
           color: $light-blue;
           padding-bottom: 5px;
-          font-size: 0.7em;
+          // font-size: 0.7em;
         }
         input {
           border: none;
@@ -154,7 +154,7 @@
           border-radius: 5px;
           &::placeholder {
             color: $font-color;
-            font-size: 0.7em;
+            // font-size: 0.7em;
           }
         }
       }
@@ -177,7 +177,8 @@
     background-color: $background-page;
     border-radius: 15px;
     padding: 20px;
-    height: 600px;
+    // height: 600px;
+    height: 94vh;
     img {
       width: 100%;
     }
