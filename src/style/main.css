@@ -29,6 +29,11 @@ html {
     max-height: 96vh;
   }
 }
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  html {
+    font-size: 18px;
+  }
+}
 .sidebar {
   background-color: #ffffff;
   width: 120px;
