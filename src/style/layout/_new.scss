@@ -40,7 +40,7 @@
 
         button {
           width: 11vw;
-          padding: $size20px;
+          padding: 1vw;
           border-radius: $size20px * 0.5;
           background-color: $background-page;
           border: 2px solid $light-blue;
@@ -77,13 +77,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: $size20px;
+      gap: 2vh;
 
       .input-item {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: $size20px * 0.5;
+        gap: 1vh;
 
         label {
           color: $light-blue;
@@ -94,8 +94,8 @@
           border: none;
           width: 100%;
           background-color: $input-background;
-          padding: $size20px * 0.85 $size20px;
-          border-radius: $size20px * 0.3;
+          padding: 1.5vh * 0.85 $size20px;
+          border-radius: $size20px * 0.25;
         }
 
         input {
@@ -104,21 +104,22 @@
           }
         }
       }
-    }
 
-    .input-item-end {
-      padding-top: $size20px * 2.5;
+      .input-item-end {
+        padding-top: $size20px * 1.5;
+      }
     }
 
     .form-button {
       button {
         width: 100%;
-        border-radius: $size20px * 0.3;
-        padding: $size20px * 1.2;
+        border-radius: $size20px * 0.25;
+        padding: 1vw;
         border: none;
         background-color: $blue;
         color: $background-page;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        cursor: pointer;
       }
     }
   }
@@ -136,42 +137,56 @@
   }
 }
 
-@media screen and (max-width: $small-tab) {
+@media screen and (max-width: $desktop) {
   .new-task {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
-
     .first-screen {
-      .new-task-top {
-        .nav-buttons {
-          display: none;
-        }
-      }
-      .new-task-inputs {
-        display: flex;
-        flex-direction: column-reverse;
+      padding: $size20px * 0.75 $size20px * 2;
 
-        .nav-buttons-mob {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          padding: 20px 0 10px 0;
-
-          button {
-            padding: 20px;
-            border-radius: 5px;
-            background-color: $background-page;
-            border: 2px solid $light-blue;
-            color: $light-blue;
-            cursor: pointer;
-          }
+      .form {
+        .input-item-end {
+          padding-top: unset;
         }
-      }
-      .add-img {
-        margin: 0 auto;
-        padding: 0 0 50px 0;
       }
     }
   }
 }
+
+// @media screen and (max-width: $small-tab) {
+//   .new-task {
+//     display: grid;
+//     grid-template-columns: 1fr;
+//     grid-gap: 20px;
+
+//     .first-screen {
+//       .new-task-top {
+//         .nav-buttons {
+//           display: none;
+//         }
+//       }
+//       .new-task-inputs {
+//         display: flex;
+//         flex-direction: column-reverse;
+
+//         .nav-buttons-mob {
+//           display: flex;
+//           flex-direction: column;
+//           gap: 10px;
+//           padding: 20px 0 10px 0;
+
+//           button {
+//             padding: 20px;
+//             border-radius: 5px;
+//             background-color: $background-page;
+//             border: 2px solid $light-blue;
+//             color: $light-blue;
+//             cursor: pointer;
+//           }
+//         }
+//       }
+//       .add-img {
+//         margin: 0 auto;
+//         padding: 0 0 50px 0;
+//       }
+//     }
+//   }
+// }
