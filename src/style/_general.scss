@@ -35,6 +35,12 @@ html {
   html {
     font-size: 18px;
   }
+
+  .body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 52px 1fr;
+    gap: $size20px * 1.5;
+  }
 }
 
 // @media screen and (orientation: portrait) {
