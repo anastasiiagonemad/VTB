@@ -401,6 +401,9 @@ html {
   padding: 1.275vh 20px;
   border-radius: 5px;
 }
+.form__input-item input::-moz-placeholder {
+  color: #000000;
+}
 .form__input-item input::placeholder {
   color: #000000;
 }
@@ -417,3 +420,242 @@ html {
     gap: 20px;
   }
 }
+.settings {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 15px;
+}
+.settings .title {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  align-items: center;
+}
+.settings .title h2 {
+  color: #0a2973;
+}
+.settings .title button {
+  background-color: #0a2973;
+  padding: 10px 15px;
+  border: none;
+  color: #ffffff;
+  font-size: 0.7em;
+  border-radius: 5px;
+}
+.settings .super-priority {
+  width: 100%;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 10% 20% 70%;
+  align-items: center;
+  gap: 20px;
+}
+.settings .super-priority .slide-button {
+  width: 50px;
+  height: 27px;
+  background-color: #009fdf;
+  position: relative;
+  border-radius: 50px;
+}
+.settings .super-priority .slide-button .slideLabel {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 2px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+.settings .super-priority .slide-button .slideButton[type=checkbox] {
+  visibility: hidden;
+}
+.settings .super-priority .slide-button .slideButton[type=checkbox]:checked + label {
+  left: 27px;
+}
+.settings .super-priority .input select {
+  border: none;
+  background-color: #ededed;
+  padding: 10px;
+  border-radius: 5px;
+}
+.settings .distribution-funds {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 10% 90%;
+  align-items: center;
+  gap: 20px;
+}
+.settings .distribution-funds .slide-button {
+  width: 50px;
+  height: 27px;
+  background-color: #009fdf;
+  position: relative;
+  border-radius: 50px;
+}
+.settings .distribution-funds .slide-button .slideLabel {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 2px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+.settings .distribution-funds .slide-button .slideButton[type=checkbox] {
+  visibility: hidden;
+}
+.settings .distribution-funds .slide-button .slideButton[type=checkbox]:checked + label {
+  left: 27px;
+}
+.settings .distrubition-funds-action {
+  margin-top: 20px;
+}
+.settings .distrubition-funds-action .dfa-desc {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  align-items: center;
+  gap: 20px;
+}
+.settings .distrubition-funds-action .dfa-desc .slide-button {
+  width: 50px;
+  height: 27px;
+  background-color: #009fdf;
+  position: relative;
+  border-radius: 50px;
+}
+.settings .distrubition-funds-action .dfa-desc .slide-button .slideLabel {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 2px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+.settings .distrubition-funds-action .dfa-desc .slide-button .slideButton[type=checkbox] {
+  visibility: hidden;
+}
+.settings .distrubition-funds-action .dfa-desc .slide-button .slideButton[type=checkbox]:checked + label {
+  left: 27px;
+}
+.settings .distrubition-funds-action .dfa-btn {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 10% 10% 10%;
+  -moz-column-gap: 10%;
+       column-gap: 10%;
+  margin-left: 15%;
+}
+.settings .distrubition-funds-action .dfa-btn button {
+  margin-top: 5px;
+  padding: 10% 40%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.settings .distrubition-funds-action .dfa-btn button:hover, .settings .distrubition-funds-action .dfa-btn button:focus, .settings .distrubition-funds-action .dfa-btn button:active {
+  background-color: #009fdf;
+  color: #ffffff;
+}
+.settings .no-funds {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 10% 90%;
+  align-items: center;
+  gap: 20px;
+}
+.settings .no-funds .slide-button {
+  width: 50px;
+  height: 27px;
+  background-color: #009fdf;
+  position: relative;
+  border-radius: 50px;
+}
+.settings .no-funds .slide-button .slideLabel {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 2px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+.settings .no-funds .slide-button .slideButton[type=checkbox] {
+  visibility: hidden;
+}
+.settings .no-funds .slide-button .slideButton[type=checkbox]:checked + label {
+  left: 27px;
+}
+.settings .radio-btns {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 30% 30%;
+}
+.settings .radio-btns h4 {
+  margin-bottom: 10px;
+}
+.settings .radio-btns li {
+  list-style: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.settings .radio-btns li input {
+  width: 5%;
+  align-items: center;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .settings .title {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .settings .super-priority {
+    display: grid;
+    grid-template-columns: 10% 90%;
+  }
+  .settings .distrubition-funds-action {
+    margin-top: 20px;
+  }
+  .settings .distrubition-funds-action .dfa-btn {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    -moz-column-gap: 10%;
+         column-gap: 10%;
+    margin-left: 0;
+  }
+  .settings .distrubition-funds-action .dfa-btn button {
+    width: 100%;
+    padding: 5% 10%;
+  }
+  .settings .radio-btns {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .settings .radio-btns h4 {
+    margin-top: 10px;
+  }
+}/*# sourceMappingURL=main.css.map */
