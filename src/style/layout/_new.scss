@@ -104,10 +104,6 @@
           }
         }
       }
-
-      .input-item-end {
-        padding-top: $size20px * 1.5;
-      }
     }
 
     .form-button {
@@ -141,12 +137,6 @@
   .new-task {
     .first-screen {
       padding: $size20px * 0.75 $size20px * 2;
-
-      .form {
-        .input-item-end {
-          padding-top: unset;
-        }
-      }
     }
   }
 }
