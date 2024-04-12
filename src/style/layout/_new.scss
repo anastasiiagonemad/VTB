@@ -1,113 +1,67 @@
-.new-task {
+.new {
   display: grid;
   grid-template-columns: 9.6fr 7.4fr;
-  column-gap: $size20px * 1.5;
+  gap: $size20px * 1.5;
 
-  .first-screen {
+  &__block1 {
     padding: $size20px $size20px * 3.8;
     background-color: $background-page;
     border-radius: $border-radius;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: $size20px;
+    display: grid;
+    gap: $size20px * 1.2;
+    grid-template-columns: 0.8fr 2fr 1fr 3fr;
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-areas: "back . buttons buttons"
+                          "inputs-top inputs-top inputs-top add"
+                          "inputs-bottom inputs-bottom inputs-bottom .";
 
-    .new-task-top {
+    &-back {
+      grid-area: back;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-
-      .nav {
-        display: flex;
-        align-items: center;
-        gap: $size20px * 0.5;
-
-        img {
-          width: $size20px;
-          height: $size20px * 0.75;
-          cursor: pointer;
-        }
-
-        p {
-          font-size: 1.1rem;
-          text-transform: uppercase;
-        }
-      }
-
-      .nav-buttons {
-        display: flex;
-        gap: $size20px;
-
-        button {
-          width: 11vw;
-          padding: 1vw;
-          border-radius: $size20px * 0.5;
-          background-color: $background-page;
-          border: 2px solid $light-blue;
-          color: $light-blue;
-          cursor: pointer;
-        }
-      }
-    }
-
-    .new-task-inputs {
-      display: grid;
-      grid-template-columns: 4.7fr 2.85fr;
-      column-gap: $size20px * 1.5;
-
-      .nav-buttons-mob {
-        display: none;
-      }
-    }
-
-    .add-img {
-      width: 100%;
-      height: 38%;
-      border: 2px solid $background-screen;
-      border-radius: $size20px * 0.25;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      gap: $size20px * 0.5;
       img {
+        width: $size20px;
+        height: $size20px * 0.75;
+        cursor: pointer;
+      }
+      p {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+      }
+    }
+
+    &-buttons {
+      grid-area: buttons;
+      display: flex;
+      gap: $size20px;
+
+      button {
+        width: 11vw;
+        height: 3vw;
+        border-radius: $size20px * 0.5;
+        background-color: $background-page;
+        border: 2px solid $light-blue;
+        color: $light-blue;
         cursor: pointer;
       }
     }
 
-    .form {
+    &-inputs-top {
+      grid-area: inputs-top;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 2vh;
-
-      .input-item {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1vh;
-
-        label {
-          color: $light-blue;
-        }
-
-        input,
-        select {
-          border: none;
-          width: 100%;
-          background-color: $input-background;
-          padding: 1.5vh * 0.85 $size20px;
-          border-radius: $size20px * 0.25;
-        }
-
-        input {
-          &::placeholder {
-            color: $font-color;
-          }
-        }
-      }
     }
 
-    .form-button {
-      button {
+    &-inputs-bottom {
+      grid-area: inputs-bottom;
+      display: flex;
+      flex-direction: column;
+      gap: $size20px;
+      padding-top: $size20px * 2.5;
+
+      .form__button {
         width: 100%;
         border-radius: $size20px * 0.25;
         padding: 1vw;
@@ -118,69 +72,262 @@
         cursor: pointer;
       }
     }
+
+    &-add {
+      grid-area: add;
+      width: 100%;
+      height: 50%;
+      border: 2px solid $background-screen;
+      border-radius: $size20px * 0.25;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__block2 {
+    display: flex;
+    align-items: center;
+    background-color: $background-page;
+    border-radius: 15px;
+    padding: 20px;
+    height: 96vh;
+    img {
+      width: 100%;
+    }
   }
 }
 
-.second-screen {
+// inputs and selects
+.form__input-item {
   display: flex;
-  align-items: center;
-  background-color: $background-page;
-  border-radius: 15px;
-  padding: 20px;
-  height: 96vh;
-  img {
+  flex-direction: column;
+  justify-content: center;
+  gap: 1vh;
+
+  label {
+    color: $light-blue;
+  }
+
+  input,
+  select {
+    border: none;
     width: 100%;
+    background-color: $input-background;
+    padding: 1.5vh * 0.85 $size20px;
+    border-radius: $size20px * 0.25;
+  }
+
+  input {
+    &::placeholder {
+      color: $font-color;
+    }
   }
 }
 
+//media queries
 @media screen and (max-width: $desktop) {
-  .new-task {
-    .first-screen {
+  .new {
+    &__block1 {
       padding: $size20px * 0.75 $size20px * 2;
     }
   }
 }
 
 @media screen and (max-width: $tab) {
-
-
-
-
-  .new-task {
+  .new {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: $size20px;
+    gap: $size20px;
 
-    .first-screen {
-      .new-task-top {
-        .nav-buttons {
-          display: none;
-        }
-      }
-      .new-task-inputs {
-        display: flex;
-        flex-direction: column-reverse;
-
-        .nav-buttons-mob {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          padding: 20px 0 10px 0;
-
-          button {
-            padding: 20px;
-            border-radius: 5px;
-            background-color: $background-page;
-            border: 2px solid $light-blue;
-            color: $light-blue;
-            cursor: pointer;
-          }
-        }
-      }
-      .add-img {
-        margin: 0 auto;
-        padding: 0 0 50px 0;
-      }
-    }
   }
 }
+// .new-task {
+//   display: grid;
+//   grid-template-columns: 9.6fr 7.4fr;
+//   column-gap: $size20px * 1.5;
+
+//   .first-screen {
+//     padding: $size20px $size20px * 3.8;
+//     background-color: $background-page;
+//     border-radius: $border-radius;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     gap: $size20px;
+
+//     .new-task-top {
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+
+//       .nav {
+//         display: flex;
+//         align-items: center;
+//         gap: $size20px * 0.5;
+
+//         img {
+//           width: $size20px;
+//           height: $size20px * 0.75;
+//           cursor: pointer;
+//         }
+
+//         p {
+//           font-size: 1.1rem;
+//           text-transform: uppercase;
+//         }
+//       }
+
+//       .nav-buttons {
+//         display: flex;
+//         gap: $size20px;
+
+//         button {
+//           width: 11vw;
+//           padding: 1vw;
+//           border-radius: $size20px * 0.5;
+//           background-color: $background-page;
+//           border: 2px solid $light-blue;
+//           color: $light-blue;
+//           cursor: pointer;
+//         }
+//       }
+//     }
+
+//     .new-task-inputs {
+//       display: grid;
+//       grid-template-columns: 4.7fr 2.85fr;
+//       column-gap: $size20px * 1.5;
+
+//       .nav-buttons-mob {
+//         display: none;
+//       }
+//     }
+
+//     .add-img {
+//       width: 100%;
+//       height: 38%;
+//       border: 2px solid $background-screen;
+//       border-radius: $size20px * 0.25;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       img {
+//         cursor: pointer;
+//       }
+//     }
+
+//     .form {
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: space-between;
+//       gap: 2vh;
+
+//       .input-item {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         gap: 1vh;
+
+//         label {
+//           color: $light-blue;
+//         }
+
+//         input,
+//         select {
+//           border: none;
+//           width: 100%;
+//           background-color: $input-background;
+//           padding: 1.5vh * 0.85 $size20px;
+//           border-radius: $size20px * 0.25;
+//         }
+
+//         input {
+//           &::placeholder {
+//             color: $font-color;
+//           }
+//         }
+//       }
+//     }
+
+//     .form-button {
+//       button {
+//         width: 100%;
+//         border-radius: $size20px * 0.25;
+//         padding: 1vw;
+//         border: none;
+//         background-color: $blue;
+//         color: $background-page;
+//         font-size: 1.2rem;
+//         cursor: pointer;
+//       }
+//     }
+//   }
+// }
+
+// .second-screen {
+//   display: flex;
+//   align-items: center;
+//   background-color: $background-page;
+//   border-radius: 15px;
+//   padding: 20px;
+//   height: 96vh;
+//   img {
+//     width: 100%;
+//   }
+// }
+
+// @media screen and (max-width: $desktop) {
+//   .new-task {
+//     .first-screen {
+//       padding: $size20px * 0.75 $size20px * 2;
+//     }
+//   }
+// }
+
+// @media screen and (max-width: $tab) {
+
+
+
+
+//   .new-task {
+//     display: grid;
+//     grid-template-columns: 1fr;
+//     grid-gap: $size20px;
+
+//     .first-screen {
+//       .new-task-top {
+//         .nav-buttons {
+//           display: none;
+//         }
+//       }
+//       .new-task-inputs {
+//         display: flex;
+//         flex-direction: column-reverse;
+
+//         .nav-buttons-mob {
+//           display: flex;
+//           flex-direction: column;
+//           gap: 10px;
+//           padding: 20px 0 10px 0;
+
+//           button {
+//             padding: 20px;
+//             border-radius: 5px;
+//             background-color: $background-page;
+//             border: 2px solid $light-blue;
+//             color: $light-blue;
+//             cursor: pointer;
+//           }
+//         }
+//       }
+//       .add-img {
+//         margin: 0 auto;
+//         padding: 0 0 50px 0;
+//       }
+//     }
+//   }
+// }

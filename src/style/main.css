@@ -290,99 +290,64 @@ html {
     transition: background-color 0.6s ease;
   }
 }
-.new-task {
+.new {
   display: grid;
   grid-template-columns: 9.6fr 7.4fr;
-  column-gap: 30px;
+  gap: 30px;
 }
-.new-task .first-screen {
+.new__block1 {
   padding: 20px 76px;
   background-color: #ffffff;
   border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 20px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 0.8fr 2fr 1fr 3fr;
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-areas: "back . buttons buttons" "inputs-top inputs-top inputs-top add" "inputs-bottom inputs-bottom inputs-bottom .";
 }
-.new-task .first-screen .new-task-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.new-task .first-screen .new-task-top .nav {
+.new__block1-back {
+  grid-area: back;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.new-task .first-screen .new-task-top .nav img {
+.new__block1-back img {
   width: 20px;
   height: 15px;
   cursor: pointer;
 }
-.new-task .first-screen .new-task-top .nav p {
+.new__block1-back p {
   font-size: 1.1rem;
   text-transform: uppercase;
 }
-.new-task .first-screen .new-task-top .nav-buttons {
+.new__block1-buttons {
+  grid-area: buttons;
   display: flex;
   gap: 20px;
 }
-.new-task .first-screen .new-task-top .nav-buttons button {
+.new__block1-buttons button {
   width: 11vw;
-  padding: 1vw;
+  height: 3vw;
   border-radius: 10px;
   background-color: #ffffff;
   border: 2px solid #009fdf;
   color: #009fdf;
   cursor: pointer;
 }
-.new-task .first-screen .new-task-inputs {
-  display: grid;
-  grid-template-columns: 4.7fr 2.85fr;
-  column-gap: 30px;
-}
-.new-task .first-screen .new-task-inputs .nav-buttons-mob {
-  display: none;
-}
-.new-task .first-screen .add-img {
-  width: 100%;
-  height: 38%;
-  border: 2px solid #ededed;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.new-task .first-screen .add-img img {
-  cursor: pointer;
-}
-.new-task .first-screen .form {
+.new__block1-inputs-top {
+  grid-area: inputs-top;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 2vh;
 }
-.new-task .first-screen .form .input-item {
+.new__block1-inputs-bottom {
+  grid-area: inputs-bottom;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 1vh;
+  gap: 20px;
+  padding-top: 50px;
 }
-.new-task .first-screen .form .input-item label {
-  color: #009fdf;
-}
-.new-task .first-screen .form .input-item input,
-.new-task .first-screen .form .input-item select {
-  border: none;
-  width: 100%;
-  background-color: #ededed;
-  padding: 1.275vh 20px;
-  border-radius: 5px;
-}
-.new-task .first-screen .form .input-item input::placeholder {
-  color: #000000;
-}
-.new-task .first-screen .form-button button {
+.new__block1-inputs-bottom .form__button {
   width: 100%;
   border-radius: 5px;
   padding: 1vw;
@@ -392,8 +357,20 @@ html {
   font-size: 1.2rem;
   cursor: pointer;
 }
-
-.second-screen {
+.new__block1-add {
+  grid-area: add;
+  width: 100%;
+  height: 50%;
+  border: 2px solid #ededed;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.new__block1-add img {
+  cursor: pointer;
+}
+.new__block2 {
   display: flex;
   align-items: center;
   background-color: #ffffff;
@@ -401,44 +378,40 @@ html {
   padding: 20px;
   height: 96vh;
 }
-.second-screen img {
+.new__block2 img {
   width: 100%;
 }
 
+.form__input-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1vh;
+}
+.form__input-item label {
+  color: #009fdf;
+}
+.form__input-item input,
+.form__input-item select {
+  border: none;
+  width: 100%;
+  background-color: #ededed;
+  padding: 1.275vh 20px;
+  border-radius: 5px;
+}
+.form__input-item input::placeholder {
+  color: #000000;
+}
+
 @media screen and (max-width: 1200px) {
-  .new-task .first-screen {
+  .new__block1 {
     padding: 15px 40px;
   }
 }
 @media screen and (max-width: 992px) {
-  .new-task {
+  .new {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 20px;
-  }
-  .new-task .first-screen .new-task-top .nav-buttons {
-    display: none;
-  }
-  .new-task .first-screen .new-task-inputs {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-  .new-task .first-screen .new-task-inputs .nav-buttons-mob {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px 0 10px 0;
-  }
-  .new-task .first-screen .new-task-inputs .nav-buttons-mob button {
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #ffffff;
-    border: 2px solid #009fdf;
-    color: #009fdf;
-    cursor: pointer;
-  }
-  .new-task .first-screen .add-img {
-    margin: 0 auto;
-    padding: 0 0 50px 0;
+    gap: 20px;
   }
 }
