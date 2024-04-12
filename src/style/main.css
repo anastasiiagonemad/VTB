@@ -368,9 +368,6 @@ html {
 .new-task .first-screen .form .input-item input::placeholder {
   color: #000000;
 }
-.new-task .first-screen .form .input-item-end {
-  padding-top: 30px;
-}
 .new-task .first-screen .form-button button {
   width: 100%;
   border-radius: 5px;
@@ -397,8 +394,5 @@ html {
 @media screen and (max-width: 1200px) {
   .new-task .first-screen {
     padding: 15px 40px;
-  }
-  .new-task .first-screen .form .input-item-end {
-    padding-top: unset;
   }
 }
