@@ -95,9 +95,15 @@
     border-radius: 15px;
     padding: 20px;
     height: 96vh;
-    img {
+    .mob {
+      display: none;
+    }
+
+    .large {
       width: 100%;
     }
+
+
   }
 }
 
@@ -139,9 +145,117 @@
 
 @media screen and (max-width: $tab) {
   .new {
-    display: grid;
     grid-template-columns: 1fr;
     gap: $size20px;
+
+    &__block1 {
+      padding: $size20px * 2;
+      display: grid;
+
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, min-content);
+      grid-template-areas: "back"
+                            "add"
+                            "inputs-top"
+                            "inputs-bottom"
+                            "buttons";
+
+      &-back {
+        grid-area: back;
+        display: flex;
+        align-items: center;
+        gap: $size20px * 0.5;
+        img {
+          width: $size20px;
+          height: $size20px * 0.75;
+          cursor: pointer;
+        }
+        p {
+          font-size: 1.1rem;
+          text-transform: uppercase;
+        }
+      }
+
+      &-buttons {
+        grid-area: buttons;
+        display: flex;
+        gap: $size20px;
+
+        button {
+          width: 11vw;
+          height: 3vw;
+          border-radius: $size20px * 0.5;
+          background-color: $background-page;
+          border: 2px solid $light-blue;
+          color: $light-blue;
+          cursor: pointer;
+        }
+      }
+
+      &-inputs-top {
+        grid-area: inputs-top;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      &-inputs-bottom {
+        grid-area: inputs-bottom;
+        display: flex;
+        flex-direction: column;
+        gap: $size20px;
+        padding-top: $size20px * 2.5;
+
+        .form__button {
+          width: 100%;
+          border-radius: $size20px * 0.25;
+          padding: 1vw;
+          border: none;
+          background-color: $blue;
+          color: $background-page;
+          font-size: 1.2rem;
+          cursor: pointer;
+        }
+      }
+
+      &-add {
+        grid-area: add;
+        width: 100%;
+        height: 50%;
+        border: 2px solid $background-screen;
+        border-radius: $size20px * 0.25;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          cursor: pointer;
+        }
+      }
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+    &__block2 {
+
+      height: unset;
+      .large {
+        display: none;
+      }
+      .mob {
+        display: block;
+        width: 100%;
+      }
+    }
+
 
   }
 }

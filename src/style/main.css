@@ -38,6 +38,9 @@ html {
     grid-template-rows: 52px 1fr;
     gap: 30px;
   }
+  .main {
+    padding: 20px;
+  }
 }
 .sidebar {
   background-color: #ffffff;
@@ -66,8 +69,7 @@ html {
   width: 80px;
   height: 80px;
   border-radius: 15px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .sidebar__start .sidebar__add-task {
   height: 4vw;
@@ -159,8 +161,7 @@ html {
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  column-gap: 10px;
 }
 .help-container .item {
   display: flex;
@@ -380,7 +381,10 @@ html {
   padding: 20px;
   height: 96vh;
 }
-.new__block2 img {
+.new__block2 .mob {
+  display: none;
+}
+.new__block2 .large {
   width: 100%;
 }
 
@@ -401,9 +405,6 @@ html {
   padding: 1.275vh 20px;
   border-radius: 5px;
 }
-.form__input-item input::-moz-placeholder {
-  color: #000000;
-}
 .form__input-item input::placeholder {
   color: #000000;
 }
@@ -415,9 +416,90 @@ html {
 }
 @media screen and (max-width: 992px) {
   .new {
-    display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+  .new__block1 {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, min-content);
+    grid-template-areas: "back" "add" "inputs-top" "inputs-bottom" "buttons";
+  }
+  .new__block1-back {
+    grid-area: back;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .new__block1-back img {
+    width: 20px;
+    height: 15px;
+    cursor: pointer;
+  }
+  .new__block1-back p {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+  }
+  .new__block1-buttons {
+    grid-area: buttons;
+    display: flex;
+    gap: 20px;
+  }
+  .new__block1-buttons button {
+    width: 11vw;
+    height: 3vw;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 2px solid #009fdf;
+    color: #009fdf;
+    cursor: pointer;
+  }
+  .new__block1-inputs-top {
+    grid-area: inputs-top;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .new__block1-inputs-bottom {
+    grid-area: inputs-bottom;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 50px;
+  }
+  .new__block1-inputs-bottom .form__button {
+    width: 100%;
+    border-radius: 5px;
+    padding: 1vw;
+    border: none;
+    background-color: #0a2973;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .new__block1-add {
+    grid-area: add;
+    width: 100%;
+    height: 50%;
+    border: 2px solid #ededed;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .new__block1-add img {
+    cursor: pointer;
+  }
+  .new__block2 {
+    height: unset;
+  }
+  .new__block2 .large {
+    display: none;
+  }
+  .new__block2 .mob {
+    display: block;
+    width: 100%;
   }
 }
 .settings {
@@ -557,8 +639,7 @@ html {
   margin-top: 20px;
   display: grid;
   grid-template-columns: 10% 10% 10%;
-  -moz-column-gap: 10%;
-       column-gap: 10%;
+  column-gap: 10%;
   margin-left: 15%;
 }
 .settings .distrubition-funds-action .dfa-btn button {
@@ -642,8 +723,7 @@ html {
     margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr;
-    -moz-column-gap: 10%;
-         column-gap: 10%;
+    column-gap: 10%;
     margin-left: 0;
   }
   .settings .distrubition-funds-action .dfa-btn button {
@@ -658,4 +738,4 @@ html {
   .settings .radio-btns h4 {
     margin-top: 10px;
   }
-}/*# sourceMappingURL=main.css.map */
+}
