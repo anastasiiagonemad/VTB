@@ -1,5 +1,3 @@
-
-
 html {
   // font-size: 18px;
   font-family: 'Intro', sans-serif;
@@ -30,6 +28,12 @@ html {
   }
   .main {
     max-height: 96vh;
+  }
+}
+
+@media screen and (max-width: $tab) and (orientation: portrait) {
+  html {
+    font-size: 18px;
   }
 }
 
