@@ -3,4 +3,72 @@ block variables
   - var title = "VTB Настройки"
 
 block main
-  p settings
+  .settings 
+    .title  
+      h2 Настройки
+      button Сохранить
+    .super-priority 
+      .slide-button 
+        input(type="checkbox" class='slideButton' value='on' name='check' id='slideOne' checked)
+        label(for="slideOne" class='slideLabel') 
+      .description 
+        p Супер-Приоритет
+      .input 
+        select#select1(name="select1") 
+          option(value="storage") Накопление
+    .distribution-funds 
+      .slide-button 
+        input(type="checkbox" class='slideButton' value='on' name='check' id='slideTwo' checked)
+        label(for="slideTwo" class='slideLabel')
+      .description 
+        p Равномерное распределение средств
+    .distrubition-funds-action
+      .dfa-desc 
+        .slide-button 
+          input(type="checkbox" class='slideButton' value='on' name='check' id='slideThree' checked)
+          label(for="slideThree" class='slideLabel')
+        .description 
+          p Распределить сумму на проценты между целями:
+      .dfa-btn 
+        .item 
+          p Высокий
+          button 50%
+        .item 
+          p Средний
+          button 30%
+        .item 
+          p Низкий
+          button 20%
+    .no-funds 
+      .slide-button 
+          input(type="checkbox" class='slideButton' value='on' name='check' id='slideFour' checked)
+          label(for="slideFour" class='slideLabel')
+      .description 
+        p Не списывать денежные средства, если не хватает на балансе
+    .radio-btns
+      .radio
+        h4 По приоритету:
+        ul 
+          li 
+            input(type="radio" id='h-option' name='selector1')
+            label(for="h-option") Высокий
+           
+          li 
+            input(type="radio" id='m-option' name='selector1')
+            label(for="m-option") Средний
+          
+          li 
+            input(type="radio" id='l-option' name='selector1')
+            label(for="l-option") Низкий
+           
+      .radio
+        h4 По приоритету времени:
+        ul 
+          li 
+            input(type="radio" id='short-option' name='selector2')
+            label(for="short-option") Красткосрочные
+          
+          li 
+            input(type="radio" id='long-option' name='selector2')
+            label(for="long-option") Долгосрочные
+          
