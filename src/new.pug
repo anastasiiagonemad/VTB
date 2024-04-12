@@ -27,24 +27,17 @@ block main
             label(for="sum") Сумма которую хотите накопить
             input(type="number" id='sum' placeholder='Введите сумму')
 
-          .custom-select
-            p Приоритет цели
-            .select-dropdown#dropdown1
-              p Выберите приоритет
-              img(src=require('./assets/icons/arrow-down.png') alt="arrow-icon")
-              .select-dropdown-content#content1
-                p(value='hight') Высокий
-                p(value='medium') Средний
-                p(value='low') Низкий
-
-          .custom-select
-            p Приоритет цели по времени
-            .select-dropdown#dropdown2
-              p Приоритет по времени
-              img(src=require('./assets/icons/arrow-down.png') alt="arrow-icon")
-              .select-dropdown-content#content2
-                p(value='short') Краткосрочная
-                p(value='long') Долгосрочная
+          .input-item 
+            label(for="priory-target") Приоритет цели
+            select#priory-target(name="priory-target")
+              option(value="high") Высокий
+              option(value="medium") Средний
+              option(value="low") Низкий
+          .input-item 
+            label(for="priory-time") Приоритет цели по времени
+            select#priory-time(name="priory-time") 
+              option(value="high-time") Долгосрочная
+              option(value="low-time") Короткосрочная
 
           .input-item
             label(for="сalendar-start") Дата начала накопления

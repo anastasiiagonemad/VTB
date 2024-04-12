@@ -56,7 +56,8 @@ html {
   width: 80px;
   height: 80px;
   border-radius: 15px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .sidebar__start .sidebar__add-task {
   height: 4vw;
@@ -139,7 +140,8 @@ html {
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
 .help-container .item {
   display: flex;
@@ -274,7 +276,8 @@ html {
 .new-task {
   display: grid;
   grid-template-columns: 9.6fr 7.4fr;
-  column-gap: 30px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
 }
 .new-task .first-screen {
   padding: 20px 76px;
@@ -320,7 +323,8 @@ html {
 .new-task .first-screen .new-task-inputs {
   display: grid;
   grid-template-columns: 4.7fr 2.85fr;
-  column-gap: 30px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
 }
 .new-task .first-screen .new-task-inputs .nav-buttons-mob {
   display: none;
@@ -360,47 +364,11 @@ html {
   padding: 17px 20px;
   border-radius: 6px;
 }
+.new-task .first-screen .form .input-item input::-moz-placeholder {
+  color: #000000;
+}
 .new-task .first-screen .form .input-item input::placeholder {
   color: #000000;
-}
-.new-task .first-screen .form .custom-select {
-  position: relative;
-  color: #009fdf;
-}
-.new-task .first-screen .form .custom-select p {
-  margin-bottom: 2%;
-}
-.new-task .first-screen .form .custom-select .select-dropdown {
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #ededed;
-  color: #000000;
-}
-.new-task .first-screen .form .custom-select .select-dropdown img {
-  width: 10px;
-}
-.new-task .first-screen .form .custom-select .select-dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #ffffff;
-  width: 150px;
-  border: 2px solid #009fdf;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-.new-task .first-screen .form .custom-select .select-dropdown-content p {
-  margin: 0;
-  color: #000000;
-  padding: 10px;
-  display: block;
-  font-size: 0.875em;
-}
-.new-task .first-screen .form .custom-select .select-dropdown-content p:hover {
-  background-color: #009fdf;
-  color: #ffffff;
 }
 .new-task .first-screen .input-item-end {
   padding-top: 50px;
@@ -458,4 +426,4 @@ html {
     margin: 0 auto;
     padding: 0 0 50px 0;
   }
-}
+}/*# sourceMappingURL=main.css.map */
