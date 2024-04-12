@@ -3,35 +3,40 @@ block variables
   - var title = "VTB Новая задача"
 
 block main
-  .new-task 
+  .new-task
     .first-screen
-      .new-task-top 
-        .nav 
+      .new-task-top
+        .nav
           img(src=require('./assets/icons/arrow-left.png') alt="arrow-left")
           p Назад
         .nav-buttons
           button Сохранить
           button Отмена
+
       .new-task-inputs
         .nav-buttons-mob
           button Сохранить
-          button Отмена    
-        form.form 
+          button Отмена
+
+        form.form
           .input-item
             label(for="task") Название цели
             input(type="text" id='task' placeholder='Введите название цели')
+
           .input-item
             label(for="sum") Сумма которую хотите накопить
             input(type="number" id='sum' placeholder='Введите сумму')
+
           .custom-select
             p Приоритет цели
-            .select-dropdown#dropdown1 
+            .select-dropdown#dropdown1
               p Выберите приоритет
               img(src=require('./assets/icons/arrow-down.png') alt="arrow-icon")
               .select-dropdown-content#content1
                 p(value='hight') Высокий
                 p(value='medium') Средний
-                p(value='low') Низкий  
+                p(value='low') Низкий
+
           .custom-select
             p Приоритет цели по времени
             .select-dropdown#dropdown2
@@ -39,20 +44,25 @@ block main
               img(src=require('./assets/icons/arrow-down.png') alt="arrow-icon")
               .select-dropdown-content#content2
                 p(value='short') Краткосрочная
-                p(value='long') Долгосрочная  
+                p(value='long') Долгосрочная
+
           .input-item
             label(for="сalendar-start") Дата начала накопления
             input(type="date" id='calendar-start' placeholder='Выберите дату')
+
           .input-item
             label(for="сalendar-end") Дата окончания накопления
             input(type="date" id='calendar-end' placeholder='Выберите дату')
-          .input-item-end
+
+          .input-item.input-item-end
             label(for="sum-now") Сумма которую хотите внести сейчас
             input(type="number" id='sum-now' placeholder='Введите сумму')
-          .form-button  
+
+          .form-button
             button(type='submit') Пополнить
-        .add-img 
+
+        .add-img
           img(src=require('./assets/icons/new-task.png') alt="add-icon")
-        
-    .second-screen 
+
+    .second-screen
       img(src=require('./assets/other/pic.png') alt="")
