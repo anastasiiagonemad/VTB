@@ -41,6 +41,10 @@ html {
     grid-template-rows: 52px 1fr;
     gap: $size20px * 1.5;
   }
+
+  .main {
+    padding: $size20px;
+  }
 }
 
 // @media screen and (orientation: portrait) {
