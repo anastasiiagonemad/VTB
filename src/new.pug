@@ -4,54 +4,57 @@ block variables
 
 block main
   .new
-    .new__block1
-      .new__block1-back
+    form(name="formNew").new__form
+      .new__form-back
         img(src=require('./assets/icons/arrow-left.png') alt="arrow-left")
         p Назад
 
-      .new__block1-buttons
-        button Сохранить
-        button Отмена
+      .new__form-buttons
+        button.new__form-save Сохранить
+        button.new__form-cancel Отмена
 
-      form.form.new__block1-inputs-top
-        .form__input-item
+      .new__form-inputs-top
+        .input-item
           label(for="task") Название цели
           input(type="text" id='task' placeholder='Введите название цели')
 
-        .form__input-item
+        .input-item
           label(for="sum") Сумма которую хотите накопить
           input(type="number" id='sum' placeholder='Введите сумму')
 
-        .form__input-item
+        .input-item
           label(for="priory-target") Приоритет цели
           select#priory-target(name="priory-target")
             option(value="high") Высокий
             option(value="medium") Средний
             option(value="low") Низкий
-        .form__input-item
+        .input-item
           label(for="priory-time") Приоритет цели по времени
           select#priory-time(name="priory-time")
             option(value="high-time") Долгосрочная
             option(value="low-time") Короткосрочная
 
-        .form__input-item
+        .input-item
           label(for="сalendar-start") Дата начала накопления
           input(type="date" id='calendar-start' placeholder='Выберите дату')
 
-        .form__input-item
+        .input-item
           label(for="сalendar-end") Дата окончания накопления
           input(type="date" id='calendar-end' placeholder='Выберите дату')
 
-      .new__block1-inputs-bottom
-        .form__input-item
+      .new__form-inputs-bottom
+        .input-item
           label(for="sum-now") Сумма которую хотите внести сейчас
           input(type="number" id='sum-now' placeholder='Введите сумму')
 
-        button(class='form__button' type='submit') Пополнить
+        button(class='new__form-submit' type='submit') Пополнить
 
-      .new__block1-add
-        img(src=require('./assets/icons/new-task.png') alt="add-icon")
+      .new__form-add
+        input(type="file" accept=".jpg, .png, .gif" name="addImage").new__form-add-input
+        .new__form-add-button
+          img(src=require('./assets/icons/new-task.png') alt="add-icon")
+        .new__form-add-preview
 
-    .new__block2
+    .new__pic
       img(src=require('./assets/other/pic.png') alt="").large
       img(src=require('./assets/other/pic-small.png') alt="").mob

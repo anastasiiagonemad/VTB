@@ -16,7 +16,7 @@ html {
 }
 
 .main {
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 @media screen and (min-width: 993px) and (orientation: landscape) {
@@ -46,7 +46,7 @@ html {
   background-color: #ffffff;
   width: 120px;
   height: 96vh;
-  border-radius: 15px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -122,21 +122,6 @@ html {
   background-color: #009fdf;
 }
 
-@media screen and (orientation: portrait) {
-  .sidebar {
-    height: auto;
-    overflow-y: auto;
-  }
-}
-@media screen and (max-width: 992px) {
-  .sidebar {
-    width: 100%;
-    height: 100%;
-    background-color: unset;
-    border-radius: unset;
-    flex-direction: row;
-  }
-}
 .help {
   padding: 50px 20px 20px 20px;
   background-color: #ffffff;
@@ -298,37 +283,38 @@ html {
   grid-template-columns: 9.6fr 7.4fr;
   gap: 30px;
 }
-.new__block1 {
+.new__form {
   padding: 20px 76px;
   background-color: #ffffff;
-  border-radius: 15px;
+  border-radius: 10px;
   display: grid;
   gap: 24px;
   grid-template-columns: 0.8fr 2fr 1fr 3fr;
   grid-template-rows: min-content 1fr min-content;
   grid-template-areas: "back . buttons buttons" "inputs-top inputs-top inputs-top add" "inputs-bottom inputs-bottom inputs-bottom .";
 }
-.new__block1-back {
+.new__form-back {
   grid-area: back;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.new__block1-back img {
+.new__form-back img {
   width: 20px;
   height: 15px;
   cursor: pointer;
 }
-.new__block1-back p {
+.new__form-back p {
   font-size: 1.1rem;
   text-transform: uppercase;
 }
-.new__block1-buttons {
+.new__form-buttons {
   grid-area: buttons;
   display: flex;
   gap: 20px;
+  justify-content: flex-end;
 }
-.new__block1-buttons button {
+.new__form-buttons button {
   width: 11vw;
   height: 3vw;
   border-radius: 10px;
@@ -336,32 +322,66 @@ html {
   border: 2px solid #009fdf;
   color: #009fdf;
   cursor: pointer;
+  transition: all ease 0.5s;
 }
-.new__block1-inputs-top {
+.new__form-buttons button:not([disabled]):hover {
+  background-color: #009fdf;
+  color: #ffffff;
+}
+.new__form-buttons button:not([disabled]):active {
+  transform: scale(0.95);
+  background-color: #009fdf;
+  color: #ffffff;
+}
+.new__form-inputs-top {
   grid-area: inputs-top;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.new__block1-inputs-bottom {
+.new__form-inputs-bottom {
   grid-area: inputs-bottom;
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding-top: 50px;
 }
-.new__block1-inputs-bottom .form__button {
+.new__form-inputs-bottom button {
   width: 100%;
-  border-radius: 5px;
+  border: 2px solid #0a2973;
+  border-radius: 10px;
   padding: 1vw;
-  border: none;
   background-color: #0a2973;
   color: #ffffff;
   font-size: 1.2rem;
+  font-weight: bolder;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+.new__form-inputs-bottom button:not([disabled]):hover {
+  color: #0a2973;
+  background-color: #ffffff;
+}
+.new__form-inputs-bottom button:not([disabled]):active {
+  transform: scale(0.95);
+  color: #0a2973;
+  background-color: #ffffff;
+}
+.new__form-add {
+  grid-area: add;
+  position: relative;
+}
+.new__form-add-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  opacity: 0;
+  font-size: 0;
   cursor: pointer;
 }
-.new__block1-add {
-  grid-area: add;
+.new__form-add-button {
   width: 100%;
   height: 50%;
   border: 2px solid #ededed;
@@ -370,136 +390,54 @@ html {
   align-items: center;
   justify-content: center;
 }
-.new__block1-add img {
-  cursor: pointer;
+.new__form-add-preview {
+  display: inline-block;
+  width: 100%;
+  height: 50%;
+  padding: 10px;
 }
-.new__block2 {
+.new__form-add-preview img {
+  width: 100%;
+}
+.new__pic {
   display: flex;
   align-items: center;
   background-color: #ffffff;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 20px;
   height: 96vh;
 }
-.new__block2 .mob {
+.new__pic .mob {
   display: none;
 }
-.new__block2 .large {
+.new__pic .large {
   width: 100%;
 }
 
-.form__input-item {
+.input-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1vh;
 }
-.form__input-item label {
+.input-item label {
   color: #009fdf;
 }
-.form__input-item input,
-.form__input-item select {
+.input-item input,
+.input-item select {
   border: none;
   width: 100%;
   background-color: #ededed;
   padding: 1.275vh 20px;
   border-radius: 5px;
 }
-.form__input-item input::placeholder {
+.input-item input::placeholder {
   color: #000000;
 }
 
 @media screen and (max-width: 1200px) {
   .new__block1 {
     padding: 15px 40px;
-  }
-}
-@media screen and (max-width: 992px) {
-  .new {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .new__block1 {
-    padding: 40px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, min-content);
-    grid-template-areas: "back" "add" "inputs-top" "inputs-bottom" "buttons";
-  }
-  .new__block1-back {
-    grid-area: back;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .new__block1-back img {
-    width: 20px;
-    height: 15px;
-    cursor: pointer;
-  }
-  .new__block1-back p {
-    font-size: 1.1rem;
-    text-transform: uppercase;
-  }
-  .new__block1-buttons {
-    grid-area: buttons;
-    display: flex;
-    gap: 20px;
-  }
-  .new__block1-buttons button {
-    width: 11vw;
-    height: 3vw;
-    border-radius: 10px;
-    background-color: #ffffff;
-    border: 2px solid #009fdf;
-    color: #009fdf;
-    cursor: pointer;
-  }
-  .new__block1-inputs-top {
-    grid-area: inputs-top;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .new__block1-inputs-bottom {
-    grid-area: inputs-bottom;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-top: 50px;
-  }
-  .new__block1-inputs-bottom .form__button {
-    width: 100%;
-    border-radius: 5px;
-    padding: 1vw;
-    border: none;
-    background-color: #0a2973;
-    color: #ffffff;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  .new__block1-add {
-    grid-area: add;
-    width: 100%;
-    height: 50%;
-    border: 2px solid #ededed;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .new__block1-add img {
-    cursor: pointer;
-  }
-  .new__block2 {
-    height: unset;
-  }
-  .new__block2 .large {
-    display: none;
-  }
-  .new__block2 .mob {
-    display: block;
-    width: 100%;
   }
 }
 .settings {
