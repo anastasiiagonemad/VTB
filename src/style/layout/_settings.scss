@@ -1,12 +1,13 @@
 .settings {
   background-color: $background-page;
-  padding: 20px;
-  margin: 20px;
+  padding: $size20px;
   border-radius: $border-radius15;
+
   .title {
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 7fr 3fr;
     align-items: center;
+
     h2 {
       color: $blue;
     }
