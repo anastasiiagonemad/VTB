@@ -31,7 +31,7 @@ html {
   }
 }
 
-@media screen and (max-width: $tab) and (orientation: portrait) {
+@media screen and (max-width: $tab), (orientation: portrait) {
   html {
     font-size: 18px;
   }
