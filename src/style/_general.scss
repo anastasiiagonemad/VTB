@@ -2,7 +2,7 @@ html {
   // font-size: 18px;
   font-family: 'Intro', sans-serif;
   font-size: 1vw;
-  color: $font-color;
+  color: $blue;
   max-width: 1920px;
   min-width: 320px;
 }
@@ -47,12 +47,3 @@ html {
     padding: $size20px;
   }
 }
-
-// @media screen and (orientation: portrait) {
-//   .body,
-//   .main {
-//     height: auto;
-//     overflow-y: auto;
-//   }
-
-// }
