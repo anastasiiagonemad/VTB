@@ -1,0 +1,54 @@
+.tasks {
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: $size20px * 1.5;
+
+  &__line1 {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 5fr) 6fr;
+    gap: $size20px * 1.5;
+  }
+
+  &__line2 {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 5fr 6fr 5fr;
+    gap: $size20px * 1.5;
+  }
+
+  &__item {
+    background-color: $background-page;
+    border-radius: $border-radius10;
+    padding: $size20px * 1.5;
+  }
+}
+
+@media screen and (max-width: $tab), (orientation: portrait) {
+  .tasks {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    &__line1 {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      gap: $size20px * 1.5;
+    }
+
+    &__line2 {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      gap: $size20px * 1.5;
+    }
+
+
+  &__item {
+    padding: $size20px;
+  }
+  }
+}
