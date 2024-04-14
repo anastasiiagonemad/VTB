@@ -35,8 +35,8 @@ html {
   }
   .body {
     grid-template-columns: 1fr;
-    grid-template-rows: 52px 1fr;
-    gap: 30px;
+    grid-template-rows: min-content 1fr;
+    gap: 0;
   }
   .main {
     padding: 20px;
@@ -122,6 +122,73 @@ html {
   background-color: #009fdf;
 }
 
+@media screen and (orientation: portrait) {
+  .sidebar {
+    height: auto;
+    overflow-y: auto;
+  }
+}
+@media screen and (max-width: 992px) {
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    background-color: unset;
+    border-radius: unset;
+    flex-direction: row;
+    padding: 20px;
+  }
+  .sidebar__start {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0;
+    grid-template-areas: "logo add avatar";
+  }
+  .sidebar__start .logo {
+    grid-area: logo;
+  }
+  .sidebar__start .logo img {
+    width: 160px;
+    height: auto;
+  }
+  .sidebar__start .avatar {
+    grid-area: avatar;
+    justify-self: end;
+    margin-top: 0;
+  }
+  .sidebar__start .avatar img {
+    width: 80px;
+    height: 80px;
+  }
+  .sidebar__start .sidebar__add-task {
+    grid-area: add;
+    justify-self: end;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all ease 0.5s;
+  }
+  .sidebar__start .sidebar__add-task:hover {
+    background-color: #009fdf;
+  }
+  .sidebar__start .sidebar__add-task img {
+    width: 100%;
+    height: 100%;
+  }
+  .sidebar__handlers {
+    display: none;
+  }
+  .sidebar__assistance {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .sidebar__start {
+    grid-template-columns: 7fr 1fr 1fr;
+  }
+}
 .help {
   padding: 50px 20px 20px 20px;
   background-color: #ffffff;
@@ -436,8 +503,96 @@ html {
 }
 
 @media screen and (max-width: 1200px) {
-  .new__block1 {
+  .new__form {
     padding: 15px 40px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .new {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .new__form {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, min-content);
+    grid-template-areas: "back" "add" "inputs-top" "inputs-bottom" "buttons";
+  }
+  .new__form-back {
+    grid-area: back;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .new__form-back img {
+    width: 20px;
+    height: 15px;
+    cursor: pointer;
+  }
+  .new__form-back p {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+  }
+  .new__form-buttons {
+    grid-area: buttons;
+    display: flex;
+    gap: 20px;
+  }
+  .new__form-buttons button {
+    width: 11vw;
+    height: 3vw;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 2px solid #009fdf;
+    color: #009fdf;
+    cursor: pointer;
+  }
+  .new__form-inputs-top {
+    grid-area: inputs-top;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .new__form-inputs-bottom {
+    grid-area: inputs-bottom;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 50px;
+  }
+  .new__form-inputs-bottom .form__button {
+    width: 100%;
+    border-radius: 5px;
+    padding: 1vw;
+    border: none;
+    background-color: #0a2973;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .new__form-add {
+    grid-area: add;
+    width: 100%;
+    height: 50%;
+    border: 2px solid #ededed;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .new__form-add img {
+    cursor: pointer;
+  }
+  .new__block2 {
+    height: unset;
+  }
+  .new__block2 .large {
+    display: none;
+  }
+  .new__block2 .mob {
+    display: block;
+    width: 100%;
   }
 }
 .settings {
