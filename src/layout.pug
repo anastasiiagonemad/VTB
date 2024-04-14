@@ -6,7 +6,6 @@ html(lang="ru")
     meta(charset="utf-8")
     title #{title}
     block scripts
-    
 
   body.body
     header.sidebar
@@ -43,15 +42,30 @@ html(lang="ru")
           a(href="exit.html")
             img(src=require('./assets/icons/logout.png') alt="logout-icon").img
 
-    //- .sidebar-mob
-    //-     .logo
-    //-         a(href="#")
-    //-             img(src=require('./assets/icons/logo.png') alt="logo-icon")
-    //-     .add-task
-    //-         a(href="#")
-    //-             img(src=require('./assets/icons/add-goal.png') alt="add-icon")
-    //-     .avatar
-    //-         a(href="#")
-    //-             img(src=require('./assets/other/avatar.jpg') alt="avatar")
+    .sidebar__handlers_mob
+      .sidebar__handlers_mob-general.box_handlers
+        a(href="index.html")
+          img(src=require('./assets/icons/dashboard.png') alt="dash-icon").img
+
+      .sidebar__handlers_mob-tasks.box_handlers
+        a(href="tasks.html")
+          img(src=require('./assets/icons/layer.png') alt="layer-icon").img
+
+      .sidebar__handlers_mob-settings.box_handlers
+        a(href="settings.html")
+          img(src=require('./assets/icons/settings.png') alt="settings-icon").img
+
+    .sidebar__assistance_mob
+        .sidebar__assistance_mob-help.box_assistance
+          a(href="help.html").box_assistance-link
+            img(src=require('./assets/icons/help.png') alt="help-icon").img
+          a(href="help.html")
+            p Помощь
+        .sidebar__assistance_mob-exit.box_assistance
+          a(href="exit.html").box_assistance-link
+            img(src=require('./assets/icons/logout.png') alt="logout-icon").img
+          a(href="exit.html")
+            p Выход
+
     main.main
         block main
