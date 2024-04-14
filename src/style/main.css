@@ -29,7 +29,7 @@ html {
     max-height: 96vh;
   }
 }
-@media screen and (max-width: 992px) and (orientation: portrait) {
+@media screen and (max-width: 992px), (orientation: portrait) {
   html {
     font-size: 18px;
   }
@@ -128,7 +128,7 @@ html {
     overflow-y: auto;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 992px), (orientation: portrait) {
   .sidebar {
     width: 100%;
     height: 100%;
@@ -365,6 +365,7 @@ html {
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 }
 .new__form-back img {
   width: 20px;
@@ -380,6 +381,8 @@ html {
   display: flex;
   gap: 20px;
   justify-content: flex-end;
+  font-size: 1.2rem;
+  font-weight: bolder;
 }
 .new__form-buttons button {
   width: 11vw;
@@ -457,14 +460,12 @@ html {
   align-items: center;
   justify-content: center;
 }
-.new__form-add-preview {
-  display: inline-block;
-  width: 100%;
-  height: 50%;
-  padding: 10px;
+.new__form-add-button img {
+  width: 94px;
+  height: 94px;
 }
-.new__form-add-preview img {
-  width: 100%;
+.new__form-add-preview {
+  display: none;
 }
 .new__pic {
   display: flex;
@@ -497,100 +498,91 @@ html {
   background-color: #ededed;
   padding: 1.275vh 20px;
   border-radius: 5px;
+  cursor: pointer;
 }
 .input-item input::placeholder {
   color: #000000;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px), (orientation: portrait) {
   .new__form {
     padding: 15px 40px;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 992px), (orientation: portrait) {
   .new {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 30px;
   }
   .new__form {
     padding: 40px;
-    display: grid;
+    font-size: 1.4rem;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, min-content);
+    grid-template-rows: min-content 100vw repeat(3, min-content);
+    gap: 30px;
     grid-template-areas: "back" "add" "inputs-top" "inputs-bottom" "buttons";
   }
-  .new__form-back {
-    grid-area: back;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .new__form-back img {
-    width: 20px;
-    height: 15px;
-    cursor: pointer;
-  }
   .new__form-back p {
-    font-size: 1.1rem;
-    text-transform: uppercase;
+    font-size: 1.4rem;
   }
   .new__form-buttons {
     grid-area: buttons;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
   }
   .new__form-buttons button {
-    width: 11vw;
-    height: 3vw;
-    border-radius: 10px;
-    background-color: #ffffff;
-    border: 2px solid #009fdf;
-    color: #009fdf;
-    cursor: pointer;
+    width: 100%;
+    height: auto;
+    padding: 2vw;
+    font-size: 1.4rem;
   }
   .new__form-inputs-top {
-    grid-area: inputs-top;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    gap: 20px;
   }
   .new__form-inputs-bottom {
-    grid-area: inputs-bottom;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-top: 50px;
+    padding-top: 20px;
   }
-  .new__form-inputs-bottom .form__button {
-    width: 100%;
-    border-radius: 5px;
-    padding: 1vw;
-    border: none;
-    background-color: #0a2973;
-    color: #ffffff;
-    font-size: 1.2rem;
-    cursor: pointer;
+  .new__form-inputs-bottom button {
+    padding: 2vw;
+    font-size: 1.4rem;
   }
   .new__form-add {
     grid-area: add;
+    position: relative;
+  }
+  .new__form-add-input {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 50%;
+    opacity: 0;
+    font-size: 0;
+    cursor: pointer;
+  }
+  .new__form-add-button {
+    width: 100%;
+    height: 100%;
     border: 2px solid #ededed;
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .new__form-add img {
-    cursor: pointer;
+  .new__form-add-button img {
+    width: 200px;
+    height: 200px;
   }
-  .new__block2 {
-    height: unset;
-  }
-  .new__block2 .large {
+  .new__form-add-preview {
     display: none;
   }
-  .new__block2 .mob {
+  .new__pic {
+    height: unset;
+  }
+  .new__pic .large {
+    display: none;
+  }
+  .new__pic .mob {
     display: block;
     width: 100%;
   }
