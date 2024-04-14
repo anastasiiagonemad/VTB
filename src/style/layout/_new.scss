@@ -3,10 +3,10 @@
   grid-template-columns: 9.6fr 7.4fr;
   gap: $size20px * 1.5;
 
-  &__block1 {
+  &__form {
     padding: $size20px $size20px * 3.8;
     background-color: $background-page;
-    border-radius: $border-radius;
+    border-radius: $border-radius10;
     display: grid;
     gap: $size20px * 1.2;
     grid-template-columns: 0.8fr 2fr 1fr 3fr;
@@ -35,15 +35,28 @@
       grid-area: buttons;
       display: flex;
       gap: $size20px;
+      justify-content: flex-end;
 
       button {
         width: 11vw;
         height: 3vw;
-        border-radius: $size20px * 0.5;
+        border-radius: $border-radius10;
         background-color: $background-page;
         border: 2px solid $light-blue;
         color: $light-blue;
         cursor: pointer;
+        transition: $transition;
+
+        &:not([disabled]):hover {
+          background-color: $light-blue;
+          color: $background-page;
+        }
+
+        &:not([disabled]):active {
+          transform: scale(0.95);
+          background-color: $light-blue;
+          color: $background-page;
+        }
       }
     }
 
@@ -61,38 +74,74 @@
       gap: $size20px;
       padding-top: $size20px * 2.5;
 
-      .form__button {
+      button {
         width: 100%;
-        border-radius: $size20px * 0.25;
+        border: 2px solid $blue;
+        border-radius: $border-radius10;
         padding: 1vw;
-        border: none;
         background-color: $blue;
         color: $background-page;
         font-size: 1.2rem;
+        font-weight: bolder;
         cursor: pointer;
+        transition: $transition;
+
+        &:not([disabled]):hover {
+          color: $blue;
+          background-color: $background-page;
+        }
+
+        &:not([disabled]):active {
+          transform: scale(0.95);
+          color: $blue;
+          background-color: $background-page;
+        }
       }
     }
 
     &-add {
       grid-area: add;
-      width: 100%;
-      height: 50%;
-      border: 2px solid $background-screen;
-      border-radius: $size20px * 0.25;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      img {
+      position: relative;
+
+      &-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        opacity: 0;
+        font-size: 0;
         cursor: pointer;
+      }
+
+      &-button {
+        width: 100%;
+        height: 50%;
+        border: 2px solid $background-screen;
+        border-radius: $size20px * 0.25;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &-preview {
+        display: inline-block;
+        width: 100%;
+        height: 50%;
+        padding: $size20px * 0.5;
+
+        img {
+          width: 100%;
+        }
       }
     }
   }
 
-  &__block2 {
+  &__pic {
     display: flex;
     align-items: center;
     background-color: $background-page;
-    border-radius: 15px;
+    border-radius: $border-radius10;
     padding: 20px;
     height: 96vh;
     .mob {
@@ -102,13 +151,11 @@
     .large {
       width: 100%;
     }
-
-
   }
 }
 
 // inputs and selects
-.form__input-item {
+.input-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,96 +190,94 @@
   }
 }
 
-@media screen and (max-width: $tab) {
-  .new {
-    grid-template-columns: 1fr;
-    gap: $size20px;
+// @media screen and (max-width: $tab) {
+//   .new {
+//     grid-template-columns: 1fr;
+//     gap: $size20px;
 
-    &__block1 {
-      padding: $size20px * 2;
-      display: grid;
+//     &__block1 {
+//       padding: $size20px * 2;
+//       display: grid;
 
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(5, min-content);
-      grid-template-areas: "back"
-                            "add"
-                            "inputs-top"
-                            "inputs-bottom"
-                            "buttons";
+//       grid-template-columns: 1fr;
+//       grid-template-rows: repeat(5, min-content);
+//       grid-template-areas: "back"
+//                             "add"
+//                             "inputs-top"
+//                             "inputs-bottom"
+//                             "buttons";
 
-      &-back {
-        grid-area: back;
-        display: flex;
-        align-items: center;
-        gap: $size20px * 0.5;
-        img {
-          width: $size20px;
-          height: $size20px * 0.75;
-          cursor: pointer;
-        }
-        p {
-          font-size: 1.1rem;
-          text-transform: uppercase;
-        }
-      }
+//       &-back {
+//         grid-area: back;
+//         display: flex;
+//         align-items: center;
+//         gap: $size20px * 0.5;
+//         img {
+//           width: $size20px;
+//           height: $size20px * 0.75;
+//           cursor: pointer;
+//         }
+//         p {
+//           font-size: 1.1rem;
+//           text-transform: uppercase;
+//         }
+//       }
 
-      &-buttons {
-        grid-area: buttons;
-        display: flex;
-        gap: $size20px;
+//       &-buttons {
+//         grid-area: buttons;
+//         display: flex;
+//         gap: $size20px;
 
-        button {
-          width: 11vw;
-          height: 3vw;
-          border-radius: $size20px * 0.5;
-          background-color: $background-page;
-          border: 2px solid $light-blue;
-          color: $light-blue;
-          cursor: pointer;
-        }
-      }
+//         button {
+//           width: 11vw;
+//           height: 3vw;
+//           border-radius: $size20px * 0.5;
+//           background-color: $background-page;
+//           border: 2px solid $light-blue;
+//           color: $light-blue;
+//           cursor: pointer;
+//         }
+//       }
 
-      &-inputs-top {
-        grid-area: inputs-top;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
+//       &-inputs-top {
+//         grid-area: inputs-top;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+//       }
 
-      &-inputs-bottom {
-        grid-area: inputs-bottom;
-        display: flex;
-        flex-direction: column;
-        gap: $size20px;
-        padding-top: $size20px * 2.5;
+//       &-inputs-bottom {
+//         grid-area: inputs-bottom;
+//         display: flex;
+//         flex-direction: column;
+//         gap: $size20px;
+//         padding-top: $size20px * 2.5;
 
-        .form__button {
-          width: 100%;
-          border-radius: $size20px * 0.25;
-          padding: 1vw;
-          border: none;
-          background-color: $blue;
-          color: $background-page;
-          font-size: 1.2rem;
-          cursor: pointer;
-        }
-      }
+//         .form__button {
+//           width: 100%;
+//           border-radius: $size20px * 0.25;
+//           padding: 1vw;
+//           border: none;
+//           background-color: $blue;
+//           color: $background-page;
+//           font-size: 1.2rem;
+//           cursor: pointer;
+//         }
+//       }
 
-      &-add {
-        grid-area: add;
-        width: 100%;
-        height: 50%;
-        border: 2px solid $background-screen;
-        border-radius: $size20px * 0.25;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        img {
-          cursor: pointer;
-        }
-      }
-
-
+//       &-add {
+//         grid-area: add;
+//         width: 100%;
+//         height: 50%;
+//         border: 2px solid $background-screen;
+//         border-radius: $size20px * 0.25;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         img {
+//           cursor: pointer;
+//         }
+//       }
 
 
 
@@ -240,25 +285,50 @@
 
 
 
-    }
+
+
+//     }
 
 
 
-    &__block2 {
+//     &__block2 {
 
-      height: unset;
-      .large {
-        display: none;
-      }
-      .mob {
-        display: block;
-        width: 100%;
-      }
-    }
+//       height: unset;
+//       .large {
+//         display: none;
+//       }
+//       .mob {
+//         display: block;
+//         width: 100%;
+//       }
+//     }
 
 
-  }
-}
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // .new-task {
 //   display: grid;
 //   grid-template-columns: 9.6fr 7.4fr;
@@ -267,7 +337,7 @@
 //   .first-screen {
 //     padding: $size20px $size20px * 3.8;
 //     background-color: $background-page;
-//     border-radius: $border-radius;
+//     border-radius: $border-radius10;
 //     display: flex;
 //     flex-direction: column;
 //     justify-content: space-between;
@@ -302,7 +372,7 @@
 //         button {
 //           width: 11vw;
 //           padding: 1vw;
-//           border-radius: $size20px * 0.5;
+          // border-radius: $border-radius10;
 //           background-color: $background-page;
 //           border: 2px solid $light-blue;
 //           color: $light-blue;
