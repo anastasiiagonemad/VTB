@@ -134,15 +134,17 @@
       }
 
       &-preview {
-        display: none;
-        // display: inline-block;
-        // width: 100%;
-        // height: 50%;
-        // padding: $size20px * 0.5;
+        display: inline-block;
+        width: 100%;
+        height: 50%;
+        padding: $size20px * 0.5;
+        color: $blue;
+        font-weight: bolder;
+        font-size: larger;
 
-        // img {
-        //   width: 100%;
-        // }
+        img {
+          width: 100%;
+        }
       }
     }
   }
@@ -184,16 +186,16 @@
     padding: 1.5vh * 0.85 $size20px;
     border-radius: $size20px * 0.25;
     cursor: pointer;
-
-    & .error {
-      border: 2px solid red;
-    }
   }
 
   input {
     &::placeholder {
       color: $font-color;
     }
+  }
+
+  .hint {
+    font-size: smaller;
   }
 }
 
