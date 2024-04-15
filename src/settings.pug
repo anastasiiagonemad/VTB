@@ -3,72 +3,71 @@ block variables
   - var title = "VTB Настройки"
 
 block main
-  .settings 
-    .title  
+  .settings
+    .title
       h2 Настройки
-      button Сохранить
-    .super-priority 
-      .slide-button 
+      button(class='settings__save' type='submit') Сохранить
+    .super-priority
+      .slide-button
         input(type="checkbox" class='slideButton' value='on' name='check' id='slideOne' checked)
-        label(for="slideOne" class='slideLabel') 
-      .description 
+        label(for="slideOne" class='slideLabel')
+      .description
         p Супер-Приоритет
-      .input 
-        select#select1(name="select1") 
+      .input
+        select#select1(name="select1")
           option(value="storage") Накопление
-    .distribution-funds 
-      .slide-button 
+    .distribution-funds
+      .slide-button
         input(type="checkbox" class='slideButton' value='on' name='check' id='slideTwo' checked)
         label(for="slideTwo" class='slideLabel')
-      .description 
+      .description
         p Равномерное распределение средств
     .distrubition-funds-action
-      .dfa-desc 
-        .slide-button 
+      .dfa-desc
+        .slide-button
           input(type="checkbox" class='slideButton' value='on' name='check' id='slideThree' checked)
           label(for="slideThree" class='slideLabel')
-        .description 
+        .description
           p Распределить сумму на проценты между целями:
-      .dfa-btn 
-        .item 
+      .dfa-btn
+        .item
           p Высокий
           button 50%
-        .item 
+        .item
           p Средний
           button 30%
-        .item 
+        .item
           p Низкий
           button 20%
-    .no-funds 
-      .slide-button 
+    .no-funds
+      .slide-button
           input(type="checkbox" class='slideButton' value='on' name='check' id='slideFour' checked)
           label(for="slideFour" class='slideLabel')
-      .description 
+      .description
         p Не списывать денежные средства, если не хватает на балансе
     .radio-btns
       .radio
         h4 По приоритету:
-        ul 
-          li 
+        ul
+          li
             input(type="radio" id='h-option' name='selector1')
             label(for="h-option") Высокий
-           
-          li 
+
+          li
             input(type="radio" id='m-option' name='selector1')
             label(for="m-option") Средний
-          
-          li 
+
+          li
             input(type="radio" id='l-option' name='selector1')
             label(for="l-option") Низкий
-           
+
       .radio
         h4 По приоритету времени:
-        ul 
-          li 
+        ul
+          li
             input(type="radio" id='short-option' name='selector2')
             label(for="short-option") Красткосрочные
-          
-          li 
+
+          li
             input(type="radio" id='long-option' name='selector2')
             label(for="long-option") Долгосрочные
-          

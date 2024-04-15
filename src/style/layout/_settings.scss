@@ -1,6 +1,6 @@
 .settings {
   background-color: $background-page;
-  padding: $size20px;
+  padding: $size20px * 2.5 $size20px * 4;
   border-radius: $border-radius15;
 
   .title {
@@ -10,14 +10,11 @@
 
     h2 {
       color: $blue;
+      font-size: 48px;
     }
+
     button {
-      background-color: $blue;
-      padding: 10px 15px;
-      border: none;
-      color: $background-page;
-      font-size: 0.7em;
-      border-radius: 5px;
+      @include blue-button;
     }
   }
   .super-priority {
