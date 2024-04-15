@@ -28,5 +28,9 @@ import Chart from 'chart.js/auto';
         },
       ],
     },
+    options: {
+      adaptive: true,
+      maintainAspectRatio: false,
+    },
   });
 })();
