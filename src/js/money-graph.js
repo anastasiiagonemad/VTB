@@ -14,7 +14,7 @@ import Chart from 'chart.js/auto';
     { date: date, count: 15000 },
     { date: date, count: 25000 },
     { date: date, count: 22000 },
-    { date: date, count: 30000 },
+    { date: date, count: 80000 },
     { date: date, count: 28000 },
   ];
 
@@ -28,6 +28,10 @@ import Chart from 'chart.js/auto';
           data: data.map((row) => row.count),
         },
       ],
+    },
+    options: {
+      adaptive: true,
+      maintainAspectRatio: false,
     },
   });
 })();
