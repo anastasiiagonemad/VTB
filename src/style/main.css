@@ -680,7 +680,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1vh;
+  gap: 0.6vh;
 }
 .input-item label {
   color: #009fdf;
@@ -783,7 +783,7 @@ html {
 }
 .settings {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 50px 80px;
   border-radius: 15px;
 }
 .settings .title {
@@ -793,14 +793,27 @@ html {
 }
 .settings .title h2 {
   color: #0a2973;
+  font-size: 48px;
 }
 .settings .title button {
+  border: 2px solid #0a2973;
+  border-radius: 10px;
+  padding: 1vw;
   background-color: #0a2973;
-  padding: 10px 15px;
-  border: none;
   color: #ffffff;
-  font-size: 0.7em;
-  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+.settings .title button:not([disabled]):hover {
+  color: #0a2973;
+  background-color: #ffffff;
+}
+.settings .title button:not([disabled]):active {
+  transform: scale(0.95);
+  color: #0a2973;
+  background-color: #ffffff;
 }
 .settings .super-priority {
   width: 100%;

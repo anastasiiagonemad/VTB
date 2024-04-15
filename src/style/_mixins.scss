@@ -1,0 +1,22 @@
+@mixin blue-button {
+  border: 2px solid $blue;
+  border-radius: $border-radius10;
+  padding: 1vw;
+  background-color: $blue;
+  color: $background-page;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  cursor: pointer;
+  transition: $transition;
+
+  &:not([disabled]):hover {
+    color: $blue;
+    background-color: $background-page;
+  }
+
+  &:not([disabled]):active {
+    transform: scale(0.95);
+    color: $blue;
+    background-color: $background-page;
+  }
+}
