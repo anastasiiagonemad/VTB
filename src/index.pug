@@ -64,9 +64,13 @@ block main
       h3.start__money-title Всего средств
       .start__money-sum 120 денег
       .start__money-graph
+        div
+          canvas(id='money-graph' width='100%' height='30px')
 
 
     .start__goals.start__item
       h3.start__goals-title Всего целей
       .start__goals-qty 50 шт
       .start__goals-graph
+        div
+          canvas(id='goal-graph' width='100%' height='20px')
