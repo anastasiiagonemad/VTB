@@ -15,32 +15,34 @@ block main
 
       .new__form-inputs-top
         .input-item
-          label(for="goal-name") Название цели
-          input(type="text" id="goal-name" name="goalName" placeholder="Введите название цели")
+          label(for="goalName") Название цели
+           span (обязательное поле)
+          input(type="text" id="goalName" name="goalName" placeholder="Введите название цели")._req
 
         .input-item
           label(for="sum") Сумма которую хотите накопить
-          input(type="number" id="sum" name="goalSum" placeholder="Введите сумму")
+          input(type="number" id="sum" name="goalSum" placeholder="Введите сумму")._req
 
         .input-item
           label(for="prioryTarget") Приоритет цели
-          select#priory-target(name="prioryTarget")
+          select#priory-target(name="prioryTarget")._req
             option(value="high") Высокий
             option(value="medium") Средний
             option(value="low") Низкий
+
         .input-item
           label(for="prioryTime") Приоритет цели по времени
-          select#priory-time(name="prioryTime")
+          select#priory-time(name="prioryTime")._req
             option(value="highTime") Долгосрочная
             option(value="lowTime") Короткосрочная
 
         .input-item
           label(for="dateStart") Дата начала накопления
-          input(type="date" id="dateStart" name="dateStart" placeholder="Выберите дату")
+          input(type="date" id="dateStart" name="dateStart" placeholder="Выберите дату")._req
 
         .input-item
           label(for="dateEnd") Дата окончания накопления
-          input(type="date" id="dateEnd" name="dateEnd" placeholder="Выберите дату")
+          input(type="date" id="dateEnd" name="dateEnd" placeholder="Выберите дату")._req
 
       .new__form-inputs-bottom
         .input-item

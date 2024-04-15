@@ -177,12 +177,17 @@
 
   input,
   select {
-    border: none;
+    border: 2px solid transparent;
+    outline: none;
     width: 100%;
     background-color: $input-background;
     padding: 1.5vh * 0.85 $size20px;
     border-radius: $size20px * 0.25;
     cursor: pointer;
+
+    & .error {
+      border: 2px solid red;
+    }
   }
 
   input {
