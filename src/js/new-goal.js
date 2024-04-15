@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 import { refreshLocalStorage } from './localStorage.js';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -25,19 +25,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   addImage.addEventListener('change', () => {
     uploadFile(addImage.files[0]);
-  })
+  });
 
   function uploadFile(file) {
-    if(!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
+    if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
       previewImage.textContent = 'Разрешены только изображения';
     }
     let reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       previewImage.innerHTML = `<img src="${e.target.result}" alt="photo">`;
-    }
-    reader.onerror = function(e) {
+    };
+    reader.onerror = function (e) {
       previewImage.textContent = 'Ошибка';
-    }
+    };
     reader.readAsDataURL(file);
   }
 
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let isValid = true;
 
-    formInputs.forEach(input => {
+    formInputs.forEach((input) => {
       if (input.value.trim() === '') {
         isValid = false;
       }
@@ -65,18 +65,19 @@ document.addEventListener('DOMContentLoaded', function () {
   //------------------------------------------------------
 
   //listener of saving item data
-  btnSave.addEventListener('click', function(e) {
+  btnSave.addEventListener('click', function (e) {
     e.preventDefault();
     console.log(createItem());
     refreshLocalStorage(createItem());
-  })
+  });
 
   function createItem() {
     const itemGoalName = goalName.value.trim();
     const itemGoalSum = goalSum.value;
 
     const prioryTargetInd = selectPrioryTarget.selectedIndex;
-    const itemPrioryTargetText = selectPrioryTarget.options[prioryTargetInd].text;
+    const itemPrioryTargetText =
+      selectPrioryTarget.options[prioryTargetInd].text;
 
     const prioryTimeInd = selectPrioryTime.selectedIndex;
     const itemPrioryTimeText = selectPrioryTime.options[prioryTimeInd].text;
@@ -86,7 +87,38 @@ document.addEventListener('DOMContentLoaded', function () {
     const itemSumNow = sumNow.value;
     const itemImg = addImage.value;
 
-    return { itemGoalName, itemGoalSum, itemPrioryTargetText, itemPrioryTimeText, itemDateStart, itemDateEnd, itemSumNow, itemImg };
+    return {
+      itemGoalName,
+      itemGoalSum,
+      itemPrioryTargetText,
+      itemPrioryTimeText,
+      itemDateStart,
+      itemDateEnd,
+      itemSumNow,
+      itemImg,
+    };
   }
 
-})
+  //------------------------------------------------------
+
+  //create new item
+
+  // const goalsArrString = localStorage.getItem('goalsArr') || [];
+  // const goalsArr = JSON.parse(goalsArrString);
+  // function createBlocks(arr) {
+  //   if (arr && arr.length !== 0) {
+  //     arr.forEach((obj) => {
+  //       document.querySelector(
+  //         '.tasks__item1',
+  //       ).innerHTML += `<h2>${obj.itemGoalName}</h2>
+  //       <img src='${obj.itemImg}' alt='photo'>
+  //       <p>Прогресс цели: ${obj.sumNow} из ${obj.itemGoalSum}</p>`;
+  //     });
+  //   }
+  // }
+
+  // btnSave.addEventListener('click', () => {
+  //   createBlocks(goalsArrString);
+  //   window.location.href = 'tasks.html';
+  // });
+});
