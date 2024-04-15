@@ -1,3 +1,15 @@
+//progress settings
+@for $i from 0 through 100 {
+  .progress progress[value='#{$i}'] {
+    & + .progress-value:before {
+      content: '#{$i}%';
+    }
+    & ~ .progress-bg .progress-bar {
+      width: $i * 1%;
+    }
+  }
+}
+
 .start {
   width: 100%;
   height: 100%;
@@ -6,11 +18,11 @@
   grid-template-rows: repeat(3, 2fr) repeat(2, 3fr);
   gap: $size20px * 1.5;
   grid-template-areas:
-                  "greeting money"
-                  "tasks money"
-                  "tasks money"
-                  "tasks goals"
-                  "tasks goals";
+    'greeting money'
+    'tasks money'
+    'tasks money'
+    'tasks goals'
+    'tasks goals';
   &__greeting {
     grid-area: greeting;
     display: flex;
@@ -47,9 +59,59 @@
         font-weight: bolder;
       }
 
-      &-progres {
+      &-progress {
         p {
           font-size: 20px;
+        }
+        .progress {
+          position: relative;
+          overflow: hidden;
+
+          progress {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+          }
+          &-value {
+            color: $font-color;
+            display: block;
+            position: absolute;
+            z-index: 10;
+            line-height: 20px;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-align: center;
+            top: 25%;
+            left: 45%;
+          }
+          &-bg {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background: $background-screen;
+            position: relative;
+            height: 20px;
+            border-radius: $border-radius15;
+            overflow: hidden;
+            .progress-bar {
+              overflow: hidden;
+              width: 0;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              transition: width 1s linear;
+              &:after {
+                background-size: 40px 40px;
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
         }
       }
 
@@ -60,7 +122,7 @@
     }
 
     .break-line {
-      content: "-";
+      content: '-';
       width: 100%;
       height: 1px;
       background-color: $light-blue;
@@ -107,10 +169,11 @@
   .start {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, min-content);
-    grid-template-areas: "greeting"
-                        "tasks"
-                        " money"
-                        "goals";
+    grid-template-areas:
+      'greeting'
+      'tasks'
+      ' money'
+      'goals';
 
     &__greeting {
       flex-direction: column;
