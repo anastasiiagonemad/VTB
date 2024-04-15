@@ -6,3 +6,4 @@ import './js/progress-bar.js';
 import './js/new-goal.js';
 import './js/money-graph.js';
 import './js/goal-graph.js';
+import './js/localStorage.js';
