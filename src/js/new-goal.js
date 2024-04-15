@@ -1,4 +1,6 @@
 'use strict'
+import { refreshLocalStorage } from './localStorage.js';
+
 document.addEventListener('DOMContentLoaded', function () {
   const formNewGoal = document.forms.formNew;
   const goalName = formNewGoal.elements.goalName;
@@ -18,10 +20,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const btnClear = document.querySelector('.new__form-cancel');
 
+  //------------------------------------------------------
 
-  // create goal item
-  function createEntityItem() {
-    const itemGoalName = goalName.value;
+  //controlling submit
+  formNewGoal.addEventListener('change', function () {
+    controlSubmit(formNewGoal);
+  });
+
+  function controlSubmit(form) {
+    let formInputs = Array.from(form.querySelectorAll('._req'));
+
+    let isValid = true;
+
+    formInputs.forEach(input => {
+      if (input.value.trim() === '') {
+        isValid = false;
+      }
+    });
+
+    btnSave.disabled = !isValid;
+  }
+
+  //------------------------------------------------------
+
+  //listener of saving item data
+  btnSave.addEventListener('click', function(e) {
+    e.preventDefault();
+    console.log(createItem());
+    refreshLocalStorage(createItem());
+  })
+
+  function createItem() {
+    const itemGoalName = goalName.value.trim();
     const itemGoalSum = goalSum.value;
 
     const prioryTargetInd = selectPrioryTarget.selectedIndex;
@@ -37,4 +67,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     return { itemGoalName, itemGoalSum, itemPrioryTargetText, itemPrioryTimeText, itemDateStart, itemDateEnd, itemSumNow, itemImg };
   }
+
 })
