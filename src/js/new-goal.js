@@ -20,6 +20,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const btnClear = document.querySelector('.new__form-cancel');
 
+  //img preview
+  const previewImage = document.querySelector('.new__form-add-preview');
+
+  addImage.addEventListener('change', () => {
+    uploadFile(addImage.files[0]);
+  })
+
+  function uploadFile(file) {
+    if(!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
+      previewImage.textContent = 'Разрешены только изображения';
+    }
+    let reader = new FileReader();
+    reader.onload = function(e) {
+      previewImage.innerHTML = `<img src="${e.target.result}" alt="photo">`;
+    }
+    reader.onerror = function(e) {
+      previewImage.textContent = 'Ошибка';
+    }
+    reader.readAsDataURL(file);
+  }
+
   //------------------------------------------------------
 
   //controlling submit

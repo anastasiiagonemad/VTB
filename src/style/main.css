@@ -70,8 +70,7 @@ html {
   width: 80px;
   height: 80px;
   border-radius: 15px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .sidebar__start .sidebar__add-task {
   height: 4vw;
@@ -301,8 +300,7 @@ html {
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  column-gap: 10px;
 }
 .help-container .item {
   display: flex;
@@ -1417,7 +1415,16 @@ html {
   height: 94px;
 }
 .new__form-add-preview {
-  display: none;
+  display: inline-block;
+  width: 100%;
+  height: 50%;
+  padding: 10px;
+  color: #0a2973;
+  font-weight: bolder;
+  font-size: larger;
+}
+.new__form-add-preview img {
+  width: 100%;
 }
 .new__pic {
   display: flex;
@@ -1453,11 +1460,11 @@ html {
   border-radius: 5px;
   cursor: pointer;
 }
-.input-item input::-moz-placeholder {
-  color: #000000;
-}
 .input-item input::placeholder {
   color: #000000;
+}
+.input-item .hint {
+  font-size: smaller;
 }
 
 @media screen and (max-width: 1200px), (orientation: portrait) {
@@ -1692,8 +1699,7 @@ html {
   margin-top: 20px;
   display: grid;
   grid-template-columns: 10% 10% 10%;
-  -moz-column-gap: 10%;
-       column-gap: 10%;
+  column-gap: 10%;
   margin-left: 15%;
 }
 .settings .distrubition-funds-action .dfa-btn button {
@@ -1777,8 +1783,7 @@ html {
     margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr;
-    -moz-column-gap: 10%;
-         column-gap: 10%;
+    column-gap: 10%;
     margin-left: 0;
   }
   .settings .distrubition-funds-action .dfa-btn button {
@@ -1840,4 +1845,4 @@ html {
   .tasks__item {
     padding: 20px;
   }
-}/*# sourceMappingURL=main.css.map */
+}

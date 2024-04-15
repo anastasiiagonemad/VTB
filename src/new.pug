@@ -5,7 +5,7 @@ block variables
 block main
   .new
     form(name="formNew").new__form
-      .new__form-back
+      a.new__form-back(href="index.html")
         img(src=require("./assets/icons/arrow-left.png") alt="arrow-left")
         p Назад
 
@@ -15,34 +15,33 @@ block main
 
       .new__form-inputs-top
         .input-item
-          label(for="goalName") Название цели
-           span (обязательное поле)
-          input(type="text" id="goalName" name="goalName" placeholder="Введите название цели")._req
+          label(for="goalName") Название цели <span class="hint">(обязательное поле)</span>
+          input._req(type="text" id="goalName" name="goalName" placeholder="Введите название цели")
 
         .input-item
-          label(for="sum") Сумма которую хотите накопить
-          input(type="number" id="sum" name="goalSum" placeholder="Введите сумму")._req
+          label(for="sum") Сумма которую хотите накопить <span class="hint">(обязательное поле)</span>
+          input._req(type="number" id="sum" name="goalSum" placeholder="Введите сумму")
 
         .input-item
-          label(for="prioryTarget") Приоритет цели
-          select#priory-target(name="prioryTarget")._req
+          label(for="prioryTarget") Приоритет цели <span class="hint">(обязательное поле)</span>
+          select._req#priory-target(name="prioryTarget")
             option(value="high") Высокий
             option(value="medium") Средний
             option(value="low") Низкий
 
         .input-item
-          label(for="prioryTime") Приоритет цели по времени
-          select#priory-time(name="prioryTime")._req
+          label(for="prioryTime") Приоритет цели по времени <span class="hint">(обязательное поле)</span>
+          select._req#priory-time(name="prioryTime")
             option(value="highTime") Долгосрочная
             option(value="lowTime") Короткосрочная
 
         .input-item
-          label(for="dateStart") Дата начала накопления
-          input(type="date" id="dateStart" name="dateStart" placeholder="Выберите дату")._req
+          label(for="dateStart") Дата начала накопления <span class="hint">(обязательное поле)</span>
+          input._req(type="date" id="dateStart" name="dateStart" placeholder="Выберите дату")
 
         .input-item
-          label(for="dateEnd") Дата окончания накопления
-          input(type="date" id="dateEnd" name="dateEnd" placeholder="Выберите дату")._req
+          label(for="dateEnd") Дата окончания накопления <span class="hint">(обязательное поле)</span>
+          input._req(type="date" id="dateEnd" name="dateEnd" placeholder="Выберите дату")
 
       .new__form-inputs-bottom
         .input-item
@@ -52,7 +51,7 @@ block main
         button(class="new__form-submit" type="submit") Пополнить
 
       .new__form-add
-        input(type="file" accept=".jpg, .png, .gif" name="addImage").new__form-add-input
+        input.new__form-add-input(type="file" accept=".jpg, .png, .gif" name="addImage")
         .new__form-add-button
           img(src=require("./assets/icons/new-task.png") alt="add-icon")
         .new__form-add-preview
