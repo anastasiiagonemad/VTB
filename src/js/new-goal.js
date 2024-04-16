@@ -103,47 +103,4 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   }
 
-  //------------------------------------------------------
-
-  //create new item
-
-  function getGoals() {
-    if (localStorage.length) {
-      for (let i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i);
-        let value = localStorage.getItem(key);
-        console.log(`Ключ: ${key}, Значение: ${value}`);
-        console.log(JSON.parse(value).itemGoalSum);
-
-        // console.log(`
-        //   <h2>${value.itemGoalName}</h2>
-        //   <img src='${value.itemImg}' alt='photo'>
-        //   <p>Прогресс цели: ${value.sumNow} из ${value.itemGoalSum}</p>
-        // `);
-      }
-    }
-
-  }
-
-  // const goalsArrString = localStorage.getItem('goalsArr') || [];
-  // const goalsArr = JSON.parse(goalsArrString);
-  // function createBlocks(arr) {
-  //   if (arr && arr.length !== 0) {
-  //     arr.forEach((obj) => {
-  //       document.querySelector(
-  //         '.tasks__item1',
-  //       ).innerHTML += `<h2>${obj.itemGoalName}</h2>
-  //       <img src='${obj.itemImg}' alt='photo'>
-  //       <p>Прогресс цели: ${obj.sumNow} из ${obj.itemGoalSum}</p>`;
-  //     });
-  //   }
-  // }
-
-  // btnSave.addEventListener('click', () => {
-  //   getGoals();
-  //   window.location.href = 'tasks.html';
-  // });
-
-
-  btnClear.addEventListener('click', getGoals());
 });
