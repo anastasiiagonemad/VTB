@@ -39,13 +39,17 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
       previewImage.textContent = 'Разрешены только изображения';
     }
+
     let reader = new FileReader();
+
     reader.onload = function (e) {
-      previewImage.innerHTML = `<img src="${e.target.result}" alt="photo">`;
+      previewImage.innerHTML = `<img src="${e.target.result}" class="imgPreview" alt="photo">`;
     };
+
     reader.onerror = function (e) {
       previewImage.textContent = 'Ошибка';
     };
+
     reader.readAsDataURL(file);
   }
 
@@ -107,7 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let itemPayments = itemPaymentsArr;
 
-    const itemImg = addImage.files[0];
+    const itemImgPreview = document.querySelector('.imgPreview');
+    const itemImgData = itemImgPreview.src;
 
     return {
       itemGoalName,
@@ -117,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
       itemDateStart,
       itemDateEnd,
       itemPayments,
-      itemImg,
+      itemImgData,
     };
   }
 
