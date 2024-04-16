@@ -1344,6 +1344,12 @@ html {
   cursor: pointer;
   transition: all ease 0.5s;
 }
+.new__form-buttons button[disabled] {
+  background-color: #ffffff;
+  color: rgba(0, 159, 223, 0.5);
+  border: 2px solid rgba(0, 159, 223, 0.5);
+  cursor: unset;
+}
 .new__form-buttons button:not([disabled]):hover {
   background-color: #009fdf;
   color: #ffffff;
@@ -1405,6 +1411,7 @@ html {
 .new__form-inputs-bottom button[disabled] {
   background-color: rgba(10, 41, 115, 0.5);
   color: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(10, 41, 115, 0.5);
   cursor: unset;
 }
 .new__form-inputs-bottom button:not([disabled]):hover {
@@ -1491,6 +1498,9 @@ html {
 }
 .input-item input::placeholder {
   color: #000000;
+}
+.input-item input[type=date]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
 }
 .input-item .hint {
   font-size: smaller;
@@ -1607,6 +1617,7 @@ html {
 .settings .title button[disabled] {
   background-color: rgba(10, 41, 115, 0.5);
   color: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(10, 41, 115, 0.5);
   cursor: unset;
 }
 .settings .title button:not([disabled]):hover {
