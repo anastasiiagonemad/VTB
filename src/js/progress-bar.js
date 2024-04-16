@@ -1,3 +1,5 @@
+
+'use strict'
 const progressValues = document.querySelectorAll('#progress');
 const progressBgs = document.querySelectorAll('.progress-bar');
 
