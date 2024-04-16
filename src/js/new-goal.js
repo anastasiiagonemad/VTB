@@ -2,6 +2,8 @@
 import { refreshLocalStorage } from './localStorage.js';
 
 document.addEventListener('DOMContentLoaded', function () {
+  // localStorage.clear();
+
   const formNewGoal = document.forms.formNew;
   const goalName = formNewGoal.elements.goalName;
   const goalSum = formNewGoal.elements.goalSum;
@@ -19,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
   btnSave.disabled = true;
 
   const btnClear = document.querySelector('.new__form-cancel');
+
+  //------------------------------------------------------
 
   //img preview
   const previewImage = document.querySelector('.new__form-add-preview');
@@ -67,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //listener of saving item data
   btnSave.addEventListener('click', function (e) {
     e.preventDefault();
-    console.log(createItem());
+
     refreshLocalStorage(createItem());
   });
 
@@ -85,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const itemDateStart = dateStart.value;
     const itemDateEnd = dateEnd.value;
     const itemSumNow = sumNow.value;
-    const itemImg = addImage.value;
+    const itemImg = addImage.files[0];
 
     return {
       itemGoalName,
