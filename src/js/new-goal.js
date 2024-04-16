@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', function () {
   // localStorage.clear();
 
   const formNewGoal = document.forms.formNew;
-  const goalName = formNewGoal.elements.goalName;
-  const goalSum = formNewGoal.elements.goalSum;
-  const selectPrioryTarget = formNewGoal.elements.prioryTarget;
-  const selectPrioryTime = formNewGoal.elements.prioryTime;
-  const dateStart = formNewGoal.elements.dateStart;
-  const dateEnd = formNewGoal.elements.dateEnd;
-  const sumNow = formNewGoal.elements.sumNow;
-  const addImage = formNewGoal.elements.addImage;
+  const goalName = formNewGoal.goalName;
+  const goalSum = formNewGoal.goalSum;
+  const selectPrioryTarget = formNewGoal.prioryTarget;
+  const selectPrioryTime = formNewGoal.prioryTime;
+  const dateStart = formNewGoal.dateStart;
+  const dateEnd = formNewGoal.dateEnd;
+  const sumNow = formNewGoal.sumNow;
+  const addImage = formNewGoal.addImage;
 
   const btnPay = document.querySelector('.new__form-submit');
   btnPay.disabled = true;
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   //------------------------------------------------------
-
   //img preview
   const previewImage = document.querySelector('.new__form-add-preview');
 
@@ -40,15 +39,35 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
       previewImage.textContent = 'Разрешены только изображения';
     }
+
     let reader = new FileReader();
+
     reader.onload = function (e) {
-      previewImage.innerHTML = `<img src="${e.target.result}" alt="photo">`;
+      previewImage.innerHTML = `<img src="${e.target.result}" class="imgPreview" alt="photo">`;
     };
+
     reader.onerror = function (e) {
       previewImage.textContent = 'Ошибка';
     };
+
     reader.readAsDataURL(file);
   }
+
+  //------------------------------------------------------
+  // date settings
+
+  function setToday(input) {
+    const today = new Date();
+    const minDate = today.toISOString().split('T')[0];
+    input.setAttribute('min', minDate);
+  }
+
+  setToday(dateStart);
+
+  dateStart.addEventListener('change', () => {
+    let dateStartValue = dateStart.value;
+    dateEnd.setAttribute('min', dateStartValue);
+  })
 
   //------------------------------------------------------
 
@@ -86,8 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const itemGoalSum = goalSum.value;
 
     const prioryTargetInd = selectPrioryTarget.selectedIndex;
-    const itemPrioryTargetText =
-      selectPrioryTarget.options[prioryTargetInd].text;
+    const itemPrioryTargetText = selectPrioryTarget.options[prioryTargetInd].text;
 
     const prioryTimeInd = selectPrioryTime.selectedIndex;
     const itemPrioryTimeText = selectPrioryTime.options[prioryTimeInd].text;
@@ -97,7 +115,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let itemPayments = itemPaymentsArr;
 
-    const itemImg = addImage.files[0];
+    const itemImgPreview = document.querySelector('.imgPreview');
+    const itemImgData = itemImgPreview.src;
 
     return {
       itemGoalName,
@@ -107,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
       itemDateStart,
       itemDateEnd,
       itemPayments,
-      itemImg,
+      itemImgData,
     };
   }
 
@@ -122,8 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
    //------------------------------------------------------
 
-  //listener on payment
-
+  //listener of payment
   sumNow.addEventListener('input', function () {
     let isValid = sumNow.value.trim() === '' ? false : true
     btnPay.disabled = !isValid;
@@ -151,5 +169,3 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.payedNow').classList.remove('payed');
   }
 });
-
-// itemPaymentsArr.reduce((accum, curr) => accum + curr);

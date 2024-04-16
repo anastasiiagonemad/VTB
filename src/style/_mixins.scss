@@ -12,6 +12,7 @@
   &[disabled] {
     background-color: rgba($blue, 0.5);
     color: rgba($background-page, 0.7);
+    border: 2px solid rgba($blue, 0.5);
     cursor: unset;
   }
 
@@ -24,5 +25,34 @@
     transform: scale(0.95);
     color: $blue;
     background-color: $background-page;
+  }
+}
+
+@mixin light-button {
+  width: 11vw;
+  height: 3vw;
+  border-radius: $border-radius10;
+  background-color: $background-page;
+  border: 2px solid $light-blue;
+  color: $light-blue;
+  cursor: pointer;
+  transition: $transition;
+
+  &[disabled] {
+    background-color: $background-page;
+    color: rgba($light-blue, 0.5);
+    border: 2px solid rgba($light-blue, 0.5);
+    cursor: unset;
+  }
+
+  &:not([disabled]):hover {
+    background-color: $light-blue;
+    color: $background-page;
+  }
+
+  &:not([disabled]):active {
+    transform: scale(0.95);
+    background-color: $light-blue;
+    color: $background-page;
   }
 }
