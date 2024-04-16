@@ -16,11 +16,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const btnPay = document.querySelector('.new__form-submit');
   btnPay.disabled = true;
+  let itemPaymentsArr = [];
 
   const btnSave = document.querySelector('.new__form-save');
   btnSave.disabled = true;
 
   const btnClear = document.querySelector('.new__form-cancel');
+
+  const toBePayedContainer = document.querySelector('.toBePayed__sum');
+  const payedContainer = document.querySelector('.payedNow__sum');
+
 
   //------------------------------------------------------
 
@@ -71,8 +76,9 @@ document.addEventListener('DOMContentLoaded', function () {
   //listener of saving item data
   btnSave.addEventListener('click', function (e) {
     e.preventDefault();
-
     refreshLocalStorage(createItem());
+    formNewGoal.reset();
+    removePaymentDetails();
   });
 
   function createItem() {
@@ -88,7 +94,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const itemDateStart = dateStart.value;
     const itemDateEnd = dateEnd.value;
-    const itemSumNow = sumNow.value;
+
+    let itemPayments = itemPaymentsArr;
+
     const itemImg = addImage.files[0];
 
     return {
@@ -98,9 +106,50 @@ document.addEventListener('DOMContentLoaded', function () {
       itemPrioryTimeText,
       itemDateStart,
       itemDateEnd,
-      itemSumNow,
+      itemPayments,
       itemImg,
     };
   }
 
+  //------------------------------------------------------
+
+  //listener of clearing form
+  btnClear.addEventListener('click', function(e) {
+    e.preventDefault();
+    formNewGoal.reset();
+    removePaymentDetails();
+  })
+
+   //------------------------------------------------------
+
+  //listener on payment
+
+  sumNow.addEventListener('input', function () {
+    let isValid = sumNow.value.trim() === '' ? false : true
+    btnPay.disabled = !isValid;
+  });
+
+  btnPay.addEventListener('click', function(e) {
+    e.preventDefault();
+    itemPaymentsArr.push(+sumNow.value);
+    addPaymentDetails();
+  })
+
+  function addPaymentDetails() {
+    payedContainer.textContent = null;
+
+    document.querySelector('.toBePayed').classList.add('payed');
+    document.querySelector('.payedNow').classList.add('payed');
+
+    payedContainer.textContent = toBePayedContainer.value;
+  }
+
+  function removePaymentDetails() {
+    payedContainer.textContent = null;
+
+    document.querySelector('.toBePayed').classList.remove('payed');
+    document.querySelector('.payedNow').classList.remove('payed');
+  }
 });
+
+// itemPaymentsArr.reduce((accum, curr) => accum + curr);
