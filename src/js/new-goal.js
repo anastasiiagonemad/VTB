@@ -107,6 +107,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //create new item
 
+  function getGoals() {
+    if (localStorage.length) {
+      for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        let value = localStorage.getItem(key);
+        console.log(`Ключ: ${key}, Значение: ${value}`);
+        console.log(JSON.parse(value).itemGoalSum);
+
+        // console.log(`
+        //   <h2>${value.itemGoalName}</h2>
+        //   <img src='${value.itemImg}' alt='photo'>
+        //   <p>Прогресс цели: ${value.sumNow} из ${value.itemGoalSum}</p>
+        // `);
+      }
+    }
+
+  }
+
   // const goalsArrString = localStorage.getItem('goalsArr') || [];
   // const goalsArr = JSON.parse(goalsArrString);
   // function createBlocks(arr) {
@@ -122,7 +140,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // }
 
   // btnSave.addEventListener('click', () => {
-  //   createBlocks(goalsArrString);
+  //   getGoals();
   //   window.location.href = 'tasks.html';
   // });
+
+
+  btnClear.addEventListener('click', getGoals());
 });
