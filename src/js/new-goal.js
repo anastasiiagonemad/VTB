@@ -63,7 +63,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   setToday(dateStart);
-  setToday(dateEnd);
+
+  dateStart.addEventListener('change', () => {
+    let dateStartValue = dateStart.value;
+    dateEnd.setAttribute('min', dateStartValue);
+  })
 
   //------------------------------------------------------
 
