@@ -70,8 +70,7 @@ html {
   width: 80px;
   height: 80px;
   border-radius: 15px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .sidebar__start .sidebar__add-task {
   height: 4vw;
@@ -301,8 +300,7 @@ html {
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  column-gap: 10px;
 }
 .help-container .item {
   display: flex;
@@ -1462,9 +1460,6 @@ html {
   border-radius: 5px;
   cursor: pointer;
 }
-.input-item input::-moz-placeholder {
-  color: #000000;
-}
 .input-item input::placeholder {
   color: #000000;
 }
@@ -1704,8 +1699,7 @@ html {
   margin-top: 20px;
   display: grid;
   grid-template-columns: 10% 10% 10%;
-  -moz-column-gap: 10%;
-       column-gap: 10%;
+  column-gap: 10%;
   margin-left: 15%;
 }
 .settings .distrubition-funds-action .dfa-btn button {
@@ -1789,8 +1783,7 @@ html {
     margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr;
-    -moz-column-gap: 10%;
-         column-gap: 10%;
+    column-gap: 10%;
     margin-left: 0;
   }
   .settings .distrubition-funds-action .dfa-btn button {
@@ -1809,19 +1802,8 @@ html {
 .tasks {
   height: 100%;
   display: grid;
+  grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 30px;
-}
-.tasks__line1 {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(2, 5fr) 6fr;
-  gap: 30px;
-}
-.tasks__line2 {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 5fr 6fr 5fr;
   gap: 30px;
 }
 .tasks__item {
@@ -1829,27 +1811,23 @@ html {
   border-radius: 10px;
   padding: 30px;
 }
+.tasks__item {
+  grid-column: span 5;
+}
+.tasks__item:nth-child(3), .tasks__item:nth-child(5) {
+  grid-column: span 6;
+}
 
 @media screen and (max-width: 992px), (orientation: portrait) {
   .tasks {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
-  .tasks__line1 {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    gap: 30px;
-  }
-  .tasks__line2 {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-rows: unset;
   }
   .tasks__item {
     padding: 20px;
+    grid-column: span 1;
   }
-}/*# sourceMappingURL=main.css.map */
+  .tasks__item:nth-child(3), .tasks__item:nth-child(5) {
+    grid-column: span 1;
+  }
+}

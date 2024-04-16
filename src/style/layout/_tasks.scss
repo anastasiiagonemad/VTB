@@ -1,54 +1,39 @@
 .tasks {
   height: 100%;
   display: grid;
+  grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: $size20px * 1.5;
-
-  &__line1 {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(2, 5fr) 6fr;
-    gap: $size20px * 1.5;
-  }
-
-  &__line2 {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 5fr 6fr 5fr;
-    gap: $size20px * 1.5;
-  }
 
   &__item {
     background-color: $background-page;
     border-radius: $border-radius10;
     padding: $size20px * 1.5;
   }
+
+  &__item {
+    grid-column: span 5;
+  }
+
+  &__item:nth-child(3),
+  &__item:nth-child(5) {
+    grid-column: span 6;
+  }
 }
 
 @media screen and (max-width: $tab), (orientation: portrait) {
   .tasks {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: unset;
 
-    &__line1 {
-      display: grid;
-      width: 100%;
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(3, 1fr);
-      gap: $size20px * 1.5;
+    &__item {
+      padding: $size20px;
+      grid-column: span 1;
     }
 
-    &__line2 {
-      display: grid;
-      width: 100%;
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(3, 1fr);
-      gap: $size20px * 1.5;
+    &__item:nth-child(3),
+    &__item:nth-child(5) {
+      grid-column: span 1;
     }
-
-
-  &__item {
-    padding: $size20px;
-  }
   }
 }

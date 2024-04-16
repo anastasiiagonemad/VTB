@@ -103,26 +103,4 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   }
 
-  //------------------------------------------------------
-
-  //create new item
-
-  // const goalsArrString = localStorage.getItem('goalsArr') || [];
-  // const goalsArr = JSON.parse(goalsArrString);
-  // function createBlocks(arr) {
-  //   if (arr && arr.length !== 0) {
-  //     arr.forEach((obj) => {
-  //       document.querySelector(
-  //         '.tasks__item1',
-  //       ).innerHTML += `<h2>${obj.itemGoalName}</h2>
-  //       <img src='${obj.itemImg}' alt='photo'>
-  //       <p>Прогресс цели: ${obj.sumNow} из ${obj.itemGoalSum}</p>`;
-  //     });
-  //   }
-  // }
-
-  // btnSave.addEventListener('click', () => {
-  //   createBlocks(goalsArrString);
-  //   window.location.href = 'tasks.html';
-  // });
 });
