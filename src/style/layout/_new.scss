@@ -78,28 +78,39 @@
       gap: $size20px;
       padding-top: $size20px * 2.5;
 
+      //hide / display payment blocks
+      .toBePayed {
+        display: flex;
+      }
+
+      .toBePayed.payed {
+        display: none;
+      }
+
+      .payedNow {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.6vh;
+        &__label {
+          color: $light-blue;
+          font-weight: bolder;
+        }
+
+        &__sum {
+          background-color: $input-background;
+          padding: 1.5vh * 0.85 $size20px;
+          border-radius: $size20px * 0.25;
+        }
+      }
+
+      .payedNow.payed {
+        display: flex;
+      }
+
       button {
         width: 100%;
-        border: 2px solid $blue;
-        border-radius: $border-radius10;
-        padding: 1vw;
-        background-color: $blue;
-        color: $background-page;
-        font-size: 1.2rem;
-        font-weight: bolder;
-        cursor: pointer;
-        transition: $transition;
-
-        &:not([disabled]):hover {
-          color: $blue;
-          background-color: $background-page;
-        }
-
-        &:not([disabled]):active {
-          transform: scale(0.95);
-          color: $blue;
-          background-color: $background-page;
-        }
+        @include blue-button;
       }
     }
 

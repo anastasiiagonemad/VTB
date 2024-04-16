@@ -1366,6 +1366,30 @@ html {
   gap: 20px;
   padding-top: 50px;
 }
+.new__form-inputs-bottom .toBePayed {
+  display: flex;
+}
+.new__form-inputs-bottom .toBePayed.payed {
+  display: none;
+}
+.new__form-inputs-bottom .payedNow {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.6vh;
+}
+.new__form-inputs-bottom .payedNow__label {
+  color: #009fdf;
+  font-weight: bolder;
+}
+.new__form-inputs-bottom .payedNow__sum {
+  background-color: #ededed;
+  padding: 1.275vh 20px;
+  border-radius: 5px;
+}
+.new__form-inputs-bottom .payedNow.payed {
+  display: flex;
+}
 .new__form-inputs-bottom button {
   width: 100%;
   border: 2px solid #0a2973;
@@ -1377,6 +1401,11 @@ html {
   font-weight: bolder;
   cursor: pointer;
   transition: all ease 0.5s;
+}
+.new__form-inputs-bottom button[disabled] {
+  background-color: rgba(10, 41, 115, 0.5);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: unset;
 }
 .new__form-inputs-bottom button:not([disabled]):hover {
   color: #0a2973;
@@ -1574,6 +1603,11 @@ html {
   font-weight: bolder;
   cursor: pointer;
   transition: all ease 0.5s;
+}
+.settings .title button[disabled] {
+  background-color: rgba(10, 41, 115, 0.5);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: unset;
 }
 .settings .title button:not([disabled]):hover {
   color: #0a2973;

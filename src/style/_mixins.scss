@@ -9,6 +9,12 @@
   cursor: pointer;
   transition: $transition;
 
+  &[disabled] {
+    background-color: rgba($blue, 0.5);
+    color: rgba($background-page, 0.7);
+    cursor: unset;
+  }
+
   &:not([disabled]):hover {
     color: $blue;
     background-color: $background-page;

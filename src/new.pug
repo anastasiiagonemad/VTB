@@ -44,9 +44,14 @@ block main
           input._req(type="date" id="dateEnd" name="dateEnd" placeholder="Выберите дату")
 
       .new__form-inputs-bottom
-        .input-item
+        .input-item.toBePayed
           label(for="sumNow") Сумма которую хотите внести сейчас
-          input(type="number" id="sumNow" name="sumNow" placeholder="Введите сумму")
+          input.toBePayed__sum(type="number" id="sumNow" name="sumNow" placeholder="Введите сумму")
+
+        .payedNow
+          .payedNow__label Вы только что оплатили следующую сумму
+          .payedNow__sum
+
 
         button(class="new__form-submit" type="submit") Пополнить
 
