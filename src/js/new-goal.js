@@ -165,5 +165,3 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.payedNow').classList.remove('payed');
   }
 });
-
-// itemPaymentsArr.reduce((accum, curr) => accum + curr);

@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
       block.className = 'tasks__item';
       block.innerHTML = `
         <h2>${obj.itemGoalName}</h2>
-        <img src='${obj.itemImg}' alt='photo'>
-        <p>Прогресс цели: процент из ${obj.itemGoalSum}</p>
+        <img src='${obj.itemImgData}' alt='photo'>
+        <p>Прогресс цели: ${obj.itemPayments.reduce((accum, curr) => accum + curr)} из ${obj.itemGoalSum}</p>
       `;
 
       container.append(block);
