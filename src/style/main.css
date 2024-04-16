@@ -1180,6 +1180,9 @@ html {
   font-size: 24px;
   font-weight: bolder;
 }
+.start__tasks-item-progress {
+  width: 100%;
+}
 .start__tasks-item-progress p {
   font-size: 20px;
 }
