@@ -1904,33 +1904,27 @@ html {
   background-color: #ffffff;
   border-radius: 10px;
   height: 96vh;
-  grid-template-columns: 0.8fr 2fr 1fr 3fr;
-  grid-template-areas: "back . button button" "main main main pic";
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 3fr 2fr;
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-areas: "return . button button" "main-top main-top main-top pic" "main-bottom main-bottom main-bottom .";
 }
-.details .task__details-top {
-  padding-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.details .task__details-top-left {
-  grid-area: back;
+.details .task__details-top-return {
+  grid-area: return;
   display: flex;
   align-items: center;
-  gap: 10px;
-  cursor: pointer;
 }
-.details .task__details-top-left img {
+.details .task__details-top-return img {
   width: 20px;
   height: 15px;
   cursor: pointer;
 }
-.details .task__details-top-left p {
+.details .task__details-top-return p {
   font-size: 1.1rem;
   text-transform: uppercase;
   color: #000000;
 }
-.details .task__details-top-right {
+.details .task__details-top-button {
   grid-area: button;
   display: flex;
   gap: 20px;
@@ -1938,7 +1932,7 @@ html {
   font-size: 1.2rem;
   font-weight: bolder;
 }
-.details .task__details-top-right button {
+.details .task__details-top-button button {
   width: 11vw;
   height: 3vw;
   border-radius: 10px;
@@ -1948,47 +1942,45 @@ html {
   cursor: pointer;
   transition: all ease 0.5s;
 }
-.details .task__details-top-right button[disabled] {
+.details .task__details-top-button button[disabled] {
   background-color: #ffffff;
   color: rgba(0, 159, 223, 0.5);
   border: 2px solid rgba(0, 159, 223, 0.5);
   cursor: unset;
 }
-.details .task__details-top-right button:not([disabled]):hover {
+.details .task__details-top-button button:not([disabled]):hover {
   background-color: #009fdf;
   color: #ffffff;
 }
-.details .task__details-top-right button:not([disabled]):active {
+.details .task__details-top-button button:not([disabled]):active {
   transform: scale(0.95);
   background-color: #009fdf;
   color: #ffffff;
 }
-.details .task__details-desc {
-  display: flex;
+.details .task__details-main-top {
+  margin-top: 2em;
+  grid-area: main-top;
 }
-.details .task__details-desc .task__details-main {
-  grid-area: main;
-}
-.details .task__details-desc .task__details-main-title {
+.details .task__details-main-top .task__details-title {
   font-size: 1em;
   color: #009fdf;
   padding-bottom: 0.5em;
 }
-.details .task__details-desc .task__details-main .progress-text p {
+.details .task__details-main-top .progress-text p {
   font-size: 1.2em;
   font-weight: bolder;
 }
-.details .task__details-desc .task__details-main .progress {
+.details .task__details-main-top .progress {
   position: relative;
   overflow: hidden;
 }
-.details .task__details-desc .task__details-main .progress progress {
+.details .task__details-main-top .progress progress {
   position: absolute;
   width: 0;
   height: 0;
   overflow: hidden;
 }
-.details .task__details-desc .task__details-main .progress-value {
+.details .task__details-main-top .progress-value {
   color: #000000;
   display: block;
   position: absolute;
@@ -2000,7 +1992,7 @@ html {
   top: 25%;
   left: 45%;
 }
-.details .task__details-desc .task__details-main .progress-bg {
+.details .task__details-main-top .progress-bg {
   margin-top: 10px;
   margin-bottom: 10px;
   background: #ededed;
@@ -2009,7 +2001,7 @@ html {
   border-radius: 15px;
   overflow: hidden;
 }
-.details .task__details-desc .task__details-main .progress-bg .progress-bar {
+.details .task__details-main-top .progress-bg .progress-bar {
   overflow: hidden;
   width: 0;
   height: 100%;
@@ -2018,7 +2010,7 @@ html {
   left: 0;
   transition: width 1s linear;
 }
-.details .task__details-desc .task__details-main .progress-bg .progress-bar:after {
+.details .task__details-main-top .progress-bg .progress-bar:after {
   background-size: 40px 40px;
   position: absolute;
   content: "";
@@ -2027,25 +2019,27 @@ html {
   width: 100%;
   height: 100%;
 }
-.details .task__details-desc .task__details-main-item {
+.details .task__details-main-top .task__details-item {
   display: flex;
   gap: 5px;
   padding-bottom: 6%;
 }
-.details .task__details-desc .task__details-main-item-value {
+.details .task__details-main-top .task__details-item-value {
   color: #009fdf;
   font-weight: bolder;
 }
-.details .task__details-desc .task__details-main-payment {
-  margin-top: 5%;
+.details .task__details-main-bottom {
+  grid-area: main-bottom;
+}
+.details .task__details-main-bottom .task__details-payment {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 5px;
 }
-.details .task__details-desc .task__details-main-payment p {
+.details .task__details-main-bottom .task__details-payment p {
   font-weight: bolder;
 }
-.details .task__details-desc .task__details-main-payment input {
+.details .task__details-main-bottom .task__details-payment input {
   border: 2px solid transparent;
   outline: none;
   width: 100%;
@@ -2054,13 +2048,13 @@ html {
   border-radius: 5px;
   cursor: pointer;
 }
-.details .task__details-desc .task__details-main-payment input::-moz-placeholder {
+.details .task__details-main-bottom .task__details-payment input::-moz-placeholder {
   color: #000000;
 }
-.details .task__details-desc .task__details-main-payment input::placeholder {
+.details .task__details-main-bottom .task__details-payment input::placeholder {
   color: #000000;
 }
-.details .task__details-desc .task__details-main-payment button {
+.details .task__details-main-bottom .task__details-payment button {
   width: 100%;
   border: 2px solid #0a2973;
   border-radius: 10px;
@@ -2072,36 +2066,36 @@ html {
   cursor: pointer;
   transition: all ease 0.5s;
 }
-.details .task__details-desc .task__details-main-payment button[disabled] {
+.details .task__details-main-bottom .task__details-payment button[disabled] {
   background-color: rgba(10, 41, 115, 0.5);
   color: rgba(255, 255, 255, 0.7);
   border: 2px solid rgba(10, 41, 115, 0.5);
   cursor: unset;
 }
-.details .task__details-desc .task__details-main-payment button:not([disabled]):hover {
+.details .task__details-main-bottom .task__details-payment button:not([disabled]):hover {
   color: #0a2973;
   background-color: #ffffff;
 }
-.details .task__details-desc .task__details-main-payment button:not([disabled]):active {
+.details .task__details-main-bottom .task__details-payment button:not([disabled]):active {
   transform: scale(0.95);
   color: #0a2973;
   background-color: #ffffff;
 }
-.details .task__details-desc .task__details-main-history {
+.details .task__details-main-bottom .task__details-history {
   margin-top: 10%;
 }
-.details .task__details-desc .task__details-main-history p {
+.details .task__details-main-bottom .task__details-history p {
   font-weight: bolder;
 }
-.details .task__details-desc .task__details-main-history-item {
+.details .task__details-main-bottom .task__details-history-item {
   padding: 20px;
   background-color: #ededed;
   border-radius: 10px;
 }
-.details .task__details-desc .task__details-pic {
+.details .task__details-pic {
   grid-area: pic;
 }
-.details .task__details-desc .task__details-pic img {
+.details .task__details-pic img {
   width: 100px;
   height: 100px;
   border-radius: 10px;
