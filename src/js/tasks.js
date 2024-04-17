@@ -16,33 +16,33 @@ document.addEventListener('DOMContentLoaded', function () {
         const block = document.createElement('div');
         block.className = 'tasks__item';
         block.innerHTML = `
-        <h2 class="tasks__item-title">${obj.itemGoalName}</h2>
-        <a href="details.html" class="tasks__item-link"><img class="tasks__item-img" src="${details}"></a>
-        <img src='${obj.itemImgData}' alt='photo'>
-        <div class="tasks__item-summary">
-          <div>Конец сбора через:</div>
-          <div class="tasks__item-summary-dates">${countDays(
-            obj.itemDateEnd,
-            obj.itemDateStart,
+          <h2 class="tasks__item-title">${obj.itemGoalName}</h2>
+          <a href="details.html" class="tasks__item-link"><img class="tasks__item-img" src="${details}"></a>
+          <img src='${obj.itemImgData}' alt='photo'>
+          <div class="tasks__item-summary">
+            <div>Конец сбора через:</div>
+            <div class="tasks__item-summary-dates">${countDays(
+              obj.itemDateEnd,
+              obj.itemDateStart,
+            )}</div>
+            <div>Осталось собрать:</div>
+            <div class="tasks__item-summary-sum">${
+              obj.itemGoalSum - sumArrItems(obj.itemPayments)
+            } ${rightSumFormat1(
+            obj.itemGoalSum - sumArrItems(obj.itemPayments),
           )}</div>
-          <div>Осталось собрать:</div>
-          <div class="tasks__item-summary-sum">${
-            obj.itemGoalSum - sumArrItems(obj.itemPayments)
-          } ${rightSumFormat1(
-          obj.itemGoalSum - sumArrItems(obj.itemPayments),
-        )}</div>
-        </div>
-        <p>Прогресс цели: ${sumArrItems(obj.itemPayments)} ${rightSumFormat1(
-          obj.itemPayments,
-        )} из ${obj.itemGoalSum} ${rightSumFormat2(obj.itemGoalSum)}</p>
-        <div class="progress">
-          <progress id="progress" value="10" max="100"></progress>
-          <div class="progress-value"></div>
-          <div class="progress-bg">
-            <div class="progress-bar"></div>
           </div>
-        </div>
-      `;
+          <p>Прогресс цели: ${sumArrItems(obj.itemPayments)} ${rightSumFormat1(
+            obj.itemPayments,
+          )} из ${obj.itemGoalSum} ${rightSumFormat2(obj.itemGoalSum)}</p>
+          <div class="progress">
+            <progress id="progress" value="10" max="100"></progress>
+            <div class="progress-value"></div>
+            <div class="progress-bg">
+              <div class="progress-bar"></div>
+            </div>
+          </div>
+        `;
 
         container.append(block);
       }
