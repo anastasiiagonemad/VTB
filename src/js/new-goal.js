@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
     refreshLocalStorage(createItem());
     formNewGoal.reset();
     removePaymentDetails();
+    previewImage.textContent = null;
   });
 
   function createItem() {
@@ -116,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let itemPayments = itemPaymentsArr;
 
     const itemImgPreview = document.querySelector('.imgPreview');
-    const itemImgData = itemImgPreview.src;
+    const itemImgData = itemImgPreview ? itemImgPreview.src : "";
 
     return {
       itemGoalName,

@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p>Дата окончания накопления:</p>
                 <p class="task__details-item-value">${obj.itemDateEnd}</p>
             </div>
+
         </div>
         
         <div class="task__details-pic">
