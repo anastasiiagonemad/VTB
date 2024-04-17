@@ -1,0 +1,182 @@
+.details {
+  display: grid;
+  grid-template-columns: 9.6fr 7.4fr;
+  gap: $size20px * 1.5;
+
+  .task__details {
+    padding: $size20px $size20px * 3.8;
+    background-color: $background-page;
+    border-radius: $border-radius10;
+    height: 96vh;
+    grid-template-columns: 0.8fr 2fr 1fr 3fr;
+    grid-template-areas:
+      'back . button button'
+      'main main main pic';
+    &-top {
+      padding-bottom: $size20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &-left {
+        grid-area: back;
+        display: flex;
+        align-items: center;
+        gap: $size20px * 0.5;
+        cursor: pointer;
+        img {
+          width: $size20px;
+          height: $size20px * 0.75;
+          cursor: pointer;
+        }
+        p {
+          font-size: 1.1rem;
+          text-transform: uppercase;
+          color: $font-color;
+        }
+      }
+      &-right {
+        grid-area: button;
+        display: flex;
+        gap: $size20px;
+        justify-content: flex-end;
+        font-size: 1.2rem;
+        font-weight: bolder;
+
+        button {
+          @include light-button;
+        }
+      }
+    }
+    &-desc {
+      display: flex;
+      .task__details-main {
+        grid-area: main;
+        &-title {
+          font-size: 1em;
+          color: $light-blue;
+          padding-bottom: 0.5em;
+        }
+        .progress-text {
+          p {
+            font-size: 1.2em;
+            font-weight: bolder;
+          }
+        }
+        .progress {
+          position: relative;
+          overflow: hidden;
+
+          progress {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+          }
+          &-value {
+            color: $font-color;
+            display: block;
+            position: absolute;
+            z-index: 10;
+            line-height: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-align: center;
+            top: 25%;
+            left: 45%;
+          }
+          &-bg {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background: $background-screen;
+            position: relative;
+            height: 20px;
+            border-radius: $border-radius15;
+            overflow: hidden;
+            .progress-bar {
+              overflow: hidden;
+              width: 0;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              transition: width 1s linear;
+              &:after {
+                background-size: 40px 40px;
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+        &-item {
+          display: flex;
+          gap: 5px;
+          padding-bottom: 6%;
+          &-value {
+            color: $light-blue;
+            font-weight: bolder;
+          }
+        }
+        &-payment {
+          margin-top: 5%;
+          display: grid;
+          grid-template-columns: 1fr;
+          row-gap: 5px;
+          p {
+            font-weight: bolder;
+          }
+          input {
+            border: 2px solid transparent;
+            outline: none;
+            width: 100%;
+            background-color: $input-background;
+            padding: 1.5vh * 0.85 $size20px;
+            border-radius: $size20px * 0.25;
+            cursor: pointer;
+            &::placeholder {
+              color: $font-color;
+            }
+          }
+          button {
+            width: 100%;
+            @include blue-button;
+          }
+        }
+        &-history {
+          margin-top: 10%;
+          p {
+            font-weight: bolder;
+          }
+          &-item {
+            padding: $size20px;
+            background-color: $background-screen;
+            border-radius: $border-radius10;
+          }
+        }
+      }
+      .task__details-pic {
+        grid-area: pic;
+        img {
+          width: 100px;
+          height: 100px;
+          border-radius: $border-radius10;
+        }
+      }
+    }
+  }
+  .task__details-img {
+    display: flex;
+    align-items: center;
+    background-color: $background-page;
+    border-radius: $border-radius10;
+    padding: 20px;
+    height: 96vh;
+    img {
+      width: 100%;
+    }
+  }
+}
