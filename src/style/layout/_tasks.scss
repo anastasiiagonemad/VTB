@@ -1,18 +1,92 @@
 .tasks {
-  height: 100%;
+  border-radius: $border-radius10;
   display: grid;
+  height: 96vh;
+  overflow: hidden;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: $size20px * 1.5;
 
   &__item {
+    max-width: 100%;
+    max-height: 100%;
     background-color: $background-page;
     border-radius: $border-radius10;
     padding: $size20px * 1.5;
-  }
-
-  &__item {
     grid-column: span 5;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: fit-content;
+    gap: $size20px;
+    grid-template-areas:
+                    "title title title title link"
+                    "img img img summary summary"
+                    "report report report report report"
+                    "progress progress progress progress progress";
+
+    &-title {
+      grid-area: title;
+      font-size: 1.4rem;
+      line-height: 100%;
+      color: $light-blue;
+      display: flex;
+      align-items: center;
+    }
+
+    &-link {
+      grid-area: link;
+      justify-self: end;
+
+      max-height: 42px;
+      & img {
+        object-fit: contain;
+      }
+    }
+
+    &-img {
+      grid-area: img;
+      height: 25.3vh;
+
+      & img {
+        max-height: 100%;
+      }
+    }
+
+    &-summary {
+      grid-area: summary;
+      align-self: center;
+      color: $font-color;
+      font-size: 0.9rem;
+      font-weight: bolder;
+      display: flex;
+      flex-direction: column;
+      gap: $size20px * 0.25;
+
+      &-dates,
+      &-sum {
+        font-size: 1.3rem;
+        color: $blue;
+      }
+
+      &-dates {
+        padding-bottom: $size20px;
+      }
+    }
+
+    &-report {
+      grid-area: report;
+      font-size: 1rem;
+      font-weight: bolder;
+
+      &-blue {
+        color: $light-blue;
+      }
+    }
+
+    &-progress {
+      grid-area: progress;
+    }
   }
 
   &__item:nth-child(3),
