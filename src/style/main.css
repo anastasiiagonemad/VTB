@@ -1904,8 +1904,9 @@ html {
   background-color: #ffffff;
   border-radius: 10px;
   height: 96vh;
+  gap: 24px;
   display: grid;
-  grid-template-columns: 0.8fr 1fr 3fr 2fr;
+  grid-template-columns: 0.8fr 2fr 1fr 3fr;
   grid-template-rows: min-content 1fr min-content;
   grid-template-areas: "return . button button" "main-top main-top main-top pic" "main-bottom main-bottom main-bottom .";
 }
@@ -2089,15 +2090,19 @@ html {
 }
 .details .task__details-main-bottom .task__details-history-item {
   padding: 20px;
+  margin-top: 5%;
   background-color: #ededed;
   border-radius: 10px;
 }
+.details .task__details-main-bottom .task__details-history-item img {
+  width: 20px;
+}
 .details .task__details-pic {
   grid-area: pic;
+  place-self: center;
 }
 .details .task__details-pic img {
-  width: 100px;
-  height: 100px;
+  width: 100%;
   border-radius: 10px;
 }
 .details .task__details-img {
@@ -2108,6 +2113,119 @@ html {
   padding: 20px;
   height: 96vh;
 }
-.details .task__details-img img {
+.details .task__details-img-mob {
+  display: none;
+}
+.details .task__details-img-large {
   width: 100%;
+}
+
+@media screen and (max-width: 1200px), (orientation: portrait) {
+  .details .task__details {
+    padding: 15px 40px;
+  }
+}
+@media screen and (max-width: 992px), (orientation: portrait) {
+  .details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .details .task__details {
+    height: -moz-max-content;
+    height: max-content;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, min-content);
+    grid-template-areas: "return" "main-top" "pic" "main-bottom" "button";
+  }
+  .details .task__details-top-return {
+    grid-area: return;
+  }
+  .details .task__details-top-button {
+    grid-area: button;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .details .task__details-top-button button {
+    width: 100%;
+    height: -moz-min-content;
+    height: min-content;
+    padding: 20px;
+  }
+  .details .task__details-main-top {
+    margin-top: 0;
+    grid-area: main-top;
+  }
+  .details .task__details-main-top .task__details-title h2 {
+    font-size: 1.3em;
+  }
+  .details .task__details-main-top .progress-text p {
+    font-size: 0.875em;
+  }
+  .details .task__details-main-top .task__details-item {
+    font-size: 0.875em;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 2%;
+  }
+  .details .task__details-main-top .task__details-item-value {
+    color: #009fdf;
+    font-weight: bolder;
+  }
+  .details .task__details-main-bottom {
+    grid-area: main-bottom;
+  }
+  .details .task__details-main-bottom .task__details-payment {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+  }
+  .details .task__details-main-bottom .task__details-payment p {
+    font-size: 0.8em;
+    font-weight: bolder;
+  }
+  .details .task__details-main-bottom .task__details-payment input::-moz-placeholder {
+    font-size: 0.7em;
+  }
+  .details .task__details-main-bottom .task__details-payment input::placeholder {
+    font-size: 0.7em;
+  }
+  .details .task__details-main-bottom .task__details-payment button {
+    font-size: 0.8em;
+    font-weight: 400;
+  }
+  .details .task__details-main-bottom .task__details-history {
+    margin-top: 10%;
+  }
+  .details .task__details-main-bottom .task__details-history p {
+    font-size: 0.8em;
+  }
+  .details .task__details-main-bottom .task__details-history-item {
+    font-size: 0.8em;
+  }
+  .details .task__details-main-bottom .task__details-history-item img {
+    width: 20px;
+  }
+  .details .task__details-pic {
+    grid-area: pic;
+    place-self: center;
+  }
+  .details .task__details-pic img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  .details .task__details-img {
+    height: unset;
+  }
+  .details .task__details-img-mob {
+    display: block;
+    width: 100%;
+  }
+  .details .task__details-img-large {
+    display: none;
+  }
 }/*# sourceMappingURL=main.css.map */
