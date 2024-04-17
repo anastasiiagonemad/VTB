@@ -1,5 +1,6 @@
 'use strict';
 import details from '../assets/icons/details.svg';
+import noimg from '../assets/icons/no-img.svg';
 
 document.addEventListener('DOMContentLoaded', function () {
   function drawGoals() {
@@ -17,25 +18,16 @@ document.addEventListener('DOMContentLoaded', function () {
         block.className = 'tasks__item';
         block.innerHTML = `
           <h2 class="tasks__item-title">${obj.itemGoalName}</h2>
-          <a href="details.html" class="tasks__item-link"><img class="tasks__item-img" src="${details}"></a>
-          <img src='${obj.itemImgData}' alt='photo'>
+          <a href="details.html" class="tasks__item-link"><img src="${details}"></a>
+          <div class="tasks__item-img"><img src='${insertImg(obj.itemImgData)}' alt='photo'></div>
           <div class="tasks__item-summary">
             <div>Конец сбора через:</div>
-            <div class="tasks__item-summary-dates">${countDays(
-              obj.itemDateEnd,
-              obj.itemDateStart,
-            )}</div>
+            <div class="tasks__item-summary-dates">${countDays(obj.itemDateEnd, obj.itemDateStart)}</div>
             <div>Осталось собрать:</div>
-            <div class="tasks__item-summary-sum">${
-              obj.itemGoalSum - sumArrItems(obj.itemPayments)
-            } ${rightSumFormat1(
-            obj.itemGoalSum - sumArrItems(obj.itemPayments),
-          )}</div>
+            <div class="tasks__item-summary-sum">${obj.itemGoalSum - sumArrItems(obj.itemPayments)} ${rightSumFormat1(obj.itemGoalSum - sumArrItems(obj.itemPayments))}</div>
           </div>
-          <p>Прогресс цели: ${sumArrItems(obj.itemPayments)} ${rightSumFormat1(
-            obj.itemPayments,
-          )} из ${obj.itemGoalSum} ${rightSumFormat2(obj.itemGoalSum)}</p>
-          <div class="progress">
+          <div class="tasks__item-report">Прогресс цели: <span class="tasks__item-report-blue">${sumArrItems(obj.itemPayments)} ${rightSumFormat1(obj.itemPayments)} из ${obj.itemGoalSum} ${rightSumFormat2(obj.itemGoalSum)}</span></div>
+          <div class="progress tasks__item-progress">
             <progress id="progress" value="10" max="100"></progress>
             <div class="progress-value"></div>
             <div class="progress-bg">
@@ -50,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   //--------------------------------------------------------
-  // functions for counting days, amounts, correct format of amounts
+  // functions for counting days, amounts, correct format of amounts, insert image
 
   function countDays(date1, date2) {
     let daysLeft = (new Date(date1) - new Date(date2)) / 1000 / 60 / 60 / 24;
@@ -85,6 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let text = endNum === '1' ? 'рубль' : 'рублей';
     return text;
+  }
+
+  function insertImg(data) {
+    return data ? data : noimg;
   }
 
   drawGoals();

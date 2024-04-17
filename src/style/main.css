@@ -70,8 +70,7 @@ html {
   width: 80px;
   height: 80px;
   border-radius: 15px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .sidebar__start .sidebar__add-task {
   height: 4vw;
@@ -301,8 +300,7 @@ html {
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  column-gap: 10px;
 }
 .help-container .item {
   display: flex;
@@ -1501,9 +1499,6 @@ html {
   border-radius: 5px;
   cursor: pointer;
 }
-.input-item input::-moz-placeholder {
-  color: #000000;
-}
 .input-item input::placeholder {
   color: #000000;
 }
@@ -1760,8 +1755,7 @@ html {
   margin-top: 20px;
   display: grid;
   grid-template-columns: 10% 10% 10%;
-  -moz-column-gap: 10%;
-       column-gap: 10%;
+  column-gap: 10%;
   margin-left: 15%;
 }
 .settings .distrubition-funds-action .dfa-btn button {
@@ -1845,8 +1839,7 @@ html {
     margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr;
-    -moz-column-gap: 10%;
-         column-gap: 10%;
+    column-gap: 10%;
     margin-left: 0;
   }
   .settings .distrubition-funds-action .dfa-btn button {
@@ -1863,19 +1856,77 @@ html {
   }
 }
 .tasks {
-  height: 100%;
+  border-radius: 10px;
   display: grid;
+  height: 96vh;
+  overflow: hidden;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 30px;
 }
 .tasks__item {
+  max-width: 100%;
+  max-height: 100%;
   background-color: #ffffff;
   border-radius: 10px;
   padding: 30px;
-}
-.tasks__item {
   grid-column: span 5;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: fit-content;
+  gap: 20px;
+  grid-template-areas: "title title title title link" "img img img summary summary" "report report report report report" "progress progress progress progress progress";
+}
+.tasks__item-title {
+  grid-area: title;
+  font-size: 1.4rem;
+  line-height: 100%;
+  color: #009fdf;
+  display: flex;
+  align-items: center;
+}
+.tasks__item-link {
+  grid-area: link;
+  justify-self: end;
+  max-height: 42px;
+}
+.tasks__item-link img {
+  object-fit: contain;
+}
+.tasks__item-img {
+  grid-area: img;
+  height: 25.3vh;
+}
+.tasks__item-img img {
+  max-height: 100%;
+}
+.tasks__item-summary {
+  grid-area: summary;
+  align-self: center;
+  color: #000000;
+  font-size: 0.9rem;
+  font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.tasks__item-summary-dates, .tasks__item-summary-sum {
+  font-size: 1.3rem;
+  color: #0a2973;
+}
+.tasks__item-summary-dates {
+  padding-bottom: 20px;
+}
+.tasks__item-report {
+  grid-area: report;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+.tasks__item-report-blue {
+  color: #009fdf;
+}
+.tasks__item-progress {
+  grid-area: progress;
 }
 .tasks__item:nth-child(3), .tasks__item:nth-child(5) {
   grid-column: span 6;
@@ -2054,9 +2105,6 @@ html {
   border-radius: 5px;
   cursor: pointer;
 }
-.details .task__details-desc .task__details-main-payment input::-moz-placeholder {
-  color: #000000;
-}
 .details .task__details-desc .task__details-main-payment input::placeholder {
   color: #000000;
 }
@@ -2116,4 +2164,4 @@ html {
 }
 .details .task__details-img img {
   width: 100%;
-}/*# sourceMappingURL=main.css.map */
+}

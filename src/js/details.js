@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="task__details-top">
                 <div class="task__details-top-left">
                     <img src="${arrowLeft}" alt="arrow-icon">
-                    <p>Назад</p> 
+                    <p>Назад</p>
                 </div>
                 <div class="task__details-top-right">
                     <button class="task__details-btn-edit">Редактировать</button>
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="progress-bar"></div>
                         </div>
                     </div>
-                    
+
                     <div class="task__details-main-item">
                         <p>Сумма которую хотите накопить:</p>
                         <p class="task__details-main-item-value">${
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="task__details-pic">
                     <img src='${obj.itemImgData}' alt='photo'>
                 </div>
-            </div>   
+            </div>
         </div>
         `;
         block2.innerHTML = `<img src="${screenPic}">`;
