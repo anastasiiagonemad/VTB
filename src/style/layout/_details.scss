@@ -8,7 +8,7 @@
     background-color: $background-page;
     border-radius: $border-radius10;
     height: 96vh;
-    gap: $size20px * 1.2;
+    gap: $size20px * 2.4;
     display: grid;
     grid-template-columns: 0.8fr 2fr 1fr 3fr;
     grid-template-rows: min-content 1fr min-content;
@@ -42,24 +42,29 @@
       font-size: 1.2rem;
       font-weight: bolder;
 
-      button {
+      &-edit,
+      &-cancel {
         @include light-button;
       }
     }
     &-main-top {
-      margin-top: 2em;
       grid-area: main-top;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
       .task__details-title {
-        font-size: 1em;
+        font-size: 1.3rem;
         color: $light-blue;
-        padding-bottom: 0.5em;
       }
+
       .progress-text {
         p {
           font-size: 1.2em;
           font-weight: bolder;
         }
       }
+
       .progress {
         position: relative;
         overflow: hidden;
@@ -110,25 +115,32 @@
           }
         }
       }
+
       .task__details-item {
         display: flex;
         gap: 5px;
-        padding-bottom: 6%;
         &-value {
           color: $light-blue;
           font-weight: bolder;
         }
       }
     }
+
     &-main-bottom {
       grid-area: main-bottom;
+      display: flex;
+      flex-direction: column;
+      gap: $size20px * 1.5;
+
       .task__details-payment {
-        display: grid;
-        grid-template-columns: 1fr;
-        row-gap: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: $size20px * 0.75;
+
         p {
           font-weight: bolder;
         }
+
         input {
           border: 2px solid transparent;
           outline: none;
@@ -141,27 +153,47 @@
             color: $font-color;
           }
         }
+
         button {
           width: 100%;
           @include blue-button;
         }
       }
+
       .task__details-history {
-        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        gap: $size20px * 0.75;
+
         p {
           font-weight: bolder;
         }
+
+        &-container {
+          display: flex;
+          justify-content: flex-start;
+          gap: $size20px;
+        }
+
         &-item {
-          padding: $size20px;
-          margin-top: 5%;
+          width: 8vw;
+          height: 8vw;
           background-color: $background-screen;
           border-radius: $border-radius10;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: $size20px * 0.25;
+
           img {
-            width: 20px;
+            width: 45%;
+            height: auto;
           }
         }
       }
     }
+
     &-pic {
       grid-area: pic;
       place-self: center;
@@ -171,6 +203,7 @@
       }
     }
   }
+
   .task__details-img {
     display: flex;
     align-items: center;
@@ -219,13 +252,15 @@
       &-top-return {
         grid-area: return;
       }
+
       &-top-button {
         grid-area: button;
         display: flex;
         flex-direction: column;
         gap: $size20px;
 
-        button {
+        &-edit,
+        &-cancel  {
           width: 100%;
           height: min-content;
           padding: $size20px;
@@ -251,7 +286,7 @@
           display: flex;
           flex-direction: column;
           gap: 15px;
-          padding-bottom: 2%;
+
           &-value {
             color: $light-blue;
             font-weight: bolder;
@@ -274,21 +309,29 @@
             }
           }
           button {
-            font-size: 0.8em;
-            font-weight: 400;
+            width: 100%;
+            height: min-content;
+            padding: $size20px;
           }
         }
         .task__details-history {
-          margin-top: 10%;
-          p {
-            font-size: 0.8em;
+          &-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
           }
+
           &-item {
-            font-size: 0.8em;
+            width: 40vw;
+            height: 40vw;
+
             img {
-              width: 20px;
+              width: 45%;
+              height: auto;
             }
           }
+
         }
       }
       &-pic {

@@ -1,4 +1,6 @@
 @mixin blue-button {
+  min-width: 11vw;
+  min-height: 3vw;
   border: 2px solid $blue;
   border-radius: $border-radius10;
   padding: 1vw;
@@ -29,12 +31,18 @@
 }
 
 @mixin light-button {
-  width: 11vw;
+  min-width: 11vw;
   height: 3vw;
   border-radius: $border-radius10;
   background-color: $background-page;
   border: 2px solid $light-blue;
   color: $light-blue;
+  font-weight: 400;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   cursor: pointer;
   transition: $transition;
 
