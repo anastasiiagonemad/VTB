@@ -5,6 +5,7 @@ import arrowLeft from '../assets/icons/arrow-left.png';
 import screenPic from '../assets/other/pic.png';
 import screenPicSmall from '../assets/other/pic-small.png';
 import shopIcon from '../assets/icons/shop-1.png';
+import { colorBarInitialize } from './progress-bar';
 
 document.addEventListener('DOMContentLoaded', function () {
   const allTasksContainer = document.querySelector('.tasks');
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
         drawDetails(obj);
       }),
     );
+
     colorBarInitialize();
   }
 
@@ -113,8 +115,8 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
 
       <div class="task__details-top-button">
-        <button class="task__details-btn-edit">Редактировать</button>
-        <button class="task__details-btn-cancel">Отмена</button>
+        <a href="settings.html" class="task__details-top-button-edit">Редактировать</a>
+        <button class="task__details-top-button-cancel">Отмена</button>
       </div>
 
       <div class="task__details-main-top">
@@ -157,12 +159,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         <div class="task__details-item">
           <p>Дата начала накопления:</p>
-          <p class="task__details-item-value">${obj.itemDateStart}</p>
+          <p class="task__details-item-value">${convertDate(obj.itemDateStart)}</p>
         </div>
 
         <div class="task__details-item">
           <p>Дата окончания накопления:</p>
-          <p class="task__details-item-value">${obj.itemDateEnd}</p>
+          <p class="task__details-item-value">${convertDate(obj.itemDateEnd)}</p>
         </div>
 
       </div>
@@ -174,15 +176,22 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="task__details-main-bottom">
         <div class="task__details-payment">
           <p>Сумма которую хотите внести сейчас:</p>
-          <input type="number" id="sumNow" name="sumNow" placeholder="Введите сумму">
+          <input class="toBePayed__sum" type="number" id="sumNow" name="sumNow" placeholder="Введите сумму">
           <button class="task__details-main-btn-submit" type="submit">Пополнить</button>
         </div>
 
         <div class="task__details-history">
           <p>История операций:</p>
-          <div class="task__details-history-item">
-          <img src="${shopIcon}">
-          <p>${sumArrItems(obj.itemPayments)}</p>
+          <div class="task__details-history-container">
+            <div class="task__details-history-item">
+              <img src="${shopIcon}">
+              <p>+${sumArrItems(obj.itemPayments)}₽</p>
+            </div>
+            <div class="task__details-history-item">
+              <img src="${shopIcon}">
+              <p>+${sumArrItems(obj.itemPayments)}₽</p>
+            </div>
+          </div>
         </div>
       </div>
     `;
@@ -197,25 +206,45 @@ document.addEventListener('DOMContentLoaded', function () {
     const returnBtn = document.querySelector('.task__details-top-return');
     returnBtn.addEventListener('click', drawGoals);
 
-    colorBarInitialize();
-  }
+    const cancelBtn = document.querySelector('.task__details-top-button-cancel');
+    cancelBtn.addEventListener('click', drawGoals);
 
-  // drawing progress-bars
+    // payent
 
-  //progress-bar color-line
-  function colorBarInitialize() {
-    const progressValues = document.querySelectorAll('#progress');
-    const progressBgs = document.querySelectorAll('.progress-bar');
+    const btnPay = document.querySelector('.task__details-main-btn-submit');
+    btnPay.disabled = true;
 
-    // colors initialization
-    progressValues.forEach((pv, index) => {
-      const value = pv.value;
-      const percentage = Math.floor((value / pv.max) * 100);
-      const color = ['red', 'orange', 'yellow', 'greenyellow', 'green'][
-        Math.min(Math.floor(percentage / 20), 4)
-      ];
-      progressBgs[index].style.backgroundColor = color;
+    const sumNow = document.querySelector('.toBePayed__sum');
+
+    sumNow.addEventListener('input', function () {
+      let isValid = sumNow.value.trim() === '' ? false : true
+      btnPay.disabled = !isValid;
     });
+
+    // btnPay.addEventListener('click', function(e) {
+    //   e.preventDefault();
+    //   itemPaymentsArr.push(+sumNow.value);
+    //   addPaymentDetails();
+    // })
+
+    // function addPaymentDetails() {
+    //   payedContainer.textContent = null;
+
+    //   document.querySelector('.toBePayed').classList.add('payed');
+    //   document.querySelector('.payedNow').classList.add('payed');
+
+    //   payedContainer.textContent = toBePayedContainer.value;
+    // }
+
+    // function removePaymentDetails() {
+    //   payedContainer.textContent = null;
+
+    //   document.querySelector('.toBePayed').classList.remove('payed');
+    //   document.querySelector('.payedNow').classList.remove('payed');
+    // }
+
+
+    colorBarInitialize();
   }
 
   //--------------------------------------------------------
@@ -263,4 +292,17 @@ document.addEventListener('DOMContentLoaded', function () {
   function calcProgressValue(payments, goal) {
     return Math.round((payments * 100) / goal);
   }
+
+  function convertDate(date) {
+    let parts = date.split('-');
+    if (parts.length === 3) {
+      let year = parts[0];
+      let month = parts[1];
+      let day = parts[2];
+
+      return day + '.' + month + '.' + year;
+    } else {
+      return 'Неверный формат даты';
+    }
+}
 });
