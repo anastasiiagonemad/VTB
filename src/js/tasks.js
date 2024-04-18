@@ -7,7 +7,6 @@ import screenPicSmall from '../assets/other/pic-small.png';
 import shopIcon from '../assets/icons/shop-1.png';
 
 document.addEventListener('DOMContentLoaded', function () {
-
   const allTasksContainer = document.querySelector('.tasks');
   const detailsContainer = document.querySelector('.details');
 
@@ -30,25 +29,43 @@ document.addEventListener('DOMContentLoaded', function () {
           <div class="tasks__item-top">
             <h2 class="tasks__item-title">${obj.itemGoalName}</h2>
 
-            <a href="#" class="tasks__item-link" data-obj="${obj.itemGoalName}"><img src="${details}"></a>
+            <a href="#" class="tasks__item-link" data-obj="${
+              obj.itemGoalName
+            }"><img src="${details}"></a>
 
           </div>
 
           <div class="tasks__item-middle">
-            <div class="tasks__item-img"><img src='${insertImg(obj.itemImgData)}' alt='photo'></div>
+            <div class="tasks__item-img"><img src='${insertImg(
+              obj.itemImgData,
+            )}' alt='photo'></div>
             <div class="tasks__item-summary">
               <div>Конец сбора через:</div>
-              <div class="tasks__item-summary-dates">${countDays(obj.itemDateEnd, obj.itemDateStart)}</div>
+              <div class="tasks__item-summary-dates">${countDays(
+                obj.itemDateEnd,
+                obj.itemDateStart,
+              )}</div>
               <div>Осталось собрать:</div>
-              <div class="tasks__item-summary-sum">${obj.itemGoalSum - sumArrItems(obj.itemPayments)} ${rightSumFormat1(obj.itemGoalSum - sumArrItems(obj.itemPayments))}</div>
+              <div class="tasks__item-summary-sum">${
+                obj.itemGoalSum - sumArrItems(obj.itemPayments)
+              } ${rightSumFormat1(
+          obj.itemGoalSum - sumArrItems(obj.itemPayments),
+        )}</div>
             </div>
           </div>
 
           <div class="tasks__item-bottom">
-            <div class="tasks__item-report">Прогресс цели: <span class="tasks__item-report-blue">${sumArrItems(obj.itemPayments)} ${rightSumFormat1(obj.itemPayments)} из ${obj.itemGoalSum} ${rightSumFormat2(obj.itemGoalSum)}</span></div>
+            <div class="tasks__item-report">Прогресс цели: <span class="tasks__item-report-blue">${sumArrItems(
+              obj.itemPayments,
+            )} ${rightSumFormat1(obj.itemPayments)} из ${
+          obj.itemGoalSum
+        } ${rightSumFormat2(obj.itemGoalSum)}</span></div>
 
             <div class="progress tasks__item-progress">
-              <progress id="progress" value="${calcProgressValue(sumArrItems(obj.itemPayments), obj.itemGoalSum)}" max="100"></progress>
+              <progress id="progress" value="${calcProgressValue(
+                sumArrItems(obj.itemPayments),
+                obj.itemGoalSum,
+              )}" max="100"></progress>
               <div class="progress-value"></div>
               <div class="progress-bg">
                 <div class="progress-bar"></div>
@@ -64,13 +81,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // draw item details on click
     let linkedData = document.querySelectorAll('.tasks__item-link');
 
-    linkedData.forEach(item => item.addEventListener('click', function(e) {
-      e.preventDefault;
-      let linkedObj = item.getAttribute('data-obj');
-      let obj = JSON.parse(localStorage.getItem(linkedObj));
+    linkedData.forEach((item) =>
+      item.addEventListener('click', function (e) {
+        e.preventDefault;
+        let linkedObj = item.getAttribute('data-obj');
+        let obj = JSON.parse(localStorage.getItem(linkedObj));
 
-      drawDetails(obj);
-    }));
+        drawDetails(obj);
+      }),
+    );
+    colorBarInitialize();
   }
 
   //draw items on page load
@@ -79,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // function to draw details of an item
 
   function drawDetails(obj) {
-    allTasksContainer.innerHTML = "";
+    allTasksContainer.innerHTML = '';
 
     const block1 = document.createElement('div');
     const block2 = document.createElement('div');
@@ -108,7 +128,10 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
 
         <div class="progress">
-          <progress id="progress" value="${calcProgressValue(sumArrItems(obj.itemPayments), obj.itemGoalSum)}" max="100"></progress>
+          <progress id="progress" value="${calcProgressValue(
+            sumArrItems(obj.itemPayments),
+            obj.itemGoalSum,
+          )}" max="100"></progress>
           <div class="progress-value"></div>
           <div class="progress-bg">
             <div class="progress-bar"></div>
@@ -117,7 +140,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         <div class="task__details-item">
           <p>Сумма которую хотите накопить:</p>
-          <p class="task__details-item-value">${obj.itemGoalSum} ${rightSumFormat1(obj.itemGoalSum)} </p>
+          <p class="task__details-item-value">${
+            obj.itemGoalSum
+          } ${rightSumFormat1(obj.itemGoalSum)} </p>
         </div>
 
         <div class="task__details-item">
@@ -127,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         <div class="task__details-item">
           <p>Приоритет цели по времени:</p>
-          <p class="task__details-item-value">${obj.itemPrioryTimeText }</p>
+          <p class="task__details-item-value">${obj.itemPrioryTimeText}</p>
         </div>
 
         <div class="task__details-item">
@@ -171,33 +196,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const returnBtn = document.querySelector('.task__details-top-return');
     returnBtn.addEventListener('click', drawGoals);
+
+    colorBarInitialize();
   }
 
   // drawing progress-bars
 
-  const progressValues = document.querySelectorAll('#progress');
-  const progressBgs = document.querySelectorAll('.progress-bar');
+  //progress-bar color-line
+  function colorBarInitialize() {
+    const progressValues = document.querySelectorAll('#progress');
+    const progressBgs = document.querySelectorAll('.progress-bar');
 
-  // progressValues.forEach((pv, index) => {
-  //   pv.addEventListener('input', () => {
-  //     const value = pv.value;
-  //     const percentage = Math.floor((value / pv.max) * 100);
-  //     const color = ['red', 'orange', 'yellow', 'greenyellow', 'green'][
-  //       Math.min(Math.floor(percentage / 20), 4)
-  //     ];
-  //     progressBgs[index].style.backgroundColor = color;
-  //   });
-  // });
-
-  // colors initialization
-  progressValues.forEach((pv, index) => {
-    const value = pv.value;
-    const percentage = Math.floor((value / pv.max) * 100);
-    const color = ['red', 'orange', 'yellow', 'greenyellow', 'green'][
-      Math.min(Math.floor(percentage / 20), 4)
-    ];
-    progressBgs[index].style.backgroundColor = color;
-  });
+    // colors initialization
+    progressValues.forEach((pv, index) => {
+      const value = pv.value;
+      const percentage = Math.floor((value / pv.max) * 100);
+      const color = ['red', 'orange', 'yellow', 'greenyellow', 'green'][
+        Math.min(Math.floor(percentage / 20), 4)
+      ];
+      progressBgs[index].style.backgroundColor = color;
+    });
+  }
 
   //--------------------------------------------------------
   // functions for counting days, amounts, correct format of amounts, insert image
@@ -242,7 +261,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function calcProgressValue(payments, goal) {
-    return Math.round(payments * 100 / goal);
+    return Math.round((payments * 100) / goal);
   }
-
 });
