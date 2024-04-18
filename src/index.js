@@ -8,4 +8,3 @@ import './js/money-graph.js';
 import './js/goal-graph.js';
 import './js/localStorage.js';
 import './js/tasks.js';
-import './js/details.js';

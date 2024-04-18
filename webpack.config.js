@@ -73,10 +73,6 @@ module.exports = {
       template: path.join(__dirname, 'src', 'exit.pug'),
       filename: 'exit.html',
     }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'details.pug'),
-      filename: 'details.html',
-    }),
 
     new FileManagerPlugin({
       events: {
