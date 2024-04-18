@@ -21,10 +21,12 @@
       grid-area: return;
       display: flex;
       align-items: center;
+      font-weight: bolder;
+      cursor: pointer;
+
       img {
         width: $size20px;
         height: $size20px * 0.75;
-        cursor: pointer;
       }
       p {
         font-size: 1.1rem;
