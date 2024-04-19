@@ -137,11 +137,17 @@
         flex-direction: column;
         gap: $size20px * 0.75;
 
-        p {
-          font-weight: bolder;
-        }
 
-        input {
+        .toBePayed {
+          display: flex;
+          flex-direction: column;
+          gap: 0.6vh;
+
+          &__label {
+            font-weight: bolder;
+          }
+
+          &__sum {
           border: 2px solid transparent;
           outline: none;
           width: 100%;
@@ -149,15 +155,47 @@
           padding: 1.5vh * 0.85 $size20px;
           border-radius: $size20px * 0.25;
           cursor: pointer;
-          &::placeholder {
-            color: $font-color;
+
+            &::placeholder {
+              color: $font-color;
+            }
+          }
+          &.payed {
+            display: none;
           }
         }
 
-        button {
+        .payedNow {
+          display: none;
+          flex-direction: column;
+          justify-content: center;
+          gap: 0.6vh;
+          &__label {
+            color: $light-blue;
+            font-weight: bolder;
+          }
+
+          &__sum {
+            background-color: $input-background;
+            padding: 1.5vh * 0.85 $size20px;
+            border-radius: $size20px * 0.25;
+          }
+
+          &.payed {
+            display: flex;
+          }
+        }
+
+        &-btn-pay {
           width: 100%;
           @include blue-button;
         }
+
+
+
+
+
+
       }
 
       .task__details-history {

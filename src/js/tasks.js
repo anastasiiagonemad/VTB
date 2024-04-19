@@ -171,14 +171,22 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
 
       <div class="task__details-pic">
-        <img src='${obj.itemImgData}' alt='photo'>
+        <img src='${insertImg(obj.itemImgData)}' alt='photo'>
       </div>
 
       <div class="task__details-main-bottom">
         <div class="task__details-payment">
-          <p>Сумма которую хотите внести сейчас:</p>
-          <input class="toBePayed__sum" type="number" id="sumNow" name="sumNow" placeholder="Введите сумму">
-          <button class="task__details-main-btn-submit" type="submit">Пополнить</button>
+          <div class="toBePayed">
+            <label class="toBePayed__label" for="sumNow">Сумма которую хотите внести сейчас:</label>
+            <input class="toBePayed__sum" type="number" id="sumNow" name="sumNow" placeholder="Введите сумму">
+          </div>
+
+          <div class="payedNow">
+            <div class="payedNow__label">Вы только что оплатили следующую сумму</div>
+            <div class="payedNow__sum"></div>
+          </div>
+
+          <button class="task__details-payment-btn-pay" type="submit">Пополнить</button>
         </div>
 
         <div class="task__details-history">
@@ -212,13 +220,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // payment
 
-    const btnPay = document.querySelector('.task__details-main-btn-submit');
+    const btnPay = document.querySelector('.task__details-payment-btn-pay');
     btnPay.disabled = true;
 
-    const sumNow = document.querySelector('.toBePayed__sum');
+    const toBePayed = document.querySelector('.toBePayed__sum');
+    const payedSum = document.querySelector('.payedNow__sum');
 
-    sumNow.addEventListener('input', function () {
-      let isValid = sumNow.value.trim() === '' ? false : true
+    toBePayed.addEventListener('input', function () {
+      let isValid = toBePayed.value.trim() === '' ? false : true
       btnPay.disabled = !isValid;
     });
 
@@ -226,25 +235,17 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       addPaymentToLocalStorage(obj.itemGoalName);
 
-      // addPaymentDetails();
+      addPaymentDetails();
     })
 
-    // function addPaymentDetails() {
-    //   payedContainer.textContent = null;
+    function addPaymentDetails() {
+      payedSum.textContent = null;
 
-    //   document.querySelector('.toBePayed').classList.add('payed');
-    //   document.querySelector('.payedNow').classList.add('payed');
+      document.querySelector('.toBePayed').classList.add('payed');
+      document.querySelector('.payedNow').classList.add('payed');
 
-    //   payedContainer.textContent = toBePayedContainer.value;
-    // }
-
-    // function removePaymentDetails() {
-    //   payedContainer.textContent = null;
-
-    //   document.querySelector('.toBePayed').classList.remove('payed');
-    //   document.querySelector('.payedNow').classList.remove('payed');
-    // }
-
+      payedSum.textContent = toBePayed.value;
+    }
 
     colorBarInitialize();
   }
