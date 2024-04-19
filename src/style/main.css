@@ -1162,19 +1162,27 @@ html {
   grid-area: tasks;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 20px;
 }
 .start__tasks-title {
   font-weight: 800;
 }
+.start__tasks-container {
+  flex: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
 .start__tasks-item {
-  height: 30%;
-  padding-top: 20px;
-  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: 1px solid #009fdf;
+}
+.start__tasks-item:last-child {
+  border-bottom: none;
 }
 .start__tasks-item-title {
   color: #009fdf;
@@ -1183,9 +1191,18 @@ html {
 }
 .start__tasks-item-progress {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
 }
 .start__tasks-item-progress p {
   font-size: 20px;
+}
+.start__tasks-item-progress-left {
+  display: flex;
+  gap: 5px;
+  font-size: 16px;
+  color: #000000;
 }
 .start__tasks-item-progress .progress {
   position: relative;
@@ -1235,16 +1252,6 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-}
-.start__tasks-item-left {
-  font-size: 16px;
-  color: #000000;
-}
-.start__tasks .break-line {
-  content: "-";
-  width: 100%;
-  height: 1px;
-  background-color: #009fdf;
 }
 .start__money {
   grid-area: money;

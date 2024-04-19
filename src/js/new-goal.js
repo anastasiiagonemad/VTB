@@ -2,7 +2,6 @@
 import { refreshLocalStorage } from './localStorage.js';
 
 document.addEventListener('DOMContentLoaded', function () {
-  // localStorage.clear();
 
   const formNewGoal = document.forms.formNew;
   const goalName = formNewGoal.goalName;
