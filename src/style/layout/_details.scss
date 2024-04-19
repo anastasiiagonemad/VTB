@@ -189,13 +189,21 @@
         &-btn-pay {
           width: 100%;
           @include blue-button;
+
+          &.payed {
+            display: none;
+          }
         }
 
+        &-btn-pay-again {
+          width: 100%;
+          @include blue-button;
+          display: none;
 
-
-
-
-
+          &.payed {
+            display: block;
+          }
+        }
       }
 
       .task__details-history {

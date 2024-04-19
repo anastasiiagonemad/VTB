@@ -2209,6 +2209,42 @@ html {
   color: #0a2973;
   background-color: #ffffff;
 }
+.details .task__details-main-bottom .task__details-payment-btn-pay.payed {
+  display: none;
+}
+.details .task__details-main-bottom .task__details-payment-btn-pay-again {
+  width: 100%;
+  min-width: 11vw;
+  min-height: 3vw;
+  border: 2px solid #0a2973;
+  border-radius: 10px;
+  padding: 1vw;
+  background-color: #0a2973;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  cursor: pointer;
+  transition: all ease 0.5s;
+  display: none;
+}
+.details .task__details-main-bottom .task__details-payment-btn-pay-again[disabled] {
+  background-color: rgba(10, 41, 115, 0.5);
+  color: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(10, 41, 115, 0.5);
+  cursor: unset;
+}
+.details .task__details-main-bottom .task__details-payment-btn-pay-again:not([disabled]):hover {
+  color: #0a2973;
+  background-color: #ffffff;
+}
+.details .task__details-main-bottom .task__details-payment-btn-pay-again:not([disabled]):active {
+  transform: scale(0.95);
+  color: #0a2973;
+  background-color: #ffffff;
+}
+.details .task__details-main-bottom .task__details-payment-btn-pay-again.payed {
+  display: block;
+}
 .details .task__details-main-bottom .task__details-history {
   display: flex;
   flex-direction: column;
