@@ -6,6 +6,7 @@ import screenPic from '../assets/other/pic.png';
 import screenPicSmall from '../assets/other/pic-small.png';
 import shopIcon from '../assets/icons/shop-1.png';
 import { colorBarInitialize } from './progress-bar';
+import { addPaymentToLocalStorage } from './localStorage.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   const allTasksContainer = document.querySelector('.tasks');
@@ -209,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const cancelBtn = document.querySelector('.task__details-top-button-cancel');
     cancelBtn.addEventListener('click', drawGoals);
 
-    // payent
+    // payment
 
     const btnPay = document.querySelector('.task__details-main-btn-submit');
     btnPay.disabled = true;
@@ -221,11 +222,12 @@ document.addEventListener('DOMContentLoaded', function () {
       btnPay.disabled = !isValid;
     });
 
-    // btnPay.addEventListener('click', function(e) {
-    //   e.preventDefault();
-    //   itemPaymentsArr.push(+sumNow.value);
-    //   addPaymentDetails();
-    // })
+    btnPay.addEventListener('click', function(e) {
+      e.preventDefault();
+      addPaymentToLocalStorage(obj.itemGoalName);
+
+      // addPaymentDetails();
+    })
 
     // function addPaymentDetails() {
     //   payedContainer.textContent = null;
