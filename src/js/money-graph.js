@@ -21,12 +21,13 @@ import Chart from 'chart.js/auto';
       //title money-graph
       let totalSum = 0;
       totalSum = itemPayments.reduce((acc, currentValue) => {
-        acc + currentValue, 0;
-      });
+        return acc + currentValue;
+      }, 0);
+
       const formattedTotalSum = new Intl.NumberFormat('ru-RU').format(totalSum);
 
       const moneyGraphTitle = document.querySelector('.start__money-sum');
-      moneyGraphTitle.innerHTML = `${formattedTotalSum} руб.`;
+      moneyGraphTitle.textContent = `${formattedTotalSum} руб.`;
 
       //take all payments from array
       itemPayments.forEach((payment) => {
