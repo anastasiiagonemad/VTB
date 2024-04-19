@@ -269,72 +269,72 @@ document.addEventListener('DOMContentLoaded', function () {
 
     colorBarInitialize();
   }
-
-  //--------------------------------------------------------
-
-  // refresh progress bar values
-
-  function refreshProgressBarValue(obj) {
-    const paymentsSum = sumArrItems(getPaymentsArr(obj.itemGoalName));
-    const progressValue = calcProgressValue(paymentsSum, obj.itemGoalSum);
-    return progressValue;
-  }
-
-  function calcProgressValue(payments, goal) {
-    return Math.round((payments * 100) / goal);
-  }
-
-  function sumArrItems(arr) {
-    return arr.reduce((accum, curr) => accum + curr);
-  }
-
-  // functions for counting days, amounts, correct format of amounts, insert image
-
-  function countDays(date1, date2) {
-    let daysLeft = (new Date(date1) - new Date(date2)) / 1000 / 60 / 60 / 24;
-    let endNum = daysLeft.toString().slice(-1);
-    let text =
-      endNum === '1'
-        ? 'день'
-        : endNum === '2' || endNum === '3' || endNum === '4'
-        ? 'дня'
-        : 'дней';
-    return daysLeft + ' ' + text;
-  }
-
-  function rightSumFormat1(item) {
-    let endNum = item.toString().slice(-1);
-
-    let text =
-      endNum === '1'
-        ? 'рубль'
-        : endNum === '2' || endNum === '3' || endNum === '4'
-        ? 'рубля'
-        : 'рублей';
-    return text;
-  }
-
-  function rightSumFormat2(item) {
-    let endNum = item.toString().slice(-1);
-
-    let text = endNum === '1' ? 'рубль' : 'рублей';
-    return text;
-  }
-
-  function insertImg(data) {
-    return data ? data : noimg;
-  }
-
-  function convertDate(date) {
-    let parts = date.split('-');
-    if (parts.length === 3) {
-      let year = parts[0];
-      let month = parts[1];
-      let day = parts[2];
-
-      return day + '.' + month + '.' + year;
-    } else {
-      return 'Неверный формат даты';
-    }
-}
 });
+
+//--------------------------------------------------------
+
+// refresh progress bar values
+
+function refreshProgressBarValue(obj) {
+  const paymentsSum = sumArrItems(getPaymentsArr(obj.itemGoalName));
+  const progressValue = calcProgressValue(paymentsSum, obj.itemGoalSum);
+  return progressValue;
+}
+
+export function calcProgressValue(payments, goal) {
+  return Math.round((payments * 100) / goal);
+}
+
+export function sumArrItems(arr) {
+  return arr.reduce((accum, curr) => accum + curr);
+}
+
+// functions for counting days, amounts, correct format of amounts, insert image
+
+function countDays(date1, date2) {
+  let daysLeft = (new Date(date1) - new Date(date2)) / 1000 / 60 / 60 / 24;
+  let endNum = daysLeft.toString().slice(-1);
+  let text =
+    endNum === '1'
+      ? 'день'
+      : endNum === '2' || endNum === '3' || endNum === '4'
+      ? 'дня'
+      : 'дней';
+  return daysLeft + ' ' + text;
+}
+
+export function rightSumFormat1(item) {
+  let endNum = item.toString().slice(-1);
+
+  let text =
+    endNum === '1'
+      ? 'рубль'
+      : endNum === '2' || endNum === '3' || endNum === '4'
+      ? 'рубля'
+      : 'рублей';
+  return text;
+}
+
+function rightSumFormat2(item) {
+  let endNum = item.toString().slice(-1);
+
+  let text = endNum === '1' ? 'рубль' : 'рублей';
+  return text;
+}
+
+function insertImg(data) {
+  return data ? data : noimg;
+}
+
+function convertDate(date) {
+  let parts = date.split('-');
+  if (parts.length === 3) {
+    let year = parts[0];
+    let month = parts[1];
+    let day = parts[2];
+
+    return day + '.' + month + '.' + year;
+  } else {
+    return 'Неверный формат даты';
+  }
+}

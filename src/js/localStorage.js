@@ -15,6 +15,8 @@ export function getPaymentsArr(key) {
   return obj.itemPayments;
 }
 
+// localStorage.clear();
+
 localStorage.removeItem('perfectpixel-panel');
 
 localStorage.removeItem('perfectpixel-layers');
