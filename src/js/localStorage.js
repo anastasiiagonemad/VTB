@@ -10,6 +10,11 @@ export function addPaymentToLocalStorage(key) {
   localStorage.setItem(obj.itemGoalName, JSON.stringify(obj));
 }
 
+export function getPaymentsArr(key) {
+  const obj = JSON.parse(localStorage.getItem(key));
+  return obj.itemPayments;
+}
+
 localStorage.removeItem('perfectpixel-panel');
 
 localStorage.removeItem('perfectpixel-layers');

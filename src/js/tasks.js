@@ -7,6 +7,7 @@ import screenPicSmall from '../assets/other/pic-small.png';
 import shopIcon from '../assets/icons/shop-1.png';
 import { colorBarInitialize } from './progress-bar';
 import { addPaymentToLocalStorage } from './localStorage.js';
+import { getPaymentsArr } from './localStorage.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   const allTasksContainer = document.querySelector('.tasks');
@@ -130,11 +131,8 @@ document.addEventListener('DOMContentLoaded', function () {
           <p>Прогресс цели</p>
         </div>
 
-        <div class="progress">
-          <progress id="progress" value="${calcProgressValue(
-            sumArrItems(obj.itemPayments),
-            obj.itemGoalSum,
-          )}" max="100"></progress>
+        <div class="progress itemProgress">
+          <progress id="progress" value="${refreshProgressBarValue(obj)}" max="100"></progress>
           <div class="progress-value"></div>
           <div class="progress-bg">
             <div class="progress-bar"></div>
@@ -143,9 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         <div class="task__details-item">
           <p>Сумма которую хотите накопить:</p>
-          <p class="task__details-item-value">${
-            obj.itemGoalSum
-          } ${rightSumFormat1(obj.itemGoalSum)} </p>
+          <p class="task__details-item-value">${obj.itemGoalSum} ${rightSumFormat1(obj.itemGoalSum)} </p>
         </div>
 
         <div class="task__details-item">
@@ -171,14 +167,22 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
 
       <div class="task__details-pic">
-        <img src='${obj.itemImgData}' alt='photo'>
+        <img src='${insertImg(obj.itemImgData)}' alt='photo'>
       </div>
 
       <div class="task__details-main-bottom">
         <div class="task__details-payment">
-          <p>Сумма которую хотите внести сейчас:</p>
-          <input class="toBePayed__sum" type="number" id="sumNow" name="sumNow" placeholder="Введите сумму">
-          <button class="task__details-main-btn-submit" type="submit">Пополнить</button>
+          <div class="toBePayed">
+            <label class="toBePayed__label" for="sumNow">Сумма которую хотите внести сейчас:</label>
+            <input class="toBePayed__sum" type="number" id="sumNow" name="sumNow" placeholder="Введите сумму">
+          </div>
+
+          <div class="payedNow">
+            <div class="payedNow__label">Вы только что оплатили следующую сумму</div>
+            <div class="payedNow__sum"></div>
+          </div>
+
+          <button class="task__details-payment-btn-pay" type="submit">Пополнить</button>
         </div>
 
         <div class="task__details-history">
@@ -196,6 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </div>
     `;
+
     block2.innerHTML = `
       <img class="task__details-img-large" src="${screenPic}">
       <img class="task__details-img-mob" src="${screenPicSmall}">
@@ -210,46 +215,59 @@ document.addEventListener('DOMContentLoaded', function () {
     const cancelBtn = document.querySelector('.task__details-top-button-cancel');
     cancelBtn.addEventListener('click', drawGoals);
 
+    const itemProgress = document.querySelector('.itemProgress');
+    const itemProgressValue = itemProgress.querySelector('#progress');
+    console.log(itemProgressValue.value);
+
     // payment
 
-    const btnPay = document.querySelector('.task__details-main-btn-submit');
+    const btnPay = document.querySelector('.task__details-payment-btn-pay');
     btnPay.disabled = true;
 
-    const sumNow = document.querySelector('.toBePayed__sum');
+    const toBePayed = document.querySelector('.toBePayed__sum');
+    const payedSum = document.querySelector('.payedNow__sum');
 
-    sumNow.addEventListener('input', function () {
-      let isValid = sumNow.value.trim() === '' ? false : true
+    toBePayed.addEventListener('input', function () {
+      let isValid = toBePayed.value.trim() === '' ? false : true
       btnPay.disabled = !isValid;
     });
 
     btnPay.addEventListener('click', function(e) {
       e.preventDefault();
       addPaymentToLocalStorage(obj.itemGoalName);
-
-      // addPaymentDetails();
+      addPaymentDetails();
+      itemProgressValue.value = refreshProgressBarValue(obj);
+      colorBarInitialize();
     })
 
-    // function addPaymentDetails() {
-    //   payedContainer.textContent = null;
-
-    //   document.querySelector('.toBePayed').classList.add('payed');
-    //   document.querySelector('.payedNow').classList.add('payed');
-
-    //   payedContainer.textContent = toBePayedContainer.value;
-    // }
-
-    // function removePaymentDetails() {
-    //   payedContainer.textContent = null;
-
-    //   document.querySelector('.toBePayed').classList.remove('payed');
-    //   document.querySelector('.payedNow').classList.remove('payed');
-    // }
-
+    function addPaymentDetails() {
+      payedSum.textContent = null;
+      document.querySelector('.toBePayed').classList.add('payed');
+      document.querySelector('.payedNow').classList.add('payed');
+      payedSum.textContent = toBePayed.value;
+    }
 
     colorBarInitialize();
   }
 
   //--------------------------------------------------------
+
+  // refresh progress bar values
+
+  function refreshProgressBarValue(obj) {
+    const paymentsSum = sumArrItems(getPaymentsArr(obj.itemGoalName));
+    const progressValue = calcProgressValue(paymentsSum, obj.itemGoalSum);
+    return progressValue;
+  }
+
+  function calcProgressValue(payments, goal) {
+    return Math.round((payments * 100) / goal);
+  }
+
+  function sumArrItems(arr) {
+    return arr.reduce((accum, curr) => accum + curr);
+  }
+
   // functions for counting days, amounts, correct format of amounts, insert image
 
   function countDays(date1, date2) {
@@ -262,10 +280,6 @@ document.addEventListener('DOMContentLoaded', function () {
         ? 'дня'
         : 'дней';
     return daysLeft + ' ' + text;
-  }
-
-  function sumArrItems(arr) {
-    return arr.reduce((accum, curr) => accum + curr);
   }
 
   function rightSumFormat1(item) {
@@ -289,10 +303,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function insertImg(data) {
     return data ? data : noimg;
-  }
-
-  function calcProgressValue(payments, goal) {
-    return Math.round((payments * 100) / goal);
   }
 
   function convertDate(date) {

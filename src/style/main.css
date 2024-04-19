@@ -2139,10 +2139,15 @@ html {
   flex-direction: column;
   gap: 15px;
 }
-.details .task__details-main-bottom .task__details-payment p {
+.details .task__details-main-bottom .task__details-payment .toBePayed {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6vh;
+}
+.details .task__details-main-bottom .task__details-payment .toBePayed__label {
   font-weight: bolder;
 }
-.details .task__details-main-bottom .task__details-payment input {
+.details .task__details-main-bottom .task__details-payment .toBePayed__sum {
   border: 2px solid transparent;
   outline: none;
   width: 100%;
@@ -2151,10 +2156,31 @@ html {
   border-radius: 5px;
   cursor: pointer;
 }
-.details .task__details-main-bottom .task__details-payment input::placeholder {
+.details .task__details-main-bottom .task__details-payment .toBePayed__sum::placeholder {
   color: #000000;
 }
-.details .task__details-main-bottom .task__details-payment button {
+.details .task__details-main-bottom .task__details-payment .toBePayed.payed {
+  display: none;
+}
+.details .task__details-main-bottom .task__details-payment .payedNow {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.6vh;
+}
+.details .task__details-main-bottom .task__details-payment .payedNow__label {
+  color: #009fdf;
+  font-weight: bolder;
+}
+.details .task__details-main-bottom .task__details-payment .payedNow__sum {
+  background-color: #ededed;
+  padding: 1.275vh 20px;
+  border-radius: 5px;
+}
+.details .task__details-main-bottom .task__details-payment .payedNow.payed {
+  display: flex;
+}
+.details .task__details-main-bottom .task__details-payment-btn-pay {
   width: 100%;
   min-width: 11vw;
   min-height: 3vw;
@@ -2168,17 +2194,17 @@ html {
   cursor: pointer;
   transition: all ease 0.5s;
 }
-.details .task__details-main-bottom .task__details-payment button[disabled] {
+.details .task__details-main-bottom .task__details-payment-btn-pay[disabled] {
   background-color: rgba(10, 41, 115, 0.5);
   color: rgba(255, 255, 255, 0.7);
   border: 2px solid rgba(10, 41, 115, 0.5);
   cursor: unset;
 }
-.details .task__details-main-bottom .task__details-payment button:not([disabled]):hover {
+.details .task__details-main-bottom .task__details-payment-btn-pay:not([disabled]):hover {
   color: #0a2973;
   background-color: #ffffff;
 }
-.details .task__details-main-bottom .task__details-payment button:not([disabled]):active {
+.details .task__details-main-bottom .task__details-payment-btn-pay:not([disabled]):active {
   transform: scale(0.95);
   color: #0a2973;
   background-color: #ffffff;
