@@ -183,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
           </div>
 
           <button class="task__details-payment-btn-pay" type="submit">Пополнить</button>
+          <button class="task__details-payment-btn-pay-again" type="submit">Сделать ещё одну оплату</button>
         </div>
 
         <div class="task__details-history">
@@ -224,6 +225,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const btnPay = document.querySelector('.task__details-payment-btn-pay');
     btnPay.disabled = true;
 
+    const btnPayAgain = document.querySelector('.task__details-payment-btn-pay-again');
+
     const toBePayed = document.querySelector('.toBePayed__sum');
     const payedSum = document.querySelector('.payedNow__sum');
 
@@ -240,11 +243,28 @@ document.addEventListener('DOMContentLoaded', function () {
       colorBarInitialize();
     })
 
+    btnPayAgain.addEventListener('click', function(e) {
+      e.preventDefault();
+      removePaymentDetails();
+    });
+
     function addPaymentDetails() {
       payedSum.textContent = null;
       document.querySelector('.toBePayed').classList.add('payed');
       document.querySelector('.payedNow').classList.add('payed');
+      btnPay.classList.add('payed');
+      btnPayAgain.classList.add('payed');
       payedSum.textContent = toBePayed.value;
+      toBePayed.textContent = null;
+    }
+
+    function removePaymentDetails() {
+      btnPay.classList.remove('payed');
+      btnPayAgain.classList.remove('payed');
+      document.querySelector('.toBePayed').classList.remove('payed');
+      document.querySelector('.payedNow').classList.remove('payed');
+      const toBePayed = document.querySelector('.toBePayed__sum');
+      toBePayed.value = null;
     }
 
     colorBarInitialize();
