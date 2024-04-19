@@ -8,30 +8,37 @@ import Chart from 'chart.js/auto';
   const year = yearFull.toString().slice(-2);
   const date = `${day}.${month}.${year}`;
 
-  const data = [
-    { date: date, count: 0 },
-    { date: date, count: 10000 },
-    { date: date, count: 15000 },
-    { date: date, count: 25000 },
-    { date: date, count: 22000 },
-    { date: date, count: 80000 },
-    { date: date, count: 28000 },
-  ];
+  if (localStorage.length) {
+    for (let i = 0; i < localStorage.length; i++) {
+      let key = localStorage.key(i);
+      let value = localStorage.getItem(key);
 
-  new Chart(document.getElementById('money-graph'), {
-    type: 'line',
-    data: {
-      labels: data.map((row) => row.date),
-      datasets: [
-        {
-          label: 'Сумма накопления',
-          data: data.map((row) => row.count),
-        },
-      ],
-    },
-    options: {
-      adaptive: true,
-      maintainAspectRatio: false,
-    },
-  });
+      let obj = JSON.parse(value);
+
+      const arrPayments = obj.itemPayments;
+      arrPayments.forEach((payment) => {
+        const data = [
+          { date: date, count: payment },
+          { date: date, count: payment },
+        ];
+
+        new Chart(document.getElementById('money-graph'), {
+          type: 'line',
+          data: {
+            labels: data.map((row) => row.date),
+            datasets: [
+              {
+                label: 'Сумма накопления',
+                data: data.map((row) => row.count),
+              },
+            ],
+          },
+          options: {
+            adaptive: true,
+            maintainAspectRatio: false,
+          },
+        });
+      });
+    }
+  }
 })();
