@@ -15257,17 +15257,17 @@ goal_graph_asyncToGenerator( /*#__PURE__*/goal_graph_regeneratorRuntime().mark(f
   }, _callee);
 }))();
 ;// CONCATENATED MODULE: ./src/assets/icons/details.svg
-const details_namespaceObject = __webpack_require__.p + "icons\\details.dc9540a367ad6aaf9fb6.svg";
+const details_namespaceObject = __webpack_require__.p + "icons/details.dc9540a367ad6aaf9fb6.svg";
 ;// CONCATENATED MODULE: ./src/assets/icons/no-img.svg
-const no_img_namespaceObject = __webpack_require__.p + "icons\\no-img.b3ec900e44c7856b5e1a.svg";
+const no_img_namespaceObject = __webpack_require__.p + "icons/no-img.b3ec900e44c7856b5e1a.svg";
 ;// CONCATENATED MODULE: ./src/assets/icons/arrow-left.png
-const arrow_left_namespaceObject = __webpack_require__.p + "images\\arrow-left.bcbaa3fe5cda08ab7397.png";
+const arrow_left_namespaceObject = __webpack_require__.p + "images/arrow-left.bcbaa3fe5cda08ab7397.png";
 ;// CONCATENATED MODULE: ./src/assets/other/pic.png
-const pic_namespaceObject = __webpack_require__.p + "images\\pic.6f51b0284331dda1fe15.png";
+const pic_namespaceObject = __webpack_require__.p + "images/pic.6f51b0284331dda1fe15.png";
 ;// CONCATENATED MODULE: ./src/assets/other/pic-small.png
-const pic_small_namespaceObject = __webpack_require__.p + "images\\pic-small.c38e7f0c8efbc045bec2.png";
+const pic_small_namespaceObject = __webpack_require__.p + "images/pic-small.c38e7f0c8efbc045bec2.png";
 ;// CONCATENATED MODULE: ./src/assets/icons/shop-1.png
-const shop_1_namespaceObject = __webpack_require__.p + "images\\shop-1.6630916afcc5ee0b8002.png";
+const shop_1_namespaceObject = __webpack_require__.p + "images/shop-1.6630916afcc5ee0b8002.png";
 ;// CONCATENATED MODULE: ./src/js/progress-bar.js
 
 
